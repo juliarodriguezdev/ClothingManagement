@@ -1,24 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rdf-l8-iia">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Sign Up View Controller-->
+        <scene sceneID="geG-hv-B6W">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="rdf-l8-iia" customClass="SignUpViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w7O-gl-HHJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RsN-JL-6DL">
+                                <rect key="frame" x="41.5" y="194" width="331" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in Screen " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shk-XC-7wI">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ltz-KK-GCk">
+                                        <rect key="frame" x="0.0" y="60" width="331" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Closet Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGO-VP-jya">
+                                        <rect key="frame" x="0.0" y="120" width="331" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="Yc1-2r-AfY">
+                                <rect key="frame" x="41.5" y="494" width="331" height="140"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dSW-YV-daN">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="31"/>
+                                        <segments>
+                                            <segment title="Male"/>
+                                            <segment title="Female"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="genderSegmentedControl:" destination="rdf-l8-iia" eventType="valueChanged" id="w63-NA-zHZ"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pg-iU-Kri">
+                                        <rect key="frame" x="0.0" y="110" width="331" height="30"/>
+                                        <state key="normal" title="Create Account"/>
+                                        <connections>
+                                            <action selector="createAccountButtonTapped:" destination="rdf-l8-iia" eventType="touchUpInside" id="Syq-JR-4NV"/>
+                                            <segue destination="OHH-Hz-j3j" kind="presentation" identifier="toWelcomeVC" id="K7Q-y3-Qcq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Yc1-2r-AfY" firstAttribute="top" secondItem="RsN-JL-6DL" secondAttribute="bottom" constant="150" id="BSC-At-IEH"/>
+                            <constraint firstItem="Yc1-2r-AfY" firstAttribute="width" secondItem="w7O-gl-HHJ" secondAttribute="width" multiplier="0.8" id="JpS-Eh-0RQ"/>
+                            <constraint firstItem="RsN-JL-6DL" firstAttribute="centerY" secondItem="w7O-gl-HHJ" secondAttribute="centerY" multiplier="0.6" id="Lxm-4Q-b9v"/>
+                            <constraint firstItem="Yc1-2r-AfY" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="XDK-gL-h3R"/>
+                            <constraint firstItem="RsN-JL-6DL" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="Znm-xf-YEF"/>
+                            <constraint firstItem="RsN-JL-6DL" firstAttribute="width" secondItem="w7O-gl-HHJ" secondAttribute="width" multiplier="0.8" id="u9E-bB-m8Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SOc-IH-ryh"/>
                     </view>
+                    <connections>
+                        <outlet property="closetNameTextField" destination="LGO-VP-jya" id="55e-FX-2ME"/>
+                        <outlet property="genderSegmentedControl" destination="dSW-YV-daN" id="QWd-N3-qch"/>
+                        <outlet property="nameTextField" destination="ltz-KK-GCk" id="FOc-XR-Ggc"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qp4-Mp-vum" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-559.4202898550725" y="-442.63392857142856"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="wvy-aZ-yto">
+            <objects>
+                <viewController id="OHH-Hz-j3j" customClass="WelcomeViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6fj-3e-SQj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, \(name) lets start managing \(closet name) Closet" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUU-QJ-OwJ">
+                                <rect key="frame" x="60" y="184" width="294" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqS-kr-Ay0">
+                                <rect key="frame" x="100" y="712" width="214" height="30"/>
+                                <state key="normal" title="Let's Begin"/>
+                                <connections>
+                                    <action selector="beginButtonTapped:" destination="OHH-Hz-j3j" eventType="touchUpInside" id="qZT-Ro-ALt"/>
+                                    <segue destination="6Ro-aF-EaJ" kind="show" id="CHG-d8-M7y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JUU-QJ-OwJ" firstAttribute="leading" secondItem="OLO-3b-JV3" secondAttribute="leading" constant="60" id="7BJ-XE-bEm"/>
+                            <constraint firstItem="OLO-3b-JV3" firstAttribute="trailing" secondItem="hqS-kr-Ay0" secondAttribute="trailing" constant="100" id="Hh6-A6-Ulg"/>
+                            <constraint firstItem="JUU-QJ-OwJ" firstAttribute="top" secondItem="OLO-3b-JV3" secondAttribute="top" constant="140" id="Pgr-ND-HUb"/>
+                            <constraint firstItem="hqS-kr-Ay0" firstAttribute="leading" secondItem="OLO-3b-JV3" secondAttribute="leading" constant="100" id="rsi-ta-sHB"/>
+                            <constraint firstItem="OLO-3b-JV3" firstAttribute="bottom" secondItem="hqS-kr-Ay0" secondAttribute="bottom" constant="120" id="uaM-0k-sAg"/>
+                            <constraint firstItem="OLO-3b-JV3" firstAttribute="trailing" secondItem="JUU-QJ-OwJ" secondAttribute="trailing" constant="60" id="wjz-bh-d7V"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OLO-3b-JV3"/>
+                    </view>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="JUU-QJ-OwJ" id="P2n-TB-Bek"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zHK-w6-7XM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311.59420289855075" y="-443.30357142857139"/>
+        </scene>
+        <!--TabMain-->
+        <scene sceneID="y8J-Xb-m1N">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabMain" id="6Ro-aF-EaJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Nc-d9-E6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1254" y="-439"/>
         </scene>
     </scenes>
 </document>

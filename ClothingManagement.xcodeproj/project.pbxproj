@@ -12,6 +12,18 @@
 		6A8D223F2326DC8800A93500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8D223D2326DC8800A93500 /* Main.storyboard */; };
 		6A8D22412326DC8900A93500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A8D22402326DC8900A93500 /* Assets.xcassets */; };
 		6A8D22442326DC8900A93500 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8D22422326DC8900A93500 /* LaunchScreen.storyboard */; };
+		6A8D224C2326E5F700A93500 /* TabMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8D224B2326E5F700A93500 /* TabMain.storyboard */; };
+		6A8D224E2326F11E00A93500 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D224D2326F11E00A93500 /* ClosetViewController.swift */; };
+		6A8D22512326F14600A93500 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D22502326F14600A93500 /* CategoryCollectionViewCell.swift */; };
+		6A8D22542326FA6100A93500 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D22532326FA6100A93500 /* Category.swift */; };
+		6A8D22572326FF6C00A93500 /* UpdateQuantityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D22562326FF6C00A93500 /* UpdateQuantityViewController.swift */; };
+		6A8D22592327E9B000A93500 /* DetailCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D22582327E9B000A93500 /* DetailCategoryViewController.swift */; };
+		6A8D225D2328117900A93500 /* RecycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D225C2328117900A93500 /* RecycleViewController.swift */; };
+		6A8D225F232811D000A93500 /* FunFactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D225E232811D000A93500 /* FunFactsViewController.swift */; };
+		6A8D22612328120D00A93500 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D22602328120D00A93500 /* DonateViewController.swift */; };
+		6A8D226323282D2C00A93500 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D226223282D2C00A93500 /* SignUpViewController.swift */; };
+		6A8D226523282D3A00A93500 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D226423282D3A00A93500 /* WelcomeViewController.swift */; };
+		6A8D226723282EF000A93500 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D226623282EF000A93500 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +34,18 @@
 		6A8D22402326DC8900A93500 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A8D22432326DC8900A93500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A8D22452326DC8900A93500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A8D224B2326E5F700A93500 /* TabMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabMain.storyboard; sourceTree = "<group>"; };
+		6A8D224D2326F11E00A93500 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
+		6A8D22502326F14600A93500 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		6A8D22532326FA6100A93500 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		6A8D22562326FF6C00A93500 /* UpdateQuantityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateQuantityViewController.swift; sourceTree = "<group>"; };
+		6A8D22582327E9B000A93500 /* DetailCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCategoryViewController.swift; sourceTree = "<group>"; };
+		6A8D225C2328117900A93500 /* RecycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleViewController.swift; sourceTree = "<group>"; };
+		6A8D225E232811D000A93500 /* FunFactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunFactsViewController.swift; sourceTree = "<group>"; };
+		6A8D22602328120D00A93500 /* DonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
+		6A8D226223282D2C00A93500 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		6A8D226423282D3A00A93500 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		6A8D226623282EF000A93500 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +84,44 @@
 				6A8D22402326DC8900A93500 /* Assets.xcassets */,
 				6A8D22422326DC8900A93500 /* LaunchScreen.storyboard */,
 				6A8D22452326DC8900A93500 /* Info.plist */,
+				6A8D224B2326E5F700A93500 /* TabMain.storyboard */,
+				6A8D224F2326F12600A93500 /* View Controllers */,
+				6A8D22522326F14B00A93500 /* Views */,
+				6A8D22552326FA6600A93500 /* Model */,
 			);
 			path = ClothingManagement;
+			sourceTree = "<group>";
+		};
+		6A8D224F2326F12600A93500 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6A8D224D2326F11E00A93500 /* ClosetViewController.swift */,
+				6A8D22562326FF6C00A93500 /* UpdateQuantityViewController.swift */,
+				6A8D22582327E9B000A93500 /* DetailCategoryViewController.swift */,
+				6A8D225C2328117900A93500 /* RecycleViewController.swift */,
+				6A8D225E232811D000A93500 /* FunFactsViewController.swift */,
+				6A8D22602328120D00A93500 /* DonateViewController.swift */,
+				6A8D226223282D2C00A93500 /* SignUpViewController.swift */,
+				6A8D226423282D3A00A93500 /* WelcomeViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		6A8D22522326F14B00A93500 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6A8D22502326F14600A93500 /* CategoryCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6A8D22552326FA6600A93500 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6A8D22532326FA6100A93500 /* Category.swift */,
+				6A8D226623282EF000A93500 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A8D22442326DC8900A93500 /* LaunchScreen.storyboard in Resources */,
+				6A8D224C2326E5F700A93500 /* TabMain.storyboard in Resources */,
 				6A8D22412326DC8900A93500 /* Assets.xcassets in Resources */,
 				6A8D223F2326DC8800A93500 /* Main.storyboard in Resources */,
 			);
@@ -135,8 +196,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A8D226723282EF000A93500 /* User.swift in Sources */,
+				6A8D226323282D2C00A93500 /* SignUpViewController.swift in Sources */,
+				6A8D22512326F14600A93500 /* CategoryCollectionViewCell.swift in Sources */,
+				6A8D22592327E9B000A93500 /* DetailCategoryViewController.swift in Sources */,
+				6A8D22542326FA6100A93500 /* Category.swift in Sources */,
 				6A8D223C2326DC8800A93500 /* ViewController.swift in Sources */,
+				6A8D225D2328117900A93500 /* RecycleViewController.swift in Sources */,
 				6A8D223A2326DC8800A93500 /* AppDelegate.swift in Sources */,
+				6A8D225F232811D000A93500 /* FunFactsViewController.swift in Sources */,
+				6A8D22572326FF6C00A93500 /* UpdateQuantityViewController.swift in Sources */,
+				6A8D226523282D3A00A93500 /* WelcomeViewController.swift in Sources */,
+				6A8D224E2326F11E00A93500 /* ClosetViewController.swift in Sources */,
+				6A8D22612328120D00A93500 /* DonateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
