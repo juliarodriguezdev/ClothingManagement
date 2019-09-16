@@ -176,6 +176,7 @@
                                                 </button>
                                             </subviews>
                                         </view>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="iyh-n7-rh7" firstAttribute="leading" secondItem="IHX-Ge-7pQ" secondAttribute="leadingMargin" constant="13" id="3yq-f8-Fch"/>
                                             <constraint firstItem="3yW-OM-n8x" firstAttribute="top" secondItem="b0Q-Y3-7jX" secondAttribute="bottom" constant="84" id="5we-Mc-1E6"/>
@@ -281,6 +282,10 @@
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="bXH-G5-pOn" appends="YES" id="gGE-rU-Zqo"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -301,6 +306,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cD5-dP-SOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="bXH-G5-pOn"/>
             </objects>
             <point key="canvasLocation" x="2600" y="-927.45535714285711"/>
         </scene>

@@ -16,12 +16,18 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var quantityOfClosetLabel: UILabel!
     
     var quantity: Int?
-    var deleteMode: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        longPressGestureRecognizer.minimumPressDuration = 1
+        longPressGestureRecognizer.delaysTouchesBegan = true
+        longPressGestureRecognizer.delegate = self
+        self.collectionView.addGestureRecognizer(longPressGestureRecognizer)
+        
         // call fetch function of categories
         guard let user = UserController.shared.currentUser else { return }
         CategoryController.shared.fetchCategories(user: user) { (category) in
@@ -90,13 +96,11 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
             textfield.returnKeyType = .continue
             textfield.autocapitalizationType = .words
         }
-        
         alertController.addTextField { (quantityTextField) in
             quantityTextField.placeholder = "Add Quantity of Clothes..."
             quantityTextField.keyboardType = .numberPad
             quantityTextField.returnKeyType = .continue
         }
-        
         let categoryAction = UIAlertAction(title: "Add", style: .default) { (_) in
             guard let categoryText = alertController.textFields?[0].text,
                 !categoryText.isEmpty,
@@ -131,29 +135,7 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     @IBAction func deleteOptionTapped(_ sender: UIBarButtonItem) {
-        deleteMode = !deleteMode
-        if deleteMode {
-            self.closetNameLabel.backgroundColor = .red
-        } else {
-            self.closetNameLabel.backgroundColor = .white
-        }
-        print("Delete mode is set to \(deleteMode)")
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("You selected cell #\(indexPath.item)")
-        if deleteMode == true {
-            let categorySelected = CategoryController.shared.categories[indexPath.item]
-            
-            CategoryController.shared.deleteCategory(category: categorySelected) { (success) in
-                if success {
-                    DispatchQueue.main.async {
-                        self.collectionView.deleteItems(at: [indexPath])
-                    }
-                }
-            }
-        } else { return }
-        
+        presentHelperToDeleteCells(title: "Delete Clothing Category", message: "Press and hold and individual Clothing Category, and confirm deletion")
     }
     
      //MARK: - Navigation
@@ -161,7 +143,7 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-            if segue.identifier == "toDetailVC", deleteMode == false {
+            if segue.identifier == "toDetailVC" {
                 // identify indexpath user selected
                 if let destinationVC = segue.destination as? DetailCategoryViewController {
                     // identify cell user selected
@@ -196,4 +178,66 @@ extension ClosetViewController: QuantityButtonDelegate {
         navigationController?.pushViewController(updateQuantityViewController, animated: true)
     }
 
+}
+
+extension ClosetViewController: UIGestureRecognizerDelegate {
+   @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        if gestureRecognizer.state != UIGestureRecognizer.State.ended {
+            return
+        }
+    
+    
+    let point = gestureRecognizer.location(in: self.collectionView)
+    let indexPath = self.collectionView.indexPathForItem(at: point)
+    if let index = indexPath {
+        
+        let category = CategoryController.shared.categories[index.item]
+        
+        presentDeleteCellConfirmation(title: "Delete Confirmation", message: "Are you sure you want to permanently delete the \(category.name)'s category from your closet?", indexPath: indexPath)
+    }
+    
+    }
+    
+    func presentDeleteCellConfirmation(title: String, message: String, indexPath: IndexPath?) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        // No action
+        let noAction = UIAlertAction(title: "No, Keep.", style: .cancel, handler: nil)
+        // Delete action
+        let deleteAction = UIAlertAction(title: "Yes, Delete.", style: .destructive) { (_) in
+            if let index = indexPath {
+                let cell = self.collectionView.cellForItem(at: index)
+                //cell?.tintColor = UIColor.red
+                cell?.backgroundColor = UIColor.red
+                //print(cell)
+                let category = CategoryController.shared.categories[index.item]
+                CategoryController.shared.deleteCategory(category: category) { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            self.collectionView.deleteItems(at: [index])
+                        }
+                    }
+                }
+            } else {
+                print("Couldn't find index path")
+            }
+        }
+        
+        // add all actions to alert controller
+        alertController.addAction(noAction)
+        alertController.addAction(deleteAction)
+        self.present(alertController, animated: true)
+    }
+    
+    func presentHelperToDeleteCells(title: String, message: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        
+        alertController.addAction(okayAction)
+        self.present(alertController, animated: true)
+    }
+    
 }
