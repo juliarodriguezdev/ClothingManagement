@@ -16,21 +16,30 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
+        setUpViews()
 
         // Do any additional setup after loading the view.
     }
     
-    func updateViews() {
-        guard let user = user else { return }
+
+    @IBAction func beginButtonTapped(_ sender: UIButton) {
+        showMainNavigationController()
+    }
+    
+    func setUpViews() {
+        guard let user = UserController.shared.currentUser else { return }
         welcomeLabel.text = """
         Welcome \(user.name) let's start
         managing \(user.closetName) Closet
         """
-    
     }
-
-    @IBAction func beginButtonTapped(_ sender: UIButton) {
+    
+    func showMainNavigationController() {
+        DispatchQueue.main.async {
+            let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
+            let mainNavigationController = storyBoard.instantiateViewController(withIdentifier: "mainNavController")
+            self.present(mainNavigationController, animated: true, completion: nil)
+        }
     }
     /*
     // MARK: - Navigation

@@ -60,7 +60,6 @@
                                         <state key="normal" title="Create Account"/>
                                         <connections>
                                             <action selector="createAccountButtonTapped:" destination="rdf-l8-iia" eventType="touchUpInside" id="Syq-JR-4NV"/>
-                                            <segue destination="OHH-Hz-j3j" kind="presentation" identifier="toWelcomeVC" id="K7Q-y3-Qcq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -90,7 +89,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="wvy-aZ-yto">
             <objects>
-                <viewController id="OHH-Hz-j3j" customClass="WelcomeViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" id="OHH-Hz-j3j" customClass="WelcomeViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6fj-3e-SQj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
