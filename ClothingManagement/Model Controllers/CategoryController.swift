@@ -6,7 +6,7 @@
 //  Copyright © 2019 Julia Rodriguez. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 class CategoryController {
@@ -81,6 +81,7 @@ class CategoryController {
             }
         }
     }
+    
     
     // delete
     func deleteCategory(category: Category, completion: @escaping (Bool) -> Void) {

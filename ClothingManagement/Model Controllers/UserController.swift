@@ -46,7 +46,7 @@ class UserController {
             guard let appleUserReference = reference else { completion(false); return }
             
             let predicate = NSPredicate(format: "appleUserReference == %@", appleUserReference)
-            CloudKitController.shared.fetchSingleRecord(ofType: UserConstants.typeKey, withPredicate: predicate, database: CloudKitController.shared.publicDB, completion: { (record) in
+            CloudKitController.shared.fetchRecords(ofType: UserConstants.typeKey, withPredicate: predicate, database: CloudKitController.shared.publicDB, completion: { (record) in
                 guard let record = record,
                     let firstRecord = record.first else { completion (false); return}
                     self.currentUser = User(record: firstRecord)

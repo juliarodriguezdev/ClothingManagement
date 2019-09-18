@@ -15,10 +15,34 @@ class Category {
     var name: String
     var quantity: Int
     
-    // TODO: var photos: [String]?
     var recordID: CKRecord.ID
+    
     // link this class back to the user model object class
     weak var user: User?
+    var categoryPhotos: [CategoryPhoto]
+    var iconImageData: Data?
+    var iconImage: UIImage? {
+        get {
+            guard let iconImageData = iconImageData else { return nil }
+            return UIImage(data: iconImageData)
+        } set {
+            iconImageData = newValue?.jpegData(compressionQuality: 0.5)
+        }
+    }
+    var iconImageAsset: CKAsset? {
+        get {
+            let tempDictionary = NSTemporaryDirectory()
+            let tempDictionaryURL = URL(fileURLWithPath: tempDictionary)
+            let fileURL = tempDictionaryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
+            do {
+                try iconImageData?.write(to: fileURL)
+            } catch {
+                print("Error writing to temporary url \(error.localizedDescription)")
+            }
+            return CKAsset(fileURL: fileURL)
+        }
+    }
+
     
     // object refrence to the user
     var userReference: CKRecord.Reference? {
@@ -27,22 +51,44 @@ class Category {
     }
     
     // MARK: - Designated Initializers for class
-    init(name: String, quantity: Int, user: User?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(name: String, quantity: Int, user: User?, categoryPhotos: [CategoryPhoto] = [], recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
     
         self.name = name
         self.quantity = quantity
         self.user = user
         self.recordID = recordID
+        self.categoryPhotos = categoryPhotos
+        //self.iconImage = iconImage
         
     }
     
-    // falliable Initialize - init a category from a record (cloud -> Device)
-    convenience init?(record: CKRecord, user: User) {
+     //falliable Initialize - init a category from a record (cloud -> Device)
+    init?(record: CKRecord, user: User) {
+
+
         guard let name = record[CategoryConstants.nameKey] as? String,
             let quantity = record[CategoryConstants.quantityKey] as? Int
-        else { return nil }
-        self.init(name: name, quantity: quantity, user: user, recordID: record.recordID)
+            else { return nil }
+        let categoryPhotos = record[CategoryConstants.categoryPhotoKey] as? [CategoryPhoto] ?? []
+
+        self.name = name
+        self.quantity = quantity
+        self.user = user
+        self.recordID = record.recordID
+        self.categoryPhotos = categoryPhotos
+        
+        // computed properties get intialized after stored properties
+        if let iconImageAsset = record[CategoryConstants.iconImageKey] as? CKAsset,
+           let iconImageData = try? Data(contentsOf: iconImageAsset.fileURL!) {
+            let photo = UIImage(data: iconImageData)
+            self.iconImage = photo
+        } else {
+            self.iconImage = UIImage(named: "hangerDefault")
+        }
+        
     }
+    
+    
 }
 // MARK: - Initialize a record from a class object (device -> Cloud)
 extension CKRecord {
@@ -52,6 +98,12 @@ extension CKRecord {
         self.setValue(category.name, forKey: CategoryConstants.nameKey)
         self.setValue(category.quantity, forKey: CategoryConstants.quantityKey)
         self.setValue(category.userReference, forKey: CategoryConstants.userReferenceKey)
+        self.setValue(category.iconImageAsset, forKey: CategoryConstants.iconImageKey)
+
+
+//        if category.iconPhoto != nil {
+//            self.setValue(category.iconPhoto, forKey: CategoryConstants.iconPhotoKey)
+//        }
     }
 }
 
@@ -70,5 +122,8 @@ static let userReferenceKey = "userReference"
 fileprivate static let nameKey = "name"
 fileprivate static let quantityKey = "quantity"
 fileprivate static let isMaleKey = "isMale"
+fileprivate static let categoryPhotoKey = "categoryPhotos"
+fileprivate static let iconImageKey = "iconImage"
+    
 
 }

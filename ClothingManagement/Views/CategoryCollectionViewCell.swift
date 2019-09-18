@@ -21,13 +21,36 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var quantityButton: UIButton!
     
+    @IBOutlet weak var iconImage: UIImageView!
+    
     weak var cellDelegate: QuantityButtonDelegate?
     
     var category: Category?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        guard let category = category else { return }
+//        let predicate = NSPredicate(format: "categoryReference == %@", category.recordID)
+//        let compPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
+        
+//        CategoryPhotoController.shared.fetchIconPhotoForCategory(category: category, prediicate: compPredicate) { (iconPhoto) in
+//            if iconPhoto != nil {
+//                category.iconPhoto = iconPhoto
+//
+//            }
+//        }
+        
+    }
+    
     func updateViews() {
         guard let category = category else { return }
         quantityLabel.text = "\(category.quantity)"
+        iconImage.image = category.iconImage
+//        CategoryPhotoController.shared.saveIconPhoto(photo: iconPhoto, category: category) { (iconPhoto) in
+//            if iconPhoto != nil {
+//                print("Icon saved for \(category.name)")
+//            }
+//        }
     }
     
 

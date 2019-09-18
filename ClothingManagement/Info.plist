@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>We use your camera to allw you to take and upload pictures into the app</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We access your photos to allw you to select and upload photos to the Closet</string>
 </dict>
 </plist>

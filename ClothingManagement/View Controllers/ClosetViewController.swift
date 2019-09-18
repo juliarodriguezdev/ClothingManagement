@@ -53,6 +53,7 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         DispatchQueue.main.async {
             self.navigationItem.title = "\(title) Closet"
             self.navigationItem.largeTitleDisplayMode = .always
+            self.collectionView.reloadData()
             self.closetNameLabel.isHidden = true
             //quantityOfClosetLabel.text = "\(clothing.count)"
             self.quantityOfClosetLabel.text = "Contains \(self.quantity!) items in Closet"
@@ -77,6 +78,7 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.category = category
         // call update views section at CustomCell
         cell.updateViews()
+        
         // assign the custom cell as the delegate to execut protocol
         cell.cellDelegate = self
         return cell

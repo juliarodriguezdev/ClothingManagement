@@ -44,7 +44,7 @@ class CloudKitController {
         }
     }
     
-    func fetchSingleRecord(ofType type: String, withPredicate predicate: NSPredicate, database: CKDatabase, completion: @escaping ([CKRecord]?) -> Void) {
+    func fetchRecords(ofType type: String, withPredicate predicate: NSPredicate, database: CKDatabase, completion: @escaping ([CKRecord]?) -> Void) {
         
         let query = CKQuery(recordType: type, predicate: predicate)
         database.perform(query, inZoneWith: nil) { (record, error) in
@@ -56,6 +56,18 @@ class CloudKitController {
             completion(record)
         }
     }
+    
+//    func fetchSingleRecord(ofType type: String, withPredicate predicate: NSPredicate, database: CKDatabase, completion: @escaping (CKRecord?) -> Void) {
+//        let query = CKQuery(recordType: type, predicate: predicate)
+//        database.perform(query, inZoneWith: nil) { (record, error) in
+//            if let error = error {
+//                print("There was an error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
+//                completion(nil)
+//            }
+//            guard let record = record else { completion(nil); return }
+//            completion(record)
+//        }
+//    }
     
     
     // Update
