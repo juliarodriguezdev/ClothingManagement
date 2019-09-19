@@ -1,23 +1,35 @@
 //
-//  DonateViewController.swift
+//  RecycleWebViewController.swift
 //  ClothingManagement
 //
-//  Created by Julia Rodriguez on 9/10/19.
+//  Created by Julia Rodriguez on 9/18/19.
 //  Copyright © 2019 Julia Rodriguez. All rights reserved.
 //
 
 import UIKit
+import WebKit
 
-class DonateViewController: UIViewController {
-        
+class RecycleWebViewController: UIViewController {
+    
+    var recyclePlace: Recycle?
+
+    @IBOutlet weak var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Donate Clothing"
-        navigationItem.largeTitleDisplayMode = .always
+        
+        guard let recyclePlace = recyclePlace else { return }
+        
+        let url = URL(string: "\(recyclePlace.webURL)")
+        let request = URLRequest(url: url!)
+        
+        webView.load(request)
     }
     
     
-
+    override func viewDidDisappear(_ animated: Bool) {
+        webView.stopLoading()
+    }
     /*
     // MARK: - Navigation
 

@@ -169,6 +169,7 @@ extension DetailCategoryViewController: UIGestureRecognizerDelegate {
             return
         }
         // TODO: update indexpath.item cell background image to tell which image was selected
+        // TODO: move image to indexpath[0] - first item in array 
         guard let category = category else { print("Failed to get category"); return }
         let point = gestureRecognizer.location(in: self.photosCollectionView)
         let indexPath = self.photosCollectionView.indexPathForItem(at: point)
@@ -186,14 +187,5 @@ extension DetailCategoryViewController: UIGestureRecognizerDelegate {
                 print("Failed to get indexPath at point")
             }
             
-//            CategoryPhotoController.shared.saveIconPhoto(photo: imageIconPhoto, category: category) { (iconPhoto) in
-//                if iconPhoto != nil {
-//                    print("Icon Photo Saved Successfully")
-//                    DispatchQueue.main.async {
-//                        category.iconPhoto = iconPhoto
-//                    }
-//                }
-//            }
-            //category?.iconPhoto = category?.categoryPhotos[index.item]
     }
 }

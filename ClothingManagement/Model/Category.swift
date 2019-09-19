@@ -100,10 +100,6 @@ extension CKRecord {
         self.setValue(category.userReference, forKey: CategoryConstants.userReferenceKey)
         self.setValue(category.iconImageAsset, forKey: CategoryConstants.iconImageKey)
 
-
-//        if category.iconPhoto != nil {
-//            self.setValue(category.iconPhoto, forKey: CategoryConstants.iconPhotoKey)
-//        }
     }
 }
 

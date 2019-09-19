@@ -31,6 +31,11 @@
 		6AECE9D22330536B0090A62B /* CategoryPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECE9D12330536B0090A62B /* CategoryPhoto.swift */; };
 		6AECE9D423305BF80090A62B /* CategoryPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECE9D323305BF80090A62B /* CategoryPhotoController.swift */; };
 		6AECE9D6233071410090A62B /* DetailCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECE9D5233071410090A62B /* DetailCategoryCollectionViewCell.swift */; };
+		6AECE9D82332C3940090A62B /* Recycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECE9D72332C3940090A62B /* Recycle.swift */; };
+		6AECE9DA2332C5390090A62B /* RecycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECE9D92332C5390090A62B /* RecycleController.swift */; };
+		6AECE9DC2332E9DD0090A62B /* RecycleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECE9DB2332E9DD0090A62B /* RecycleTableViewCell.swift */; };
+		6AECE9E023331D970090A62B /* RecycleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECE9DF23331D970090A62B /* RecycleWebViewController.swift */; };
+		6AECE9E2233320310090A62B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AECE9E1233320310090A62B /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +66,11 @@
 		6AECE9D12330536B0090A62B /* CategoryPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPhoto.swift; sourceTree = "<group>"; };
 		6AECE9D323305BF80090A62B /* CategoryPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPhotoController.swift; sourceTree = "<group>"; };
 		6AECE9D5233071410090A62B /* DetailCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		6AECE9D72332C3940090A62B /* Recycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recycle.swift; sourceTree = "<group>"; };
+		6AECE9D92332C5390090A62B /* RecycleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleController.swift; sourceTree = "<group>"; };
+		6AECE9DB2332E9DD0090A62B /* RecycleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleTableViewCell.swift; sourceTree = "<group>"; };
+		6AECE9DF23331D970090A62B /* RecycleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleWebViewController.swift; sourceTree = "<group>"; };
+		6AECE9E1233320310090A62B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AECE9E2233320310090A62B /* WebKit.framework in Frameworks */,
 				6A8D226B2328357F00A93500 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +134,7 @@
 				6A8D22602328120D00A93500 /* DonateViewController.swift */,
 				6A8D226223282D2C00A93500 /* SignUpViewController.swift */,
 				6A8D226423282D3A00A93500 /* WelcomeViewController.swift */,
+				6AECE9DF23331D970090A62B /* RecycleWebViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -132,6 +144,7 @@
 			children = (
 				6A8D22502326F14600A93500 /* CategoryCollectionViewCell.swift */,
 				6AECE9D5233071410090A62B /* DetailCategoryCollectionViewCell.swift */,
+				6AECE9DB2332E9DD0090A62B /* RecycleTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +155,7 @@
 				6A8D22752329351F00A93500 /* User.swift */,
 				6A8D22772329367A00A93500 /* Category.swift */,
 				6AECE9D12330536B0090A62B /* CategoryPhoto.swift */,
+				6AECE9D72332C3940090A62B /* Recycle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +163,7 @@
 		6A8D22692328357F00A93500 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6AECE9E1233320310090A62B /* WebKit.framework */,
 				6A8D226A2328357F00A93500 /* CloudKit.framework */,
 			);
 			name = Frameworks;
@@ -160,6 +175,7 @@
 				6A8D226C23283C7A00A93500 /* UserController.swift */,
 				6A8D226F232843D100A93500 /* CategoryController.swift */,
 				6AECE9D323305BF80090A62B /* CategoryPhotoController.swift */,
+				6AECE9D92332C5390090A62B /* RecycleController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -261,15 +277,19 @@
 				6A8D225D2328117900A93500 /* RecycleViewController.swift in Sources */,
 				6AECE9D6233071410090A62B /* DetailCategoryCollectionViewCell.swift in Sources */,
 				6A8D227A2329469A00A93500 /* CloudKitController.swift in Sources */,
+				6AECE9E023331D970090A62B /* RecycleWebViewController.swift in Sources */,
 				6AECE9D22330536B0090A62B /* CategoryPhoto.swift in Sources */,
 				6A8D223A2326DC8800A93500 /* AppDelegate.swift in Sources */,
 				6A8D225F232811D000A93500 /* FunFactsViewController.swift in Sources */,
 				6A8D22572326FF6C00A93500 /* UpdateQuantityViewController.swift in Sources */,
+				6AECE9DA2332C5390090A62B /* RecycleController.swift in Sources */,
+				6AECE9DC2332E9DD0090A62B /* RecycleTableViewCell.swift in Sources */,
 				6A8D22782329367A00A93500 /* Category.swift in Sources */,
 				6A8D2270232843D100A93500 /* CategoryController.swift in Sources */,
 				6A8D22762329351F00A93500 /* User.swift in Sources */,
 				6A8D226523282D3A00A93500 /* WelcomeViewController.swift in Sources */,
 				6A8D224E2326F11E00A93500 /* ClosetViewController.swift in Sources */,
+				6AECE9D82332C3940090A62B /* Recycle.swift in Sources */,
 				6A8D22612328120D00A93500 /* DonateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

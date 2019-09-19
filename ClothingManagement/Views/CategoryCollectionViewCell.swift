@@ -30,15 +30,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         guard let category = category else { return }
-//        let predicate = NSPredicate(format: "categoryReference == %@", category.recordID)
-//        let compPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
-        
-//        CategoryPhotoController.shared.fetchIconPhotoForCategory(category: category, prediicate: compPredicate) { (iconPhoto) in
-//            if iconPhoto != nil {
-//                category.iconPhoto = iconPhoto
-//
-//            }
-//        }
         
     }
     
@@ -46,11 +37,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         guard let category = category else { return }
         quantityLabel.text = "\(category.quantity)"
         iconImage.image = category.iconImage
-//        CategoryPhotoController.shared.saveIconPhoto(photo: iconPhoto, category: category) { (iconPhoto) in
-//            if iconPhoto != nil {
-//                print("Icon saved for \(category.name)")
-//            }
-//        }
+
     }
     
 

@@ -13,7 +13,7 @@ class User {
     // Class properties
     var name: String?
     var closetName: String?
-    var isMale: Bool?
+    var isMale: Bool
     var closet: [Category]
     
     // CloudKit Properties
