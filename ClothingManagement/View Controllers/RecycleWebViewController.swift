@@ -29,6 +29,7 @@ class RecycleWebViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         webView.stopLoading()
+
     }
     /*
     // MARK: - Navigation

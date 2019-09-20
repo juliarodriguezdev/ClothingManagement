@@ -82,14 +82,14 @@ class Category {
            let iconImageData = try? Data(contentsOf: iconImageAsset.fileURL!) {
             let photo = UIImage(data: iconImageData)
             self.iconImage = photo
-        } else {
-            self.iconImage = UIImage(named: "hangerDefault")
         }
+        else {
+           self.iconImage = UIImage(named: "hangerDefault")
+       }
         
     }
-    
-    
 }
+
 // MARK: - Initialize a record from a class object (device -> Cloud)
 extension CKRecord {
     convenience init(category: Category) {

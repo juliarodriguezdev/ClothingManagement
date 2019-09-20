@@ -29,7 +29,7 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 125
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return RecycleController.shared.loadContent().count
@@ -42,10 +42,12 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerlabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 20))
-        headerlabel.backgroundColor = .magenta
+        let view = UIView(frame: CGRect.zero)
+        let headerlabel = UILabel(frame: CGRect(x: 12, y: 0, width: tableView.frame.size.width, height: 30))
+        view.backgroundColor = .magenta
         headerlabel.textColor = .black
-        headerlabel.textAlignment = .center
+        headerlabel.textAlignment = .left
+        view.addSubview(headerlabel)
         
         switch section {
         case 0:
@@ -57,12 +59,18 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         case 3:
             headerlabel.text = "Shoes"
         case 4:
+            headerlabel.text = "Career Attire"
+        case 5:
             headerlabel.text = "Bras"
+        case 6:
+            headerlabel.text = "Wedding Gowns"
+        case 7:
+            headerlabel.text = "Prom Dresses"
         default:
             headerlabel.text = "default section"
             return nil
         }
-        return headerlabel
+        return view
     }
     
 //    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

@@ -21,12 +21,16 @@ class Recycle {
         self.category = category
     }
 }
-
+// initialize an enum
 enum RecycleType: String {
     case denim
     case clothes
     case shoes
     case clothesAndShoes
     case bras
+    case career
+    case wedding
+    case prom 
     
+    // falliable init
 }

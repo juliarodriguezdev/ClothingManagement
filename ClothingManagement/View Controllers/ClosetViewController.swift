@@ -116,6 +116,7 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
             
             guard let quantity = self.quantity
                 else { return }
+            // TODO: let iconImage = UIImage(name: "defaultHanger"), to assign default image, then pass into create category func 
             
             CategoryController.shared.createCategory(withName: categoryText, quantity: quantity, user: user, completion: { (categoryFromCompletion) in
                 if let category = categoryFromCompletion {
