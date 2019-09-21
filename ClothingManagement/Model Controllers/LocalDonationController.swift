@@ -87,7 +87,7 @@ class LocalDonationController {
         }.resume()
     }
     
-    func fetchDonationMapsURL(donationPlace: LocalDonation) {
+    func fetchDonationMapsURL(donationPlace: LocalDonation, completion: @escaping (URL?) -> Void) {
         
         let mapsBaseURL = URL(string: "http://maps.apple.com/")
         
@@ -135,8 +135,10 @@ class LocalDonationController {
         UIApplication.shared.open(finalDestinationURL) { (success) in
             if success {
                 print("sent to apple maps!")
+                completion(finalDestinationURL)
             } else {
                 print("address not able to sent to apple maps")
+                completion(nil)
             }
         }
     }

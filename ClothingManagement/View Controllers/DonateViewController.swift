@@ -53,18 +53,15 @@ class DonateViewController: UIViewController {
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
-    }
- */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let donationPlace = donationResults[indexPath.row]
         
-        LocalDonationController.shared.fetchDonationMapsURL(donationPlace: donationPlace)
-        
+        LocalDonationController.shared.fetchDonationMapsURL(donationPlace: donationPlace) { (url) in
+            if url != nil {
+                print("Sent to apple maps, from indexPath: \(indexPath.row)")
+            }
+        }
     }
 
     
@@ -74,7 +71,7 @@ class DonateViewController: UIViewController {
         let longitude = location.longitude
         
         // call api fetch
-        LocalDonationController.shared.fetchLocalDonationPlaces(search: "donate clothes", latitude: latitude, longitude: longitude) { (donationPlaces) in
+        LocalDonationController.shared.fetchLocalDonationPlaces(search: "Donate Clothes", latitude: latitude, longitude: longitude) { (donationPlaces) in
             if let donationPlaces = donationPlaces {
                 self.donationResults = donationPlaces
                 self.hasFetchedLocation = true
@@ -88,7 +85,7 @@ class DonateViewController: UIViewController {
 }
 extension DonateViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180 
+        return 240
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
