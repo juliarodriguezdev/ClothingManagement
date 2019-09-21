@@ -43,8 +43,8 @@ class LocalDonationController {
         // add header
         request.addValue("Bearer \(api_Key)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
+        //print(request)
         print(finalURL)
-        print(request)
         
         // URLSession
         URLSession.shared.dataTask(with: request) { (data, _, error) in
@@ -85,5 +85,59 @@ class LocalDonationController {
             let image = UIImage(data: data)
             completion(image)
         }.resume()
+    }
+    
+    func fetchDonationMapsURL(donationPlace: LocalDonation) {
+        
+        let mapsBaseURL = URL(string: "http://maps.apple.com/")
+        
+        guard let url = mapsBaseURL else { return }
+        
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        // add appended query items
+        
+        var address: String {
+            let city = donationPlace.location.city
+            let state = donationPlace.location.state
+            let cityAndState = donationPlace.location.city + "," + donationPlace.location.state
+            guard let address = donationPlace.location.address,
+                let zipcode = donationPlace.location.zipcode else { return cityAndState }
+            let fullAddress = address + "," + city + "," + state + " " + zipcode
+            print("full address: \(fullAddress)")
+            return fullAddress
+        }
+        
+        print(address)
+        let destination = URLQueryItem(name: "daddr", value: "\(address)")
+        print(donationPlace)
+        
+        var searchAddress: String {
+            let city = donationPlace.location.city
+            let state = donationPlace.location.state
+            let place = donationPlace.name
+            
+            guard let address = donationPlace.location.address,
+                let zipcode = donationPlace.location.zipcode else { return city + state}
+            
+            // name address city state zipcode
+            let searchQuery = place + " " + address + " " + city + " " + state + " " + zipcode
+            print(searchQuery)
+            return searchQuery
+        }
+        let searchDestination = URLQueryItem(name: "q", value: searchAddress)
+        
+        components?.queryItems = [searchDestination]
+        
+        guard let finalDestinationURL = components?.url else { return }
+        print(finalDestinationURL)
+        
+        UIApplication.shared.canOpenURL(finalDestinationURL)
+        UIApplication.shared.open(finalDestinationURL) { (success) in
+            if success {
+                print("sent to apple maps!")
+            } else {
+                print("address not able to sent to apple maps")
+            }
+        }
     }
 }

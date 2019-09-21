@@ -38,22 +38,33 @@ class DonateViewController: UIViewController {
         
     }
     
+
     override func viewWillAppear(_ animated: Bool) {
-        //self.hasFetchedLocation = false
+        super.viewWillAppear(true)
+        self.hasFetchedLocation = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        locationManager.stopUpdatingLocation()
     }
     
     
     
-    // Get their location: latitude / longitude
-    
-    //"donateCell"
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // segue to maps app 
+    
+    }
+ */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let donationPlace = donationResults[indexPath.row]
+        
+        LocalDonationController.shared.fetchDonationMapsURL(donationPlace: donationPlace)
+        
     }
 
     
@@ -89,19 +100,8 @@ extension DonateViewController: UITableViewDelegate, UITableViewDataSource {
         
         let donationPlace = donationResults[indexPath.row]
         
-        //cell.localDonation = donationPlace
-        cell.nameLabel.text = donationPlace.name
-        cell.isOpenLabel.text = "\(donationPlace.isOpen)"
-        cell.reviewCountLabel.text = "\(donationPlace.reviewCount)"
-        cell.locationLabel.text = "\(donationPlace.location)"
-        cell.distanceLabel.text = "\(donationPlace.distance)"
-        cell.phoneButton.setTitle(donationPlace.phoneNumber, for: .normal)
-        
-        LocalDonationController.shared.fetchDonationPlacesImage(imageURL: donationPlace.imageURL) { (image) in
-            DispatchQueue.main.async {
-                cell.donationImage.image = image
-            }
-        }
+        cell.localDonation = donationPlace
+        cell.updateViews()
         
         return cell
     }

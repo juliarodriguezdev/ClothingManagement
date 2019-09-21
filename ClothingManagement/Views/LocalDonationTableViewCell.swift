@@ -10,7 +10,7 @@ import UIKit
 
 class LocalDonationTableViewCell: UITableViewCell {
     
-    //var localDonation: LocalDonation?
+    var localDonation: LocalDonation? 
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -26,12 +26,36 @@ class LocalDonationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var donationImage: UIImageView!
     
-    
+    func updateViews() {
+        guard let localDonation = localDonation else { return }
+        
+        self.nameLabel.text = localDonation.name
+        self.isOpenLabel.text = "\(localDonation.isOpen)"
+        self.reviewCountLabel.text = "\(localDonation.reviewCount)"
+        self.distanceLabel.text = "\(localDonation.distance)"
+        self.phoneButton.setTitle(localDonation.displayPhone, for: .normal)
+        
+        LocalDonationController.shared.fetchDonationPlacesImage(imageURL: localDonation.imageURL) { (image) in
+            DispatchQueue.main.async {
+                self.donationImage.image = image
+            }
+        }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    @IBAction func phoneNumberTapped(_ sender: UIButton) {
+        guard let localDonation = localDonation else { return }
+        
+        
+        if let phoneURL = URL(string: "tel:\(localDonation.phoneNumber!)") {
+            UIApplication.shared.canOpenURL(phoneURL)
+            UIApplication.shared.open(phoneURL) { (success) in
+                if success {
+                    print("sent to phone ")
+                }
+            }
+        }
+    }
+    
+    
 
 }

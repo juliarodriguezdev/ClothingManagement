@@ -19,7 +19,9 @@ struct LocalDonation: Codable {
     let rating: Float
     let coordinates: Coordinates
     let location: Location
+    let displayAddress: String?
     let phoneNumber: String?
+    let displayPhone: String?
     let distance: Float?
     
     enum CodingKeys: String, CodingKey {
@@ -30,7 +32,9 @@ struct LocalDonation: Codable {
         case rating
         case coordinates
         case location
+        case displayAddress = "display_address"
         case phoneNumber = "phone"
+        case displayPhone = "display_phone"
         case distance
         
     }
@@ -50,8 +54,8 @@ struct Coordinates: Codable {
 struct Location: Codable {
     let address: String?
     let city: String
-    let zipcode: String?
     let state: String
+    let zipcode: String?
     
     enum CodingKeys: String, CodingKey {
         case address = "address1"
