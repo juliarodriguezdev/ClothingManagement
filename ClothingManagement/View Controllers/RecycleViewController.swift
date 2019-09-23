@@ -19,8 +19,14 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self 
         recycleIntroLabel.text = """
         Textile Recycling:
-        is the method of reusing or reprocessing used clothes, fibrous material and clothing scraps from the manufacturing process.
+        is the method of reusing or reprocessing used clothes, fibrous material and clothing scraps to be converted to other materials or uses.
         """
+        
+        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTap(gestureRecognizer:)))
+        doubleTapGestureRecognizer.numberOfTapsRequired = 2
+        doubleTapGestureRecognizer.delaysTouchesBegan = true
+        doubleTapGestureRecognizer.delegate = self
+        self.tableView.addGestureRecognizer(doubleTapGestureRecognizer)
        
     }
     
@@ -99,6 +105,27 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
             destinationVC?.recyclePlace = recyclePlace
         }
     }
+}
 
+extension RecycleViewController: UIGestureRecognizerDelegate {
+    @objc func doubleTap(gestureRecognizer: UITapGestureRecognizer) {
+        if gestureRecognizer.state != UIGestureRecognizer.State.ended {
+            return
+        }
+    
+        let point = gestureRecognizer.location(in: self.tableView)
+        let indexPath = self.tableView.indexPathForRow(at: point)
+        if let index = indexPath {
+            // get the index path of the array (object to send)
+            let recyclePlace = RecycleController.shared.loadContent()[index.section][index.row]
+            let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
+                guard let disposeClothesViewController = storyBoard.instantiateViewController(withIdentifier: "DisposeClothesViewController") as? DisposeClothesViewController else { return }
+                // object to set
+            disposeClothesViewController.recyclePlace = recyclePlace
+            
+            // present modally
+            navigationController?.present(disposeClothesViewController, animated: true)
 
+        }
+    }
 }

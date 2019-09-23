@@ -59,7 +59,7 @@ extension DisposeClothesTableViewCell: UITextFieldDelegate {
         textField.keyboardType = .numberPad
         textField.adjustsFontForContentSizeCategory = true
         // TODO: add custom font
-       // textField.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
+       // textField.font = UIFont(name: , size: )
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

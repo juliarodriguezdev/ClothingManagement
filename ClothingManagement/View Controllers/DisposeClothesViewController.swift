@@ -33,12 +33,15 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         tableView.dataSource = self
         tableView.delegate = self
         self.modalPresentationStyle = .overCurrentContext
-        
+        cancelButton.setTitle("No, Not now. ", for: .normal)
+
         if let donationPlace = donationPlace {
             placeLabel.text = "Donate to " + donationPlace.name
-            disposeButton.setTitle("Donate here", for: .normal)
-            cancelButton.setTitle("No, Not now. ", for: .normal)
-        } else { return }
+            disposeButton.setTitle("Donate Here", for: .normal)
+        } else if let recyclePlace = recyclePlace {
+            placeLabel.text = "Recycle to " + recyclePlace.storeName
+            disposeButton.setTitle("Recycle Here", for: .normal)
+        }
         
         // fetch the categories
         // call fetch function of categories
@@ -79,10 +82,8 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
                 //delegate?.confirmDisposeButtonTapped(for: self)
                 print(customCell)
             }
-    
         }
-        // delegate for cell to run the subtract func
-        
+            dismiss(animated: true)
     }
     
     
