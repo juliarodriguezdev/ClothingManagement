@@ -35,9 +35,18 @@ class Category {
             let tempDictionaryURL = URL(fileURLWithPath: tempDictionary)
             let fileURL = tempDictionaryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
             do {
-                try iconImageData?.write(to: fileURL)
+                var data: Data?
+                // check if there is data in the iconImage
+                if let imageData = iconImageData {
+                    data = imageData
+                } else {
+                    // if there is no data in the iconImage, save the hangerDefault
+                    data = (UIImage(named: "hangerDefault")?.jpegData(compressionQuality: 0.1))!
+                }
+                try data?.write(to: fileURL)
             } catch {
                 print("Error writing to temporary url \(error.localizedDescription)")
+                return nil
             }
             return CKAsset(fileURL: fileURL)
         }
@@ -83,10 +92,6 @@ class Category {
             let photo = UIImage(data: iconImageData)
             self.iconImage = photo
         }
-        else {
-           self.iconImage = UIImage(named: "hangerDefault")
-       }
-        
     }
 }
 
@@ -98,8 +103,9 @@ extension CKRecord {
         self.setValue(category.name, forKey: CategoryConstants.nameKey)
         self.setValue(category.quantity, forKey: CategoryConstants.quantityKey)
         self.setValue(category.userReference, forKey: CategoryConstants.userReferenceKey)
-        self.setValue(category.iconImageAsset, forKey: CategoryConstants.iconImageKey)
-
+        if let iconImageAsset = category.iconImageAsset {
+            self.setValue(iconImageAsset, forKey: CategoryConstants.iconImageKey)
+        }
     }
 }
 

@@ -9,6 +9,7 @@
 import Foundation
 
 class Dispose {
+    
     var disposeNum: Int?
     
     init(disposeNum: Int) {

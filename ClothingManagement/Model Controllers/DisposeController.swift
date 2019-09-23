@@ -12,6 +12,9 @@ class DisposeController {
     
     static let shared = DisposeController()
     
+    var totalDisposed: Int = 0
+    
+    // delete
     func subtractDisposeQuantity(disposeValue: Int, category: Category) {
         
         let oldValue = category.quantity
@@ -23,8 +26,12 @@ class DisposeController {
             print("\(category.name) was updated successfully with new quantity of: \(category.quantity)")
         }
         
-        // calculate number
-        
-        // update category controller
     }
+    // update
+    func updateTotalItemsDisposed(disposeNum: Int) {
+        totalDisposed += disposeNum
+        print(totalDisposed)
+    }
+    
+    
 }

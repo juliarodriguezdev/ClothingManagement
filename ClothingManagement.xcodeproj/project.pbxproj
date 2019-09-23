@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6A54B74123384DFB00A06F03 /* Dispose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A54B74023384DFB00A06F03 /* Dispose.swift */; };
 		6A54B74323384E5A00A06F03 /* DisposeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A54B74223384E5A00A06F03 /* DisposeController.swift */; };
+		6A54B7452338861000A06F03 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A54B7442338861000A06F03 /* Contribution.swift */; };
 		6A63BF992335624E00A6D79B /* LocalDonationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63BF982335624E00A6D79B /* LocalDonationTableViewCell.swift */; };
 		6A63BF9B2335C6FD00A6D79B /* ClothingFact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63BF9A2335C6FD00A6D79B /* ClothingFact.swift */; };
 		6A63BF9D2335C73D00A6D79B /* ClothingFactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63BF9C2335C73D00A6D79B /* ClothingFactController.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		6A54B74023384DFB00A06F03 /* Dispose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispose.swift; sourceTree = "<group>"; };
 		6A54B74223384E5A00A06F03 /* DisposeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeController.swift; sourceTree = "<group>"; };
+		6A54B7442338861000A06F03 /* Contribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
 		6A63BF982335624E00A6D79B /* LocalDonationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDonationTableViewCell.swift; sourceTree = "<group>"; };
 		6A63BF9A2335C6FD00A6D79B /* ClothingFact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingFact.swift; sourceTree = "<group>"; };
 		6A63BF9C2335C73D00A6D79B /* ClothingFactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingFactController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				6AECE9E5233451BC0090A62B /* LocalDonation.swift */,
 				6A63BF9A2335C6FD00A6D79B /* ClothingFact.swift */,
 				6A54B74023384DFB00A06F03 /* Dispose.swift */,
+				6A54B7442338861000A06F03 /* Contribution.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				6A8D22592327E9B000A93500 /* DetailCategoryViewController.swift in Sources */,
 				6A8D226D23283C7A00A93500 /* UserController.swift in Sources */,
 				6A63BF992335624E00A6D79B /* LocalDonationTableViewCell.swift in Sources */,
+				6A54B7452338861000A06F03 /* Contribution.swift in Sources */,
 				6A8D223C2326DC8800A93500 /* ViewController.swift in Sources */,
 				6A8D225D2328117900A93500 /* RecycleViewController.swift in Sources */,
 				6AECE9D6233071410090A62B /* DetailCategoryCollectionViewCell.swift in Sources */,

@@ -83,7 +83,7 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
                 print(customCell)
             }
         }
-            dismiss(animated: true)
+        dismiss(animated: true)
     }
     
     

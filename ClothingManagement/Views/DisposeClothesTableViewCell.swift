@@ -80,16 +80,7 @@ extension DisposeClothesTableViewCell: DisposeClothesViewControllerDelegate {
            // disponseNum = disposedIntNumber
         
         DisposeController.shared.subtractDisposeQuantity(disposeValue: disposedIntNumber, category: category)
-        
-//            let newQuantity = category.quantity - disposedIntNumber
-//          category.quantity = newQuantity
-//
-//           CategoryController.shared.updateCategory(category: category) { (success) in
-//               if success {
-//                   print("Category: \(category.name) now has \(category.quantity) items AFTER donation")
-//               }
-//           }
-               
+        DisposeController.shared.updateTotalItemsDisposed(disposeNum: disposedIntNumber)
     }
     
 }

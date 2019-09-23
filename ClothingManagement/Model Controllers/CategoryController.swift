@@ -31,8 +31,8 @@ class CategoryController {
         CloudKitController.shared.publicDB.save(record) { (record, error) in
             if let error = error {
                 print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
-                completion(nil)
-                return
+//                completion(nil)
+//                return
             }
             guard let record = record,
                 // create a record/category from the cloud (CKDatabase)
