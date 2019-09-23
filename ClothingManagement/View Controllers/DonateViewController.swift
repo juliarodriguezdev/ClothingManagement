@@ -36,6 +36,12 @@ class DonateViewController: UIViewController {
         tableView.dataSource = self
         //self.localDonationPlacesFromCurrentLocation()
         
+        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTap(gestureRecognizer:)))
+        doubleTapGestureRecognizer.numberOfTapsRequired = 2
+        doubleTapGestureRecognizer.delaysTouchesBegan = true
+        doubleTapGestureRecognizer.delegate = self
+        self.tableView.addGestureRecognizer(doubleTapGestureRecognizer)
+        
     }
     
 
@@ -124,3 +130,25 @@ extension DonateViewController: CLLocationManagerDelegate {
     }
 }
 
+extension DonateViewController: UIGestureRecognizerDelegate {
+    @objc func doubleTap(gestureRecognizer: UITapGestureRecognizer) {
+        if gestureRecognizer.state != UIGestureRecognizer.State.ended {
+            return
+        }
+    
+        let point = gestureRecognizer.location(in: self.tableView)
+        let indexPath = self.tableView.indexPathForRow(at: point)
+        if let index = indexPath {
+            // get the index path of the array (object to send)
+            let donationPlace = donationResults[index.row]
+            let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
+                guard let disposeClothesViewController = storyBoard.instantiateViewController(withIdentifier: "DisposeClothesViewController") as? DisposeClothesViewController else { return }
+                // object to set
+                disposeClothesViewController.donationPlace = donationPlace
+            
+            // present modally
+            navigationController?.present(disposeClothesViewController, animated: true)
+
+        }
+    }
+}
