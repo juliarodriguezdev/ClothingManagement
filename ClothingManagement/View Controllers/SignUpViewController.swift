@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class SignUpViewController: UIViewController {
     
@@ -21,22 +22,13 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.modalPresentationStyle = .overCurrentContext
         nameTextField.delegate = self
         closetNameTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        UserController.shared.fetchUser { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    self.showMainNavigationController()
-                }
-            }
-        }
-    }
     @IBAction func genderSegmentedControl(_ sender: UISegmentedControl) {
         
         switch genderSegmentedControl.selectedSegmentIndex {
@@ -77,6 +69,36 @@ class SignUpViewController: UIViewController {
             let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
             let mainNavigationController = storyBoard.instantiateViewController(withIdentifier: "mainTabController")
             self.present(mainNavigationController, animated: true, completion: nil)
+        }
+    }
+    
+    func checkforiCloudUserPresence() {
+        CKContainer.default().accountStatus { (status, error) in
+            if let error = error {
+                print("error fetching iCloud account: \(error.localizedDescription)")
+            } else {
+                switch status{
+                case .available:
+                    print("iCloud account is available")
+                case .restricted:
+                    print("iCloud account is restricted")
+                case .noAccount:
+                    // present no iCloud VC
+                    self.presentNoiCloudAccountViewController()
+                case .couldNotDetermine:
+                    print("iCloud account could not be determined")
+                default:
+                    print("icloud Error ")
+                }
+            }
+        }
+    }
+    
+    func presentNoiCloudAccountViewController() {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let noiCloudViewController = storyboard.instantiateViewController(withIdentifier: "noiCloudAccountViewController") as? noiCloudAccountViewController else { return }
+            self.present(noiCloudViewController, animated: true)
         }
     }
     

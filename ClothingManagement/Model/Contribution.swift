@@ -70,7 +70,7 @@ class Contribution {
         guard let place = record[ContributionConstants.placeKey] as? String,
             let isDonation = record[ContributionConstants.isDonationKey] as? Bool,
             let disposedAmount = record[ContributionConstants.disposedAmountKey] as? Int,
-            let timestamp = record[ContributionConstants.timestampKey] as? Date
+        let timestamp = record[ContributionConstants.timestampKey] as? Date
             else { return nil }
         
         self.place = place
@@ -94,7 +94,7 @@ extension CKRecord {
         self.setValue(contribution.place, forKey: ContributionConstants.placeKey)
         self.setValue(contribution.isDonation, forKey: ContributionConstants.isDonationKey)
         self.setValue(contribution.diposedAmount, forKey: ContributionConstants.disposedAmountKey)
-        self.setValue(contribution.timestamp, forKey: ContributionConstants.receiptImageKey)
+        self.setValue(contribution.timestamp, forKey: ContributionConstants.timestampKey)
         self.setValue(contribution.userReference, forKey: ContributionConstants.userReferenceKey)
         if let receiptImageAsset = contribution.receiptImageAsset {
             self.setValue(receiptImageAsset, forKey: ContributionConstants.receiptImageKey)

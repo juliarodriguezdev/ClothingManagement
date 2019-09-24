@@ -19,6 +19,7 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.modalPresentationStyle = .overFullScreen
         collectionView.delegate = self
         collectionView.dataSource = self
         

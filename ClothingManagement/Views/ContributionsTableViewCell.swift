@@ -15,6 +15,7 @@ class ContributionsTableViewCell: UITableViewCell {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var receiptLabel: UILabel!
     @IBOutlet weak var imageIcon: UIImageView!
     
@@ -28,13 +29,20 @@ class ContributionsTableViewCell: UITableViewCell {
         
         var isDonated: String {
             if contribution.isDonation {
-                let stringIsDonated = "donated"
+                let stringIsDonated = "Donatation"
                 return stringIsDonated
+            } else {
+                return "Recycle"
+            }
+        }
+        var contributionDescription: String {
+            if contribution.isDonation {
+                let donation = "donated"
+                return donation
             } else {
                 return "recycled"
             }
         }
-        
         var receeiptIncluded: String {
             if (contribution.receiptImage != nil) {
                 return "yes"
@@ -49,10 +57,19 @@ class ContributionsTableViewCell: UITableViewCell {
                 return "clothesRecycle"
             }
         }
+        
+        var recieptCheck: String {
+            if contribution.receiptImage == UIImage(named: "receiptDefault") {
+                return "No"
+            } else {
+                return "Yes"
+            }
+        }
         self.placeLabel.text = contribution.place
         self.typeLabel.text = "Type: " + isDonated
-        self.quantityLabel.text = "\(contribution.diposedAmount) items " + isDonated
-        self.receiptLabel.text = "Receipt on file: " + receeiptIncluded
+        self.quantityLabel.text = "\(contribution.diposedAmount) items " + contributionDescription + " here"
+        self.timestampLabel.text = contribution.timestamp.formatDate()
+        self.receiptLabel.text = "Receipt on file: " + recieptCheck
         self.imageIcon.image = UIImage(named: imageName)
         
         

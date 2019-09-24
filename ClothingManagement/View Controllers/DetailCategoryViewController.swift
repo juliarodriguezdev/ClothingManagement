@@ -65,7 +65,7 @@ class DetailCategoryViewController: UIViewController {
     
     func updateViews() {
         guard let category = category else { return }
-        quantityOfCategoryLabel.text = "Contains: \(category.quantity) items"
+        quantityOfCategoryLabel.text = "You currently have: \(category.quantity) \(category.name)'s"
         updateQuantityButton.setTitle("Update Quantity", for: .normal)
         navigationItem.title = category.name
         navigationItem.largeTitleDisplayMode = .always
@@ -87,12 +87,6 @@ class DetailCategoryViewController: UIViewController {
 
 extension DetailCategoryViewController: SaveButtonDelegate {
     func saveButtonTapped(_ sender: UpdateQuantityViewController) {
-//        let category = sender.category
-//        guard let newQuantity = sender.quantityTextField.text,
-//            let intValue = Int(newQuantity)
-//            else { return }
-//        category?.quantity = intValue
-        
         updateViews()
     }
 }
@@ -196,7 +190,11 @@ extension DetailCategoryViewController: UIGestureRecognizerDelegate {
         guard let category = category else { print("Failed to get category"); return }
         let point = gestureRecognizer.location(in: self.photosCollectionView)
         let indexPath = self.photosCollectionView.indexPathForItem(at: point)
+
         if let index = indexPath {
+            let cell = photosCollectionView.cellForItem(at: index)
+            cell?.backgroundColor = .magenta
+        
             // call and create a CRUD function to to this
             let iconPhoto = category.categoryPhotos[index.item].categoryPhoto
             category.iconImage = iconPhoto
@@ -204,6 +202,10 @@ extension DetailCategoryViewController: UIGestureRecognizerDelegate {
             CategoryController.shared.updateCategory(category: category) { (success) in
                 if success {
                     print("category: \(category.name) saved at Double Tap Gesture")
+                    DispatchQueue.main.async {
+                        cell?.backgroundColor = .clear
+                    }
+                    // TODO: show feedback label set alpha to 0 in viewDidLoad, set alpha to 1 here, animate for 5 sec. "Saved"
                 }
             }
         }else {

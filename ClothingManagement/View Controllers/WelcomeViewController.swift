@@ -16,29 +16,35 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.modalPresentationStyle = .fullScreen
         setUpViews()
-
+        showMainNavController()
         // Do any additional setup after loading the view.
     }
     
 
     @IBAction func beginButtonTapped(_ sender: UIButton) {
-        showMainNavigationController()
+        showMainNavController()
     }
     
     func setUpViews() {
-        guard let user = UserController.shared.currentUser else { return }
-        welcomeLabel.text = """
-        Welcome \(user.name) let's start
-        managing \(user.closetName) Closet
-        """
+        guard let user = user else { return }
+        
+        UIView.animate(withDuration: 9) {
+            self.welcomeLabel.text = """
+            Welcome back \(String(describing: user.name)) let's start
+            managing \(String(describing: user.closetName)) Closet
+            """
+        }
     }
     
-    func showMainNavigationController() {
+    func showMainNavController() {
         DispatchQueue.main.async {
             let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
-            let mainNavigationController = storyBoard.instantiateViewController(withIdentifier: "mainNavController")
-            self.present(mainNavigationController, animated: true, completion: nil)
+            let mainNavController = storyBoard.instantiateViewController(withIdentifier: "mainTabController")
+            // TODO: set closet object
+            //self.navigationController?.pushViewController(mainClosetController, animated: true)
+            self.present(mainNavController, animated: true)
         }
     }
     /*
