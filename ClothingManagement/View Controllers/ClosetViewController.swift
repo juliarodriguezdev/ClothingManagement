@@ -83,8 +83,7 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.cellDelegate = self
         return cell
     }
-  
-    
+      
     @IBAction func addCategoryTapped(_ sender: UIBarButtonItem) {
         presentAddCategory(title: "Category", message: "Add Category to Closet")
     }
@@ -97,11 +96,14 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
             textfield.placeholder = "Add Category Name..."
             textfield.returnKeyType = .continue
             textfield.autocapitalizationType = .words
+            
         }
         alertController.addTextField { (quantityTextField) in
             quantityTextField.placeholder = "Add Quantity of Clothes..."
             quantityTextField.keyboardType = .numberPad
-            quantityTextField.returnKeyType = .continue
+            quantityTextField.returnKeyType = .done
+            
+            
         }
         let categoryAction = UIAlertAction(title: "Add", style: .default) { (_) in
             guard let categoryText = alertController.textFields?[0].text,

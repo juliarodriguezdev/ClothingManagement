@@ -34,9 +34,16 @@ class Contribution {
             let tempDictionaryURL = URL(fileURLWithPath: tempDictionary)
             let fileURL = tempDictionaryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
             do {
-                try receiptImageData?.write(to: fileURL)
+                var data: Data?
+                if let imageData = receiptImageData {
+                    data = imageData
+                } else {
+                    data = (UIImage(named: "receiptDefault")?.jpegData(compressionQuality: 0.1))!
+                }
+                try data?.write(to: fileURL)
             } catch {
                 print("Error writing to temporay url \(error.localizedDescription)")
+                return nil
             }
             return CKAsset(fileURL: fileURL)
         }
@@ -48,14 +55,13 @@ class Contribution {
         return CKRecord.Reference(recordID: user.CKRecordID, action: .deleteSelf)
     }
     // MARK: - Designated Initializers for class
-    init(place: String, isDonation: Bool, disposedAmount: Int, timestamp: Date = Date(), user: User?, reciptImage: UIImage?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(place: String, isDonation: Bool, disposedAmount: Int, timestamp: Date = Date(), user: User?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.place = place
         self.isDonation = isDonation
         self.diposedAmount = disposedAmount
         self.timestamp = timestamp
         self.user = user
         self.recordID = recordID
-        self.receiptImage = reciptImage
     }
     
     // falliable intializers (cloud -> device)
@@ -80,11 +86,23 @@ class Contribution {
             let image = UIImage(data: receiptImageData)
             self.receiptImage = image
         }
-            
-
     }
-
 }
+extension CKRecord {
+    convenience init(contribution: Contribution) {
+        self.init(recordType: ContributionConstants.typeKey, recordID: contribution.recordID)
+        self.setValue(contribution.place, forKey: ContributionConstants.placeKey)
+        self.setValue(contribution.isDonation, forKey: ContributionConstants.isDonationKey)
+        self.setValue(contribution.diposedAmount, forKey: ContributionConstants.disposedAmountKey)
+        self.setValue(contribution.timestamp, forKey: ContributionConstants.receiptImageKey)
+        self.setValue(contribution.userReference, forKey: ContributionConstants.userReferenceKey)
+        if let receiptImageAsset = contribution.receiptImageAsset {
+            self.setValue(receiptImageAsset, forKey: ContributionConstants.receiptImageKey)
+        }
+    }
+}
+
+
 extension Contribution: Equatable {
     static func == (lhs: Contribution, rhs: Contribution) -> Bool {
         return lhs.recordID == rhs.recordID
@@ -96,9 +114,9 @@ extension Contribution: Equatable {
 struct ContributionConstants {
     static let typeKey = "Contribution"
     static let userReferenceKey = "userReference"
-    fileprivate static let receiptImageKey = "receiptImage"
     fileprivate static let placeKey = "place"
     fileprivate static let isDonationKey = "isDonation"
     fileprivate static let disposedAmountKey = "disposedAmount"
     fileprivate static let timestampKey = "timestamp"
+    fileprivate static let receiptImageKey = "receiptImage"
 }

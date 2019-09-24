@@ -12,6 +12,7 @@ class DisposeClothesTableViewCell: UITableViewCell {
     
     var category: Category?
 // updating the categories
+    var disposedNumber: Int?
     
     @IBOutlet weak var categoryLabel: UILabel!
     
@@ -70,7 +71,7 @@ extension DisposeClothesTableViewCell: DisposeClothesViewControllerDelegate {
     
     func confirmDisposeButtonTapped(for view: DisposeClothesViewController) {
         view.delegate = self
-       
+        
         guard let category = category else { return }
         print("Category: \(category.name) has \(category.quantity) items BEFORE donating")
         
@@ -78,9 +79,12 @@ extension DisposeClothesTableViewCell: DisposeClothesViewControllerDelegate {
             let disposeInt = Int(intString)
         guard let disposedIntNumber = disposeInt else { return }
            // disponseNum = disposedIntNumber
+        disposedNumber = disposedIntNumber
         
         DisposeController.shared.subtractDisposeQuantity(disposeValue: disposedIntNumber, category: category)
-        DisposeController.shared.updateTotalItemsDisposed(disposeNum: disposedIntNumber)
+        
+       // DisposeController.shared.updateTotalItemsDisposed(disposeNum: disposedIntNumber)
+        
     }
     
 }

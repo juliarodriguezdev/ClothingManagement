@@ -16,9 +16,8 @@ class DisposeController {
     
     // delete
     func subtractDisposeQuantity(disposeValue: Int, category: Category) {
-        
+       
         let oldValue = category.quantity
-        
         let newValue = oldValue - disposeValue
         category.quantity = newValue
         

@@ -54,8 +54,21 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
                      }
                  }
              }
-
     }
+    
+    func checkIfDonated() -> Bool {
+        if let donatedPlace = donationPlace {
+            print(donatedPlace)
+            return true
+        }
+        else if let recyclePlace = recyclePlace {
+            print(recyclePlace)
+            return false
+        }
+        // default value 
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryController.shared.categories.count
        }
@@ -74,13 +87,40 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBAction func disposeButtonTapped(_ sender: Any) {
         // grab the quantities in the text field, subtract them from the current quantity, and update the category
-        
+        var totalDispose: Int = 0
         // call the contribution controller to save a donation
         for cell in self.tableView.visibleCells {
             if let customCell = cell as? DisposeClothesTableViewCell {
                 customCell.confirmDisposeButtonTapped(for: self)
                 //delegate?.confirmDisposeButtonTapped(for: self)
+                if let clothesDisposed = customCell.disposedNumber {
+                    totalDispose += clothesDisposed
+                    print("total diposed is \(totalDispose)")
+                }
                 print(customCell)
+            }
+        }
+        guard let user = UserController.shared.currentUser else { return }
+        
+        let isDonated = self.checkIfDonated()
+        
+        if isDonated { // Donated
+            guard let donatedPlace = donationPlace else { return }
+            
+            ContributionController.shared.createContribution(withName: donatedPlace.name, isDonated: true, disposedAmount: totalDispose, user: user) { (contribution) in
+                
+                if contribution != nil {
+                    print("successfully saved \(totalDispose) items to donatation at \(donatedPlace.name)")
+                } 
+        }
+    }
+            
+            else if !isDonated { // Recycled
+            guard let recyclePlace = recyclePlace else { return }
+            ContributionController.shared.createContribution(withName: recyclePlace.storeName, isDonated: false, disposedAmount: totalDispose, user: user) { (contribution) in
+                if contribution != nil {
+                    print("successfully saved \(totalDispose) items to recycle facility at \(recyclePlace.storeName)")
+                }
             }
         }
         dismiss(animated: true)

@@ -16,7 +16,6 @@ class UserController {
     
     // source of truth
     var currentUser: User?
-
     
     // database
     let publicDB = CloudKitController.shared.publicDB
@@ -30,7 +29,7 @@ class UserController {
             guard let appleUserRefrence = reference else { completion(nil); return }
             let newUser = User(name: userName, closetName: closetName, isMale: isMale, appleUserReference: appleUserRefrence)
             let userRecord = CKRecord(user: newUser)
-            CloudKitController.shared.save(record: userRecord, database: CloudKitController.shared.publicDB, completion: { (record) in
+            CloudKitController.shared.save(record: userRecord, database: self.publicDB, completion: { (record) in
                 guard let record = record,
                       let user = User(record: record)
                     else { completion(nil); return }

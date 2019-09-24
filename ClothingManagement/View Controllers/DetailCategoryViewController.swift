@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import AVFoundation
 
 
 class DetailCategoryViewController: UIViewController {
@@ -86,11 +87,12 @@ class DetailCategoryViewController: UIViewController {
 
 extension DetailCategoryViewController: SaveButtonDelegate {
     func saveButtonTapped(_ sender: UpdateQuantityViewController) {
-        let category = sender.category
-        guard let newQuantity = sender.quantityTextField.text,
-            let intValue = Int(newQuantity)
-            else { return }
-        category?.quantity = intValue
+//        let category = sender.category
+//        guard let newQuantity = sender.quantityTextField.text,
+//            let intValue = Int(newQuantity)
+//            else { return }
+//        category?.quantity = intValue
+        
         updateViews()
     }
 }
@@ -105,25 +107,41 @@ extension DetailCategoryViewController: UIImagePickerControllerDelegate, UINavig
         
         let actionSheet = UIAlertController(title: "Select a photo to add to this category", message: "Choose to your liking...", preferredStyle: .actionSheet)
         
+        
         // check if the photolibrary is available as a source
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             actionSheet.addAction(UIAlertAction(title: "Photos", style: .default, handler: { (_) in
-                imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+                
+                
+                imagePickerController.sourceType = .photoLibrary
+                imagePickerController.allowsEditing = true
                 self.present(imagePickerController, animated: true, completion: nil)
             }))
         }
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
-                imagePickerController.sourceType = UIImagePickerController.SourceType.camera
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePickerController.sourceType = .camera
+                imagePickerController.allowsEditing = true
+                imagePickerController.showsCameraControls = true
                 self.present(imagePickerController, animated: true, completion: nil)
-            }))
-        }
+            } else {
+                print("Users Camera not available")
+                let alertController = UIAlertController(title: "Camera access not allowe", message: "In order to use your camera to upload photos to the closet, please go to your phone's settings and allow camera access", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }
+            
+            
+        }))
+        
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(actionSheet, animated: true)
     }
+
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true, completion: nil)
+        
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
             guard let category = category else { return }
@@ -139,10 +157,15 @@ extension DetailCategoryViewController: UIImagePickerControllerDelegate, UINavig
                 }
             }
         }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             picker.dismiss(animated: true, completion: nil)
         }
-    }
+
 }
 
 extension DetailCategoryViewController: UICollectionViewDataSource, UICollectionViewDelegate {

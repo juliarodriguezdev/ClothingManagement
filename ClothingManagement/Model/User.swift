@@ -15,17 +15,19 @@ class User {
     var closetName: String?
     var isMale: Bool
     var closet: [Category]
+    var contributions: [Contribution]
     
     // CloudKit Properties
     var CKRecordID: CKRecord.ID
     var appleUserReference: CKRecord.Reference
     
     // Designated Initializer
-    init(name: String, closetName: String, isMale: Bool, closet: [Category] = [], CKRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
+    init(name: String, closetName: String, isMale: Bool, closet: [Category] = [], contributions: [Contribution] = [], CKRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
         self.name = name
         self.closetName = closetName
         self.isMale = isMale
         self.closet = closet
+        self.contributions = contributions
         self.CKRecordID = CKRecordID
         self.appleUserReference = appleUserReference
     }

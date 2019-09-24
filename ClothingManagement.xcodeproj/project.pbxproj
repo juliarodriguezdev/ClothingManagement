@@ -10,6 +10,7 @@
 		6A54B74123384DFB00A06F03 /* Dispose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A54B74023384DFB00A06F03 /* Dispose.swift */; };
 		6A54B74323384E5A00A06F03 /* DisposeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A54B74223384E5A00A06F03 /* DisposeController.swift */; };
 		6A54B7452338861000A06F03 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A54B7442338861000A06F03 /* Contribution.swift */; };
+		6A54B74723393CF800A06F03 /* ContributionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A54B74623393CF800A06F03 /* ContributionController.swift */; };
 		6A63BF992335624E00A6D79B /* LocalDonationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63BF982335624E00A6D79B /* LocalDonationTableViewCell.swift */; };
 		6A63BF9B2335C6FD00A6D79B /* ClothingFact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63BF9A2335C6FD00A6D79B /* ClothingFact.swift */; };
 		6A63BF9D2335C73D00A6D79B /* ClothingFactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63BF9C2335C73D00A6D79B /* ClothingFactController.swift */; };
@@ -47,12 +48,15 @@
 		6AECE9E4233440390090A62B /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECE9E3233440390090A62B /* CoreLocationController.swift */; };
 		6AECE9E6233451BC0090A62B /* LocalDonation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECE9E5233451BC0090A62B /* LocalDonation.swift */; };
 		6AECE9E8233456C60090A62B /* LocalDonationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECE9E7233456C60090A62B /* LocalDonationController.swift */; };
+		6AFCB6742339978100E6FBBB /* ContributionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCB6732339978100E6FBBB /* ContributionsTableViewCell.swift */; };
+		6AFCB6762339989500E6FBBB /* ContributionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCB6752339989500E6FBBB /* ContributionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6A54B74023384DFB00A06F03 /* Dispose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispose.swift; sourceTree = "<group>"; };
 		6A54B74223384E5A00A06F03 /* DisposeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeController.swift; sourceTree = "<group>"; };
 		6A54B7442338861000A06F03 /* Contribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
+		6A54B74623393CF800A06F03 /* ContributionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionController.swift; sourceTree = "<group>"; };
 		6A63BF982335624E00A6D79B /* LocalDonationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDonationTableViewCell.swift; sourceTree = "<group>"; };
 		6A63BF9A2335C6FD00A6D79B /* ClothingFact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingFact.swift; sourceTree = "<group>"; };
 		6A63BF9C2335C73D00A6D79B /* ClothingFactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingFactController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 		6AECE9E3233440390090A62B /* CoreLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
 		6AECE9E5233451BC0090A62B /* LocalDonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDonation.swift; sourceTree = "<group>"; };
 		6AECE9E7233456C60090A62B /* LocalDonationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDonationController.swift; sourceTree = "<group>"; };
+		6AFCB6732339978100E6FBBB /* ContributionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsTableViewCell.swift; sourceTree = "<group>"; };
+		6AFCB6752339989500E6FBBB /* ContributionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,7 @@
 				6A8D226423282D3A00A93500 /* WelcomeViewController.swift */,
 				6AECE9DF23331D970090A62B /* RecycleWebViewController.swift */,
 				6ABF836523371278007D1267 /* DisposeClothesViewController.swift */,
+				6AFCB6752339989500E6FBBB /* ContributionsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -170,6 +177,7 @@
 				6AECE9DB2332E9DD0090A62B /* RecycleTableViewCell.swift */,
 				6A63BF982335624E00A6D79B /* LocalDonationTableViewCell.swift */,
 				6ABF8367233712A4007D1267 /* DisposeClothesTableViewCell.swift */,
+				6AFCB6732339978100E6FBBB /* ContributionsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +216,7 @@
 				6AECE9E7233456C60090A62B /* LocalDonationController.swift */,
 				6A63BF9C2335C73D00A6D79B /* ClothingFactController.swift */,
 				6A54B74223384E5A00A06F03 /* DisposeController.swift */,
+				6A54B74623393CF800A06F03 /* ContributionController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -312,10 +321,12 @@
 				6A8D223C2326DC8800A93500 /* ViewController.swift in Sources */,
 				6A8D225D2328117900A93500 /* RecycleViewController.swift in Sources */,
 				6AECE9D6233071410090A62B /* DetailCategoryCollectionViewCell.swift in Sources */,
+				6A54B74723393CF800A06F03 /* ContributionController.swift in Sources */,
 				6A8D227A2329469A00A93500 /* CloudKitController.swift in Sources */,
 				6AECE9E023331D970090A62B /* RecycleWebViewController.swift in Sources */,
 				6AECE9D22330536B0090A62B /* CategoryPhoto.swift in Sources */,
 				6A8D223A2326DC8800A93500 /* AppDelegate.swift in Sources */,
+				6AFCB6742339978100E6FBBB /* ContributionsTableViewCell.swift in Sources */,
 				6A8D225F232811D000A93500 /* FunFactsViewController.swift in Sources */,
 				6A8D22572326FF6C00A93500 /* UpdateQuantityViewController.swift in Sources */,
 				6AECE9DA2332C5390090A62B /* RecycleController.swift in Sources */,
@@ -329,6 +340,7 @@
 				6ABF8368233712A4007D1267 /* DisposeClothesTableViewCell.swift in Sources */,
 				6A8D226523282D3A00A93500 /* WelcomeViewController.swift in Sources */,
 				6A8D224E2326F11E00A93500 /* ClosetViewController.swift in Sources */,
+				6AFCB6762339989500E6FBBB /* ContributionsViewController.swift in Sources */,
 				6A63BF9B2335C6FD00A6D79B /* ClothingFact.swift in Sources */,
 				6AECE9E4233440390090A62B /* CoreLocationController.swift in Sources */,
 				6AECE9E8233456C60090A62B /* LocalDonationController.swift in Sources */,
