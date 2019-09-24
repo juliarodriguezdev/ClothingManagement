@@ -16,7 +16,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.modalPresentationStyle = .fullScreen
+        //self.modalPresentationStyle = .fullScreen
         setUpViews()
         showMainNavController()
         // Do any additional setup after loading the view.
