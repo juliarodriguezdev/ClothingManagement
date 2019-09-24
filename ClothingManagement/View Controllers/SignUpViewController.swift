@@ -22,7 +22,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.modalPresentationStyle = .overCurrentContext
+        //self.modalPresentationStyle = .overCurrentContext
         nameTextField.delegate = self
         closetNameTextField.delegate = self
 

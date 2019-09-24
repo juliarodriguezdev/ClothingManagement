@@ -11,7 +11,7 @@
         <!--Textile Facts-->
         <scene sceneID="lXd-xG-f3V">
             <objects>
-                <viewController id="MRZ-JW-Mn8" customClass="FunFactsViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="MRZ-JW-Mn8" customClass="FunFactsViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHb-us-MSg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.77259412888136247" green="1" blue="0.84826235880165157" alpha="0.74590203220858897" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.77259412888136247" green="1" blue="0.84826235880165157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="NMv-WZ-R7o" firstAttribute="centerY" secondItem="oHb-us-MSg" secondAttribute="centerY" id="1wZ-fU-Tnf"/>
