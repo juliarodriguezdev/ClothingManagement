@@ -509,9 +509,6 @@
                             <constraint firstItem="agK-rf-xZg" firstAttribute="height" secondItem="w8W-jv-AH9" secondAttribute="height" multiplier="0.85" id="hkd-vD-99B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w8W-jv-AH9"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="2tD-Vo-HVR" appends="YES" id="rC1-iB-LqP"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="6qO-6S-maI" id="mMl-2M-3Ha"/>
@@ -521,11 +518,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRP-Ga-hzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="2tD-Vo-HVR">
-                    <connections>
-                        <action selector="tapGesture:" destination="Hq5-Xq-7lJ" id="cv1-Ni-62K"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3557.971014492754" y="1155.8035714285713"/>
         </scene>

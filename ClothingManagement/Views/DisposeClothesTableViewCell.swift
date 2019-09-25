@@ -23,10 +23,8 @@ class DisposeClothesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         disposeQuantityTextField.delegate = self
         self.addDoneButtonOnKeyboard()
-
-        
     }
-
+    
     func updateViews() {
         guard let category = category  else { return }
         categoryLabel.text = category.name

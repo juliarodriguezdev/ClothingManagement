@@ -34,6 +34,8 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         tableView.delegate = self
         self.modalPresentationStyle = .overCurrentContext
         cancelButton.setTitle("No, Not now. ", for: .normal)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         if let donationPlace = donationPlace {
             placeLabel.text = "Donate to " + donationPlace.name
@@ -56,6 +58,11 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
              }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        // dismiss popup
+        dismiss(animated: true)
+    }
+    
     func checkIfDonated() -> Bool {
         if let donatedPlace = donationPlace {
             print(donatedPlace)
@@ -69,6 +76,21 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         return true
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                // 1/4th of view
+                self.view.frame.origin.y -= keyboardSize.height/2
+                    //keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryController.shared.categories.count
        }
@@ -130,22 +152,6 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    
-    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
-        dismiss(animated: true)
-    }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
