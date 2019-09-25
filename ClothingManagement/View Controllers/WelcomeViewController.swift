@@ -47,6 +47,14 @@ class WelcomeViewController: UIViewController {
             self.present(mainNavController, animated: true)
         }
     }
+    
+    func showMainNavigationController() {
+        DispatchQueue.main.async {
+            let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
+            let mainNavigationController = storyBoard.instantiateViewController(withIdentifier: "mainTabController")
+            self.present(mainNavigationController, animated: true, completion: nil)
+        }
+    }
     /*
     // MARK: - Navigation
 

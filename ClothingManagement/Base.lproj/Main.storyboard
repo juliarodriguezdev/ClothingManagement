@@ -104,13 +104,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oa-7n-Ydr">
+                                <rect key="frame" x="147" y="712" width="120" height="30"/>
+                                <state key="normal" title="Skip, Browse App"/>
+                                <connections>
+                                    <action selector="skipButtonTapped:" destination="rdf-l8-iia" eventType="touchUpInside" id="ebM-FG-bXt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Yc1-2r-AfY" firstAttribute="top" secondItem="RsN-JL-6DL" secondAttribute="bottom" constant="150" id="BSC-At-IEH"/>
                             <constraint firstItem="Yc1-2r-AfY" firstAttribute="width" secondItem="w7O-gl-HHJ" secondAttribute="width" multiplier="0.8" id="JpS-Eh-0RQ"/>
                             <constraint firstItem="RsN-JL-6DL" firstAttribute="centerY" secondItem="w7O-gl-HHJ" secondAttribute="centerY" multiplier="0.6" id="Lxm-4Q-b9v"/>
+                            <constraint firstItem="3oa-7n-Ydr" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="TKA-sa-p48"/>
                             <constraint firstItem="Yc1-2r-AfY" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="XDK-gL-h3R"/>
+                            <constraint firstItem="3oa-7n-Ydr" firstAttribute="top" secondItem="Yc1-2r-AfY" secondAttribute="bottom" constant="70" id="YDn-eZ-O7P"/>
                             <constraint firstItem="RsN-JL-6DL" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="Znm-xf-YEF"/>
                             <constraint firstItem="RsN-JL-6DL" firstAttribute="width" secondItem="w7O-gl-HHJ" secondAttribute="width" multiplier="0.8" id="u9E-bB-m8Q"/>
                         </constraints>
@@ -120,6 +129,7 @@
                         <outlet property="closetNameTextField" destination="LGO-VP-jya" id="55e-FX-2ME"/>
                         <outlet property="genderSegmentedControl" destination="dSW-YV-daN" id="QWd-N3-qch"/>
                         <outlet property="nameTextField" destination="ltz-KK-GCk" id="FOc-XR-Ggc"/>
+                        <outlet property="skipButton" destination="3oa-7n-Ydr" id="YWJ-J3-GlD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qp4-Mp-vum" userLabel="First Responder" sceneMemberID="firstResponder"/>

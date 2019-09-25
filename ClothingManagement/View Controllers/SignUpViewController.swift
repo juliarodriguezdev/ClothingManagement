@@ -17,6 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var closetNameTextField: UITextField!
     
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var skipButton: UIButton!
     
     var isMale: Bool?
     
@@ -43,6 +44,8 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func createAccountButtonTapped(_ sender: UIButton) {
+        // call no icloud account
+        checkforiCloudUserPresence()
         guard let userName = nameTextField.text, !userName.isEmpty,
             let closetName = closetNameTextField.text, !closetName.isEmpty,
             let isMale = isMale
@@ -50,28 +53,33 @@ class SignUpViewController: UIViewController {
         
         UserController.shared.createUserWith(userName: userName, closetName: closetName, isMale: isMale) { (user) in
             if user != nil {
-                self.presentWelcomeView()
+                DispatchQueue.main.async {
+                    self.presentWelcomeView()
+                }
             }
         }
     }
     
-    func presentWelcomeView() {
-        DispatchQueue.main.async {
-            let storyBoard = UIStoryboard(name: "Main", bundle: .main)
-            let viewController = storyBoard.instantiateViewController(withIdentifier: "WelcomeViewController")
-            self.present(viewController, animated: true)
-        }
+    @IBAction func skipButtonTapped(_ sender: UIButton) {
+        // send to main closet
+        showMainNavController()
     }
     
-    
-    func showMainNavigationController() {
-        DispatchQueue.main.async {
+    func showMainNavController() {
             let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
-            let mainNavigationController = storyBoard.instantiateViewController(withIdentifier: "mainTabController")
-            self.present(mainNavigationController, animated: true, completion: nil)
-        }
-    }
+            let mainNavController = storyBoard.instantiateViewController(withIdentifier: "mainTabController")
+               // TODO: set closet object
+               
+            self.present(mainNavController, animated: true)
+       }
     
+    func presentWelcomeView() {
+            let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+            guard let viewController = storyBoard.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController else { return }
+            viewController.user = UserController.shared.currentUser
+            self.present(viewController, animated: true)
+    }
+
     func checkforiCloudUserPresence() {
         CKContainer.default().accountStatus { (status, error) in
             if let error = error {
