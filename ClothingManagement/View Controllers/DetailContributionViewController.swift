@@ -11,6 +11,8 @@ import UIKit
 class DetailContributionViewController: UIViewController {
     
     var contribution: Contribution?
+    
+    var isCamera = false
         
     @IBOutlet weak var placeLabel: UILabel!
     
@@ -26,26 +28,50 @@ class DetailContributionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    func rotateImageToPortrait(image: UIImageView) {
+        image.transform = CGAffineTransform(rotationAngle: .pi/2)
+    }
     
     func updateViews() {
         
-        guard let contribution = contribution else { return }
-        placeLabel.text = "For: " + contribution.place
+        guard let contribution = contribution else {
+            placeLabel.text = "For Clothing Donation at: Store Name"
+            receiptImageView.image = UIImage(named: "receiptDefault")
+            return
+            
+        }
+        if contribution.isDonation == true {
+            placeLabel.text = "For Clothing Donation at: " + contribution.place
+        } else {
+            placeLabel.text = "For Clothing Recyling at: " + contribution.place
+
+        }
+        
         receiptImageView.image = contribution.receiptImage
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-        // show photo libray / camera to import receipt
-        presentImagePickerActionSheet()
+        if contribution != nil {
+            // show photo libray / camera to import receipt
+            presentImagePickerActionSheet()
+        } else {
+            showSignUpViewController()
+            return 
+        }
+        
     }
     
     
     @IBAction func saveReceiptButtonTapped(_ sender: UIButton) {
         
-        guard let contribution = contribution else { return }
-        let newImage = receiptImageView.image
-        contribution.receiptImage = newImage
+        guard let contribution = contribution else {
+            showSignUpViewController()
+            return
+        }
+        let uploadedImage = receiptImageView.image
+        contribution.receiptImage = uploadedImage
+        //let filteredImage = convertToGrayScale(image: uploadedImage)
+        //contribution.receiptImage = filteredImage
         
         ContributionController.shared.updateContribution(contribution: contribution) { (success) in
                        if success {
@@ -57,8 +83,43 @@ class DetailContributionViewController: UIViewController {
         
        dismiss(animated: true)
     }
+    
     @IBAction func skipButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
+        //let viewController = ContributionsViewController()
+        //navigationController?.popToViewController(viewController, animated: true)
+    }
+    
+    func showSignUpViewController() {
+        // present sign up View Controller
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        guard let signUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController else { return }
+        self.present(signUpViewController, animated: true)
+    }
+    
+    func convertToGrayScale(image: UIImage) -> UIImage {
+
+        // Create image rectangle with current image width/height
+        let imageRect:CGRect = CGRect(x:0, y:0, width:image.size.width, height: image.size.height)
+
+        // Grayscale color space
+        let colorSpace = CGColorSpaceCreateDeviceGray()
+        let width = image.size.width
+        let height = image.size.height
+
+        // Create bitmap content with current image size and grayscale colorspace
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
+
+        // Draw image into current context, with specified rectangle
+        // using previously defined context (with grayscale colorspace)
+        let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+        context?.draw(image.cgImage!, in: imageRect)
+        let imageRef = context!.makeImage()
+
+        // Create a new UIImage object
+        let newImage = UIImage(cgImage: imageRef!)
+
+        return newImage
     }
     
 
@@ -79,7 +140,7 @@ extension DetailContributionViewController: UIImagePickerControllerDelegate, UIN
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (_) in
                 
-                
+                self.isCamera = false
                 imagePickerController.sourceType = .photoLibrary
                 imagePickerController.allowsEditing = true
                 self.present(imagePickerController, animated: true, completion: nil)
@@ -88,7 +149,9 @@ extension DetailContributionViewController: UIImagePickerControllerDelegate, UIN
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 imagePickerController.sourceType = .camera
-                imagePickerController.allowsEditing = true
+                //adds smaller rectangle
+                //imagePickerController.allowsEditing = true
+                self.isCamera = true
                 imagePickerController.showsCameraControls = true
                 self.present(imagePickerController, animated: true, completion: nil)
             } else {
@@ -105,12 +168,14 @@ extension DetailContributionViewController: UIImagePickerControllerDelegate, UIN
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(actionSheet, animated: true)
     }
-
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.receiptImageView.image = image
+            
+            let blackWhiteImage = convertToGrayScale(image: image)
+            self.receiptImageView.image = blackWhiteImage
+            if isCamera { rotateImageToPortrait(image: receiptImageView) }
         }
         
         picker.dismiss(animated: true, completion: nil)
@@ -122,3 +187,4 @@ extension DetailContributionViewController: UIImagePickerControllerDelegate, UIN
         }
     
 }
+

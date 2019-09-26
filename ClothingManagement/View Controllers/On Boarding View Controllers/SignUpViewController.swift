@@ -17,6 +17,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var closetNameTextField: UITextField!
     
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var skipLabel: UILabel!
+    
+    @IBOutlet weak var skipButton: UIButton!
     
     var isMale: Bool?
     
@@ -25,6 +28,7 @@ class SignUpViewController: UIViewController {
         //self.modalPresentationStyle = .overCurrentContext
         nameTextField.delegate = self
         closetNameTextField.delegate = self
+        skipLabel.alpha = 0
 
         // Do any additional setup after loading the view.
     }
@@ -43,35 +47,75 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func createAccountButtonTapped(_ sender: UIButton) {
+        // call no icloud account
+        checkforiCloudUserPresence()
         guard let userName = nameTextField.text, !userName.isEmpty,
             let closetName = closetNameTextField.text, !closetName.isEmpty,
             let isMale = isMale
-            else { return }
+            else {
+                // Add alert sheet to show something is missing 
+                self.presentCreateAccountInfoMissing()
+                return
+                
+        }
         
         UserController.shared.createUserWith(userName: userName, closetName: closetName, isMale: isMale) { (user) in
             if user != nil {
-                self.presentWelcomeView()
+                DispatchQueue.main.async {
+                    self.presentWelcomeView()
+                }
             }
         }
     }
     
-    func presentWelcomeView() {
-        DispatchQueue.main.async {
-            let storyBoard = UIStoryboard(name: "Main", bundle: .main)
-            let viewController = storyBoard.instantiateViewController(withIdentifier: "WelcomeViewController")
-            self.present(viewController, animated: true)
-        }
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        nameTextField.resignFirstResponder()
+        closetNameTextField.resignFirstResponder()
     }
     
+    func presentCreateAccountInfoMissing() {
+        let attributedString = NSAttributedString(string: "Information Missing", attributes: [
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17), //your font here
+            NSAttributedString.Key.foregroundColor : UIColor.red,
+        ])
+        
+        let alertController = UIAlertController(title: "", message: "Please enter all fields, \n to continue to create an account.", preferredStyle: .alert)
+        alertController.setValue(attributedString, forKey: "attributedTitle")
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        okAction.setValue(UIColor.blue, forKey: "titleTextColor")
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true)
+    }
+    @IBAction func skipButtonTapped(_ sender: UIButton) {
+        // send to main closet
+        skipLabel.alpha = 1
+        
+        UIView.animate(withDuration: 0, delay: 3, options: .curveEaseIn, animations: {
+            self.skipLabel.alpha = 0
+        }) { (completion) in
+            if completion {
+                self.showMainNavController()
+            }
+        }
+
+    }
     
-    func showMainNavigationController() {
-        DispatchQueue.main.async {
+    func showMainNavController() {
             let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
-            let mainNavigationController = storyBoard.instantiateViewController(withIdentifier: "mainTabController")
-            self.present(mainNavigationController, animated: true, completion: nil)
-        }
-    }
+            let mainNavController = storyBoard.instantiateViewController(withIdentifier: "mainTabController")
+               // TODO: set closet object
+               
+            self.present(mainNavController, animated: true)
+       }
     
+    func presentWelcomeView() {
+            let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+            guard let viewController = storyBoard.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController else { return }
+            viewController.user = UserController.shared.currentUser
+            self.present(viewController, animated: true)
+    }
+
     func checkforiCloudUserPresence() {
         CKContainer.default().accountStatus { (status, error) in
             if let error = error {
@@ -110,4 +154,6 @@ extension SignUpViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    
 }

@@ -46,23 +46,40 @@ class ContributionsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ContributionController.shared.contributions.count
+        let contributions = ContributionController.shared.contributions.count
+        return contributions == 0 ? 1 : contributions
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "contributionCell", for: indexPath) as? ContributionsTableViewCell else { return UITableViewCell() }
         
+        if ContributionController.shared.contributions.count == 0 {
+            cell.placeLabel.text = "Store Name / Organization"
+            cell.typeLabel.text = "Type: Donation"
+            cell.quantityLabel.text = "0 items donated"
+            cell.timestampLabel.text = "Today at 12:00pm"
+            cell.receiptLabel.text = "Receipt on file: Yes"
+            cell.imageIcon.image = UIImage(named: "donate")
+            return cell
+        } else {
+            
         let contribution = ContributionController.shared.contributions[indexPath.row]
         cell.contribution = contribution
         cell.updateViews()
         
         return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let destinationVC = UIStoryboard(name: "TabMain", bundle: nil).instantiateViewController(withIdentifier: "DetailContributionViewController") as? DetailContributionViewController else { return }
-        destinationVC.contribution = ContributionController.shared.contributions[indexPath.row]
-        present(destinationVC, animated: true)
+        if ContributionController.shared.contributions.count == 0 {
+            present(destinationVC, animated: true)
+        } else {
+            destinationVC.contribution = ContributionController.shared.contributions[indexPath.row]
+            present(destinationVC, animated: true)
+        }
+        
     }
     
     // MARK: - Navigation

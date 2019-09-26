@@ -11,16 +11,11 @@ import UIKit
 class RecycleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var recycleIntroLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        tableView.delegate = self 
-        recycleIntroLabel.text = """
-        Textile Recycling:
-        is the method of reusing or reprocessing used clothes, fibrous material and clothing scraps to be converted to other materials or uses.
-        """
+        tableView.delegate = self
         
         let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTap(gestureRecognizer:)))
         doubleTapGestureRecognizer.numberOfTapsRequired = 2
@@ -28,10 +23,6 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         doubleTapGestureRecognizer.delegate = self
         self.tableView.addGestureRecognizer(doubleTapGestureRecognizer)
        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -50,7 +41,7 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect.zero)
         let headerlabel = UILabel(frame: CGRect(x: 12, y: 0, width: tableView.frame.size.width, height: 30))
-        view.backgroundColor = .magenta
+        view.backgroundColor = .lightGray
         headerlabel.textColor = .black
         headerlabel.textAlignment = .left
         view.addSubview(headerlabel)

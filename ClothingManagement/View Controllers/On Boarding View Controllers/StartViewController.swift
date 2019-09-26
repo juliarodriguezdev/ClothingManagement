@@ -20,12 +20,13 @@ class StartViewController: UIViewController {
         indicator.startAnimating()
         UserController.shared.fetchUser { (success) in
             if success == true {
-                guard let fetchedUser = UserController.shared.currentUser else { return }
+                // send to closet view controller
                 DispatchQueue.main.async {
-                    self.showMainNavController()
+                    self.showClosetViewController()
                     self.indicator.stopAnimating()
                 }
             } else {
+                // send to sign up
                 DispatchQueue.main.async {
                     self.showSignUpViewController()
                     self.indicator.stopAnimating()
@@ -33,25 +34,15 @@ class StartViewController: UIViewController {
             }
         }
     }
-    func showMainNavController() {
-            let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
-            let mainNavController = storyBoard.instantiateViewController(withIdentifier: "mainTabController")
-            // TODO: set closet object
-            //self.navigationController?.pushViewController(mainClosetController, animated: true)
-            self.present(mainNavController, animated: true)
+    func showClosetViewController() {
+        let storyBoard = UIStoryboard(name: "TabMain", bundle: nil)
+        guard let mainClosetViewController = storyBoard.instantiateViewController(withIdentifier: "ClosetViewController") as? ClosetViewController else { return }
+            // set closet object
+            mainClosetViewController.user = UserController.shared.currentUser
+            self.present(mainClosetViewController, animated: true)
     }
     
-    func showWelcomeController() {
-        // which story board will be used
-        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
-        // instatiate the destination VC, that will appear
-        guard let welcomeViewController = storyBoard.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController else { return }
-        
-        // give object to destination view controller
-        // display
-        self.present(welcomeViewController, animated: true)
-    }
-    
+  
     func showSignUpViewController() {
         // present sign up View Controller
         let storyBoard = UIStoryboard(name: "Main", bundle: .main)

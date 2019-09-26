@@ -34,12 +34,14 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         tableView.delegate = self
         self.modalPresentationStyle = .overCurrentContext
         cancelButton.setTitle("No, Not now. ", for: .normal)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         if let donationPlace = donationPlace {
-            placeLabel.text = "Donate to " + donationPlace.name
+            placeLabel.text = "Donate at " + donationPlace.name
             disposeButton.setTitle("Donate Here", for: .normal)
         } else if let recyclePlace = recyclePlace {
-            placeLabel.text = "Recycle to " + recyclePlace.storeName
+            placeLabel.text = "Recycle at " + recyclePlace.storeName
             disposeButton.setTitle("Recycle Here", for: .normal)
         }
         
@@ -56,6 +58,11 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
              }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        // dismiss popup
+        dismiss(animated: true)
+    }
+    
     func checkIfDonated() -> Bool {
         if let donatedPlace = donationPlace {
             print(donatedPlace)
@@ -69,13 +76,35 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         return true
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                // 1/4th of view
+                self.view.frame.origin.y -= keyboardSize.height/2
+                    //keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryController.shared.categories.count
+        let categories = CategoryController.shared.categories.count
+        return categories == 0 ? 1 : categories
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            // "disposeCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "disposeCell", for: indexPath) as? DisposeClothesTableViewCell else { return UITableViewCell() }
+        if CategoryController.shared.categories.count == 0 {
+            cell.categoryLabel.text = "Closet Category"
+            cell.quantityLabel.text = "Contains: 0 items"
+            return cell
+        } else {
+            
         let singleCategory = CategoryController.shared.categories[indexPath.row]
         cell.category = singleCategory
         cell.updateViews()
@@ -83,6 +112,7 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         //cell.confirmDisposeButtonTapped(for: self)
         
         return cell
+    }
        }
     
     @IBAction func disposeButtonTapped(_ sender: Any) {
@@ -100,7 +130,11 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
                 print(customCell)
             }
         }
-        guard let user = UserController.shared.currentUser else { return }
+        guard let user = UserController.shared.currentUser else {
+            showSignUpViewController()
+            return
+            
+        }
         
         let isDonated = self.checkIfDonated()
         
@@ -131,21 +165,12 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         dismiss(animated: true)
     }
     
-    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
-        dismiss(animated: true)
+    func showSignUpViewController() {
+        // present sign up View Controller
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        guard let signUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController else { return }
+        self.present(signUpViewController, animated: true)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

@@ -17,44 +17,38 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.modalPresentationStyle = .fullScreen
+        welcomeLabel.alpha = 0
         setUpViews()
-        showMainNavController()
+        showClosetViewController()
         // Do any additional setup after loading the view.
     }
     
 
     @IBAction func beginButtonTapped(_ sender: UIButton) {
-        showMainNavController()
+        showClosetViewController()
     }
     
     func setUpViews() {
         guard let user = user else { return }
-        
-        UIView.animate(withDuration: 9) {
-            self.welcomeLabel.text = """
-            Welcome back \(String(describing: user.name)) let's start
-            managing \(String(describing: user.closetName)) Closet
-            """
+        welcomeLabel.alpha = 1
+        UIView.animate(withDuration: 10) {
+            self.welcomeLabel.text = "Welcome \(user.name),\n let's start managing \(user.closetName)) Closet"
         }
     }
     
     func showMainNavController() {
-        DispatchQueue.main.async {
             let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
             let mainNavController = storyBoard.instantiateViewController(withIdentifier: "mainTabController")
-            // TODO: set closet object
-            //self.navigationController?.pushViewController(mainClosetController, animated: true)
+            // Tset closet object
             self.present(mainNavController, animated: true)
-        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func showClosetViewController() {
+        let storyBoard = UIStoryboard(name: "TabMain", bundle: nil)
+        guard let mainClosetViewController = storyBoard.instantiateViewController(withIdentifier: "ClosetViewController") as? ClosetViewController else { return }
+            // set closet object
+            mainClosetViewController.user = UserController.shared.currentUser
+            self.present(mainClosetViewController, animated: true)
     }
-    */
-
+    
 }

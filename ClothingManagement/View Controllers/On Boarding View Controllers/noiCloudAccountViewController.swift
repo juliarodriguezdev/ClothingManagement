@@ -22,6 +22,7 @@ class noiCloudAccountViewController: UIViewController {
     }
     
     @IBAction func refresh(_ sender: UIButton) {
+        refreshForiCloudUser()
     }
     
     func refreshForiCloudUser() {
