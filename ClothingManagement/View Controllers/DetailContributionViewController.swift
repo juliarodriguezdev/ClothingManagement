@@ -34,7 +34,12 @@ class DetailContributionViewController: UIViewController {
     
     func updateViews() {
         
-        guard let contribution = contribution else { return }
+        guard let contribution = contribution else {
+            placeLabel.text = "For Clothing Donation at: Store Name"
+            receiptImageView.image = UIImage(named: "receiptDefault")
+            return
+            
+        }
         if contribution.isDonation == true {
             placeLabel.text = "For Clothing Donation at: " + contribution.place
         } else {
@@ -46,14 +51,23 @@ class DetailContributionViewController: UIViewController {
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-        // show photo libray / camera to import receipt
-        presentImagePickerActionSheet()
+        if contribution != nil {
+            // show photo libray / camera to import receipt
+            presentImagePickerActionSheet()
+        } else {
+            showSignUpViewController()
+            return 
+        }
+        
     }
     
     
     @IBAction func saveReceiptButtonTapped(_ sender: UIButton) {
         
-        guard let contribution = contribution else { return }
+        guard let contribution = contribution else {
+            showSignUpViewController()
+            return
+        }
         let uploadedImage = receiptImageView.image
         contribution.receiptImage = uploadedImage
         //let filteredImage = convertToGrayScale(image: uploadedImage)
@@ -69,8 +83,18 @@ class DetailContributionViewController: UIViewController {
         
        dismiss(animated: true)
     }
+    
     @IBAction func skipButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
+        //let viewController = ContributionsViewController()
+        //navigationController?.popToViewController(viewController, animated: true)
+    }
+    
+    func showSignUpViewController() {
+        // present sign up View Controller
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        guard let signUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController else { return }
+        self.present(signUpViewController, animated: true)
     }
     
     func convertToGrayScale(image: UIImage) -> UIImage {

@@ -38,10 +38,10 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         if let donationPlace = donationPlace {
-            placeLabel.text = "Donate to " + donationPlace.name
+            placeLabel.text = "Donate at " + donationPlace.name
             disposeButton.setTitle("Donate Here", for: .normal)
         } else if let recyclePlace = recyclePlace {
-            placeLabel.text = "Recycle to " + recyclePlace.storeName
+            placeLabel.text = "Recycle at " + recyclePlace.storeName
             disposeButton.setTitle("Recycle Here", for: .normal)
         }
         
@@ -92,12 +92,19 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryController.shared.categories.count
+        let categories = CategoryController.shared.categories.count
+        return categories == 0 ? 1 : categories
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            // "disposeCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "disposeCell", for: indexPath) as? DisposeClothesTableViewCell else { return UITableViewCell() }
+        if CategoryController.shared.categories.count == 0 {
+            cell.categoryLabel.text = "Closet Category"
+            cell.quantityLabel.text = "Contains: 0 items"
+            return cell
+        } else {
+            
         let singleCategory = CategoryController.shared.categories[indexPath.row]
         cell.category = singleCategory
         cell.updateViews()
@@ -105,6 +112,7 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         //cell.confirmDisposeButtonTapped(for: self)
         
         return cell
+    }
        }
     
     @IBAction func disposeButtonTapped(_ sender: Any) {
@@ -122,7 +130,11 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
                 print(customCell)
             }
         }
-        guard let user = UserController.shared.currentUser else { return }
+        guard let user = UserController.shared.currentUser else {
+            showSignUpViewController()
+            return
+            
+        }
         
         let isDonated = self.checkIfDonated()
         
@@ -151,6 +163,13 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
+    }
+    
+    func showSignUpViewController() {
+        // present sign up View Controller
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        guard let signUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController else { return }
+        self.present(signUpViewController, animated: true)
     }
 
 }

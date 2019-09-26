@@ -124,6 +124,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A7C0F4E233D12710020B99D /* On Boarding View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6A7C0F48233AB4E80020B99D /* StartViewController.swift */,
+				6A8D226223282D2C00A93500 /* SignUpViewController.swift */,
+				6A8D226423282D3A00A93500 /* WelcomeViewController.swift */,
+				6A7C0F4A233AC2010020B99D /* noiCloudAccountViewController.swift */,
+			);
+			path = "On Boarding View Controllers";
+			sourceTree = "<group>";
+		};
 		6A8D222D2326DC8800A93500 = {
 			isa = PBXGroup;
 			children = (
@@ -170,14 +181,11 @@
 				6A8D225C2328117900A93500 /* RecycleViewController.swift */,
 				6A8D225E232811D000A93500 /* FunFactsViewController.swift */,
 				6A8D22602328120D00A93500 /* DonateViewController.swift */,
-				6A8D226223282D2C00A93500 /* SignUpViewController.swift */,
-				6A8D226423282D3A00A93500 /* WelcomeViewController.swift */,
+				6A7C0F4E233D12710020B99D /* On Boarding View Controllers */,
 				6AECE9DF23331D970090A62B /* RecycleWebViewController.swift */,
 				6ABF836523371278007D1267 /* DisposeClothesViewController.swift */,
 				6AFCB6752339989500E6FBBB /* ContributionsViewController.swift */,
 				6A7C0F46233A84F60020B99D /* DetailContributionViewController.swift */,
-				6A7C0F48233AB4E80020B99D /* StartViewController.swift */,
-				6A7C0F4A233AC2010020B99D /* noiCloudAccountViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";

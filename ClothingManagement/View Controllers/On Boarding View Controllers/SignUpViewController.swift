@@ -17,6 +17,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var closetNameTextField: UITextField!
     
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var skipLabel: UILabel!
+    
     @IBOutlet weak var skipButton: UIButton!
     
     var isMale: Bool?
@@ -26,6 +28,7 @@ class SignUpViewController: UIViewController {
         //self.modalPresentationStyle = .overCurrentContext
         nameTextField.delegate = self
         closetNameTextField.delegate = self
+        skipLabel.alpha = 0
 
         // Do any additional setup after loading the view.
     }
@@ -49,7 +52,12 @@ class SignUpViewController: UIViewController {
         guard let userName = nameTextField.text, !userName.isEmpty,
             let closetName = closetNameTextField.text, !closetName.isEmpty,
             let isMale = isMale
-            else { return }
+            else {
+                // Add alert sheet to show something is missing 
+                self.presentCreateAccountInfoMissing()
+                return
+                
+        }
         
         UserController.shared.createUserWith(userName: userName, closetName: closetName, isMale: isMale) { (user) in
             if user != nil {
@@ -60,9 +68,37 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        nameTextField.resignFirstResponder()
+        closetNameTextField.resignFirstResponder()
+    }
+    
+    func presentCreateAccountInfoMissing() {
+        let attributedString = NSAttributedString(string: "Information Missing", attributes: [
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17), //your font here
+            NSAttributedString.Key.foregroundColor : UIColor.red,
+        ])
+        
+        let alertController = UIAlertController(title: "", message: "Please enter all fields, \n to continue to create an account.", preferredStyle: .alert)
+        alertController.setValue(attributedString, forKey: "attributedTitle")
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        okAction.setValue(UIColor.blue, forKey: "titleTextColor")
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true)
+    }
     @IBAction func skipButtonTapped(_ sender: UIButton) {
         // send to main closet
-        showMainNavController()
+        skipLabel.alpha = 1
+        
+        UIView.animate(withDuration: 0, delay: 3, options: .curveEaseIn, animations: {
+            self.skipLabel.alpha = 0
+        }) { (completion) in
+            if completion {
+                self.showMainNavController()
+            }
+        }
+
     }
     
     func showMainNavController() {
@@ -118,4 +154,6 @@ extension SignUpViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    
 }

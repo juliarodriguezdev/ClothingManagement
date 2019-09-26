@@ -14,8 +14,6 @@ class RecycleController {
     
     let user = UserController.shared.currentUser
     
-
-    
         let hAndM = Recycle(storeName: "H&M", initiative: "Garment Collection Program", webURL: "https://www2.hm.com/en_gb/ladies/shop-by-feature/16r-garment-collecting.html", category: .clothes)
     
         let theNorthFace = Recycle(storeName: "The North Face", initiative: "Clothes The Loop", webURL: "https://www.thenorthface.com/about-us/responsibility/product/clothes-the-loop.html", category: .clothes)
@@ -57,9 +55,13 @@ class RecycleController {
 )
     
     func loadContent() -> [[Recycle]] {
-        guard let user = user else { return [] }
+        guard let user = user else {
+            
+            // clothes, denim, clothes & shoes, shoes, career, bras, wedding gowns, prom dresses, default
+            
+            return [[hAndM, theNorthFace, eileenFisher, zara, oneWarmCoat], [levis, madeWell, cotton], [americanEagle, zappos], [nike, soles4Souls, dsw], [dressForSuccess, careerGear, acdn, jailsToJob], [braRecyclers, soma], [angelGown, bridesAcrossAmmerica], [beccasCloset]] }
         if user.isMale == true {
-            return [[levis, madeWell, cotton, oneWarmCoat], [hAndM, theNorthFace], [americanEagle, zappos], [nike, soles4Souls, dsw], [dressForSuccess, careerGear, acdn, jailsToJob]]
+            return [[hAndM, theNorthFace], [levis, madeWell, cotton, oneWarmCoat], [americanEagle, zappos], [nike, soles4Souls, dsw], [dressForSuccess, careerGear, acdn, jailsToJob]]
         } else {
             return [[hAndM, theNorthFace, oneWarmCoat, eileenFisher, zara], [levis, madeWell, cotton], [americanEagle, zappos], [nike, soles4Souls, dsw], [dressForSuccess, careerGear, acdn], [braRecyclers, soma], [angelGown, bridesAcrossAmmerica], [beccasCloset]]
         }

@@ -21,9 +21,8 @@ class StartViewController: UIViewController {
         UserController.shared.fetchUser { (success) in
             if success == true {
                 // send to closet view controller
-                guard let fetchedUser = UserController.shared.currentUser else { return }
                 DispatchQueue.main.async {
-                    self.showMainNavController()
+                    self.showClosetViewController()
                     self.indicator.stopAnimating()
                 }
             } else {
@@ -35,12 +34,12 @@ class StartViewController: UIViewController {
             }
         }
     }
-    func showMainNavController() {
-            let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
-            let mainNavController = storyBoard.instantiateViewController(withIdentifier: "mainTabController")
-            // TODO: set closet object
-            
-            self.present(mainNavController, animated: true)
+    func showClosetViewController() {
+        let storyBoard = UIStoryboard(name: "TabMain", bundle: nil)
+        guard let mainClosetViewController = storyBoard.instantiateViewController(withIdentifier: "ClosetViewController") as? ClosetViewController else { return }
+            // set closet object
+            mainClosetViewController.user = UserController.shared.currentUser
+            self.present(mainClosetViewController, animated: true)
     }
     
   

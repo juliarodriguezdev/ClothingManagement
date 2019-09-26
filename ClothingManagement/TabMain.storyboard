@@ -87,32 +87,32 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ooB-M0-vpG">
                                                     <rect key="frame" x="20" y="19" width="243" height="102"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQ9-jT-xgr" userLabel="place">
-                                                            <rect key="frame" x="0.0" y="0.0" width="243" height="20"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQ9-jT-xgr" userLabel="place">
+                                                            <rect key="frame" x="0.0" y="0.0" width="243" height="18.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdE-m2-XdH" userLabel="type">
-                                                            <rect key="frame" x="0.0" y="22" width="243" height="18.5"/>
+                                                            <rect key="frame" x="0.0" y="20.5" width="243" height="19"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPe-cN-a5c" userLabel="quantity">
-                                                            <rect key="frame" x="0.0" y="42.5" width="243" height="18.5"/>
+                                                            <rect key="frame" x="0.0" y="41.5" width="243" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5Z-qM-Il8" userLabel="date">
-                                                            <rect key="frame" x="0.0" y="63" width="243" height="19"/>
+                                                            <rect key="frame" x="0.0" y="62" width="243" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXH-lb-pV4" userLabel="receipt ">
-                                                            <rect key="frame" x="0.0" y="84" width="243" height="18"/>
+                                                            <rect key="frame" x="0.0" y="83.5" width="243" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -231,7 +231,6 @@
                                 </constraints>
                                 <state key="normal" title="Skip"/>
                                 <connections>
-                                    <action selector="saveReceiptButtonTapped:" destination="SA5-Vg-w3P" eventType="touchUpInside" id="gPz-Yg-dvq"/>
                                     <action selector="skipButtonTapped:" destination="SA5-Vg-w3P" eventType="touchUpInside" id="foR-9a-Aaj"/>
                                 </connections>
                             </button>
@@ -521,7 +520,7 @@
             </objects>
             <point key="canvasLocation" x="3557.971014492754" y="1155.8035714285713"/>
         </scene>
-        <!--Recycle View Controller-->
+        <!--Recycling Stores & Organizations-->
         <scene sceneID="1Db-I3-90L">
             <objects>
                 <viewController id="8SP-49-ka5" customClass="RecycleViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
@@ -530,7 +529,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vI6-Nt-ixL">
-                                <rect key="frame" x="0.0" y="197.5" width="414" height="615.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recycleCell" rowHeight="100" id="Cnq-vX-YpI" customClass="RecycleTableViewCell" customModule="ClothingManagement" customModuleProvider="target">
@@ -582,30 +581,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pt-z5-XnM" userLabel="recycleLabel">
-                                <rect key="frame" x="8" y="96" width="398" height="101.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vI6-Nt-ixL" firstAttribute="leading" secondItem="SpS-oH-ZtS" secondAttribute="leading" id="1mc-xI-e4s"/>
-                            <constraint firstItem="7pt-z5-XnM" firstAttribute="height" secondItem="SpS-oH-ZtS" secondAttribute="height" multiplier="0.14" id="2O1-VB-6Dd"/>
-                            <constraint firstItem="7pt-z5-XnM" firstAttribute="leading" secondItem="SpS-oH-ZtS" secondAttribute="leading" constant="8" id="4On-M9-RA5"/>
                             <constraint firstItem="SpS-oH-ZtS" firstAttribute="trailing" secondItem="vI6-Nt-ixL" secondAttribute="trailing" id="BaL-DM-ewC"/>
-                            <constraint firstItem="7pt-z5-XnM" firstAttribute="top" secondItem="SpS-oH-ZtS" secondAttribute="top" constant="8" id="KST-dR-vXg"/>
-                            <constraint firstItem="SpS-oH-ZtS" firstAttribute="trailing" secondItem="7pt-z5-XnM" secondAttribute="trailing" constant="8" id="mUd-H5-cYJ"/>
                             <constraint firstItem="SpS-oH-ZtS" firstAttribute="bottom" secondItem="vI6-Nt-ixL" secondAttribute="bottom" id="pfa-G0-mlB"/>
-                            <constraint firstItem="vI6-Nt-ixL" firstAttribute="top" secondItem="7pt-z5-XnM" secondAttribute="bottom" id="wri-uJ-5V3"/>
+                            <constraint firstItem="vI6-Nt-ixL" firstAttribute="top" secondItem="SpS-oH-ZtS" secondAttribute="top" id="yeu-5w-fzI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SpS-oH-ZtS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="oKs-6j-yPV"/>
+                    <navigationItem key="navigationItem" title="Recycling Stores &amp; Organizations" id="oKs-6j-yPV"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="recycleIntroLabel" destination="7pt-z5-XnM" id="crs-yf-ULb"/>
                         <outlet property="tableView" destination="vI6-Nt-ixL" id="4Nb-rJ-wiP"/>
                     </connections>
                 </viewController>
@@ -659,13 +647,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2Af-mW-GAo">
                                 <rect key="frame" x="0.0" y="104" width="414" height="58"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="\(Closet Name) Closet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-Lg-GdO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-Lg-GdO">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains ### Items " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-0U-oLC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains 0 items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-0U-oLC">
                                         <rect key="frame" x="0.0" y="29" width="414" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>

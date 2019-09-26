@@ -10,10 +10,12 @@ import UIKit
 
 class ClosetViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var closetNameLabel: UILabel!
     @IBOutlet weak var quantityOfClosetLabel: UILabel!
+    // landing pad from other views 
+    var user: User?
     
     var quantity: Int?
     
@@ -30,11 +32,10 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         self.collectionView.addGestureRecognizer(longPressGestureRecognizer)
         
         // call fetch function of categories
-        guard let user = UserController.shared.currentUser else { return }
+        guard let user = user else { return }
         CategoryController.shared.fetchCategories(user: user) { (category) in
             if let fetchedCategory = category {
                 DispatchQueue.main.async {
-                    self.collectionView.reloadData()
                     self.updateViews()
                 }
             }
@@ -50,44 +51,63 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
     func updateViews() {
         guard let title = UserController.shared.currentUser?.closetName else { return }
         quantity = CategoryController.shared.calculateNumOfItemsInCloset(categories: CategoryController.shared.categories)
-
-        DispatchQueue.main.async {
-            self.navigationItem.title = "\(title) Closet"
-            self.navigationItem.largeTitleDisplayMode = .always
-            self.collectionView.reloadData()
-            self.closetNameLabel.isHidden = true
-            //quantityOfClosetLabel.text = "\(clothing.count)"
-            self.quantityOfClosetLabel.text = "Contains \(self.quantity!) items in Closet"
-
-        }
-     
+        self.navigationItem.title = "\(title) Closet"
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.collectionView.reloadData()
+        self.closetNameLabel.isHidden = true
+        //quantityOfClosetLabel.text = "\(clothing.count)"
+        self.quantityOfClosetLabel.text = "Contains \(self.quantity!) items in Closet"
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CategoryController.shared.categories.count
+        let categoryCount = CategoryController.shared.categories.count
+        
+        return categoryCount == 0 ? 1 : categoryCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "clothingItem", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell()}
-        // identify which index path the user selected
-        let category = CategoryController.shared.categories[indexPath.item]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "clothingItem", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.categoryLabel.text = category.name
-        cell.quantityLabel.text = "\(category.quantity)"
-        // set object at landing pad
-        cell.category = category
-        // call update views section at CustomCell
-        cell.updateViews()
-        
-        // assign the custom cell as the delegate to execut protocol
-        cell.cellDelegate = self
-        return cell
+        if CategoryController.shared.categories.count == 0 {
+            
+            cell.categoryLabel.text = "Category"
+            cell.quantityLabel.text = "0"
+            cell.iconImage.image = UIImage(named: "hangerDefault")
+            return cell
+            
+        } else {
+            // identify which index path the user selected
+            let category = CategoryController.shared.categories[indexPath.item]
+            
+            cell.categoryLabel.text = category.name
+            cell.quantityLabel.text = "\(category.quantity)"
+            // set object at landing pad
+            cell.category = category
+            // call update views section at CustomCell
+            cell.updateViews()
+            
+            // assign the custom cell as the delegate to execut protocol
+            cell.cellDelegate = self
+            return cell
+        }
     }
-      
+    
     @IBAction func addCategoryTapped(_ sender: UIBarButtonItem) {
-        presentAddCategory(title: "Category", message: "Add Category to Closet")
+        if user != nil {
+           presentAddCategory(title: "Category", message: "Add Category to Closet")
+        } else {
+            showSignUpViewController()
+        }
+        
     }
+    
+    func showSignUpViewController() {
+           // present sign up View Controller
+           let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+           guard let signUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController else { return }
+           self.present(signUpViewController, animated: true)
+       }
     
     func presentAddCategory(title: String, message: String) {
         
@@ -144,24 +164,24 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         presentHelperToDeleteCells(title: "Delete Clothing Category", message: "Press and hold and individual Clothing Category, and confirm deletion")
     }
     
-     //MARK: - Navigation
-
+    //MARK: - Navigation
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-            if segue.identifier == "toDetailVC" {
-                // identify indexpath user selected
-                if let destinationVC = segue.destination as? DetailCategoryViewController {
-                    // identify cell user selected
-                    if let cell = sender as? CategoryCollectionViewCell {
-                        if let indexPath = collectionView.indexPath(for: cell) {
-                            let category = CategoryController.shared.categories[indexPath.item]
-                            destinationVC.category = category
-                            
-                        }
+        if segue.identifier == "toDetailVC" {
+            // identify indexpath user selected
+            if let destinationVC = segue.destination as? DetailCategoryViewController {
+                // identify cell user selected
+                if let cell = sender as? CategoryCollectionViewCell {
+                    if let indexPath = collectionView.indexPath(for: cell) {
+                        let category = CategoryController.shared.categories[indexPath.item]
+                        destinationVC.category = category
+                        
                     }
                 }
             }
+        }
     }
 }
 
@@ -183,25 +203,25 @@ extension ClosetViewController: QuantityButtonDelegate {
         // display
         navigationController?.pushViewController(updateQuantityViewController, animated: true)
     }
-
+    
 }
 
 extension ClosetViewController: UIGestureRecognizerDelegate {
-   @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state != UIGestureRecognizer.State.ended {
             return
         }
-    
-    
-    let point = gestureRecognizer.location(in: self.collectionView)
-    let indexPath = self.collectionView.indexPathForItem(at: point)
-    if let index = indexPath {
         
-        let category = CategoryController.shared.categories[index.item]
         
-        presentDeleteCellConfirmation(title: "Delete Confirmation", message: "Are you sure you want to permanently delete the \(category.name)'s category from your closet?", indexPath: indexPath)
-    }
-    
+        let point = gestureRecognizer.location(in: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: point)
+        if let index = indexPath {
+            
+            let category = CategoryController.shared.categories[index.item]
+            
+            presentDeleteCellConfirmation(title: "Delete Confirmation", message: "Are you sure you want to permanently delete the \(category.name)'s category from your closet?", indexPath: indexPath)
+        }
+        
     }
     
     func presentDeleteCellConfirmation(title: String, message: String, indexPath: IndexPath?) {

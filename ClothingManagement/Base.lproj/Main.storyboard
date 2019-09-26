@@ -26,12 +26,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="k9w-un-z2g">
-                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                <rect key="frame" x="147" y="388" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="RFZ-SS-vjy"/>
-                                    <constraint firstAttribute="height" constant="100" id="itr-2t-7r0"/>
+                                    <constraint firstAttribute="width" constant="120" id="RFZ-SS-vjy"/>
+                                    <constraint firstAttribute="height" constant="120" id="itr-2t-7r0"/>
                                 </constraints>
-                                <color key="color" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -63,7 +63,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RsN-JL-6DL">
                                 <rect key="frame" x="41.5" y="188" width="331" height="162"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in Screen " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shk-XC-7wI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shk-XC-7wI">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -111,10 +111,24 @@
                                     <action selector="skipButtonTapped:" destination="rdf-l8-iia" eventType="touchUpInside" id="ebM-FG-bXt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Freely browse the app, without the ability to save closet information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cr0-k8-p1F">
+                                <rect key="frame" x="105" y="366" width="204.5" height="164"/>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cr0-k8-p1F" secondAttribute="height" multiplier="1.25:1" id="I7c-Z1-kgj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="cr0-k8-p1F" firstAttribute="height" secondItem="SOc-IH-ryh" secondAttribute="height" multiplier="0.2" id="38N-XZ-6pm"/>
+                            <constraint firstItem="cr0-k8-p1F" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="B7n-hv-dVF"/>
                             <constraint firstItem="Yc1-2r-AfY" firstAttribute="top" secondItem="RsN-JL-6DL" secondAttribute="bottom" constant="150" id="BSC-At-IEH"/>
+                            <constraint firstItem="cr0-k8-p1F" firstAttribute="centerY" secondItem="w7O-gl-HHJ" secondAttribute="centerY" id="JbB-Cn-GHc"/>
                             <constraint firstItem="Yc1-2r-AfY" firstAttribute="width" secondItem="w7O-gl-HHJ" secondAttribute="width" multiplier="0.8" id="JpS-Eh-0RQ"/>
                             <constraint firstItem="RsN-JL-6DL" firstAttribute="centerY" secondItem="w7O-gl-HHJ" secondAttribute="centerY" multiplier="0.6" id="Lxm-4Q-b9v"/>
                             <constraint firstItem="3oa-7n-Ydr" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="TKA-sa-p48"/>
@@ -124,15 +138,24 @@
                             <constraint firstItem="RsN-JL-6DL" firstAttribute="width" secondItem="w7O-gl-HHJ" secondAttribute="width" multiplier="0.8" id="u9E-bB-m8Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SOc-IH-ryh"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8PO-bd-zZV" appends="YES" id="OUh-sg-fak"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="closetNameTextField" destination="LGO-VP-jya" id="55e-FX-2ME"/>
                         <outlet property="genderSegmentedControl" destination="dSW-YV-daN" id="QWd-N3-qch"/>
                         <outlet property="nameTextField" destination="ltz-KK-GCk" id="FOc-XR-Ggc"/>
                         <outlet property="skipButton" destination="3oa-7n-Ydr" id="YWJ-J3-GlD"/>
+                        <outlet property="skipLabel" destination="cr0-k8-p1F" id="1wM-Mg-S65"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qp4-Mp-vum" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="8PO-bd-zZV">
+                    <connections>
+                        <action selector="tapGesture:" destination="rdf-l8-iia" id="zzj-yT-Ucj"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-559.4202898550725" y="-442.63392857142856"/>
         </scene>
