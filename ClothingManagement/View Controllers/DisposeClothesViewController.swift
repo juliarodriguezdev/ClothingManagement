@@ -23,6 +23,7 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var cancelButton: UIButton!
     
     weak var delegate: DisposeClothesViewControllerDelegate?
+    var user: User?
 
     // landing pad
    var recyclePlace: Recycle?
@@ -33,6 +34,7 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         tableView.dataSource = self
         tableView.delegate = self
         self.modalPresentationStyle = .overCurrentContext
+        
         cancelButton.setTitle("No, Not now. ", for: .normal)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -44,12 +46,12 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
             placeLabel.text = "Recycle at " + recyclePlace.storeName
             disposeButton.setTitle("Recycle Here", for: .normal)
         }
-        
+        checkGenderForUIColor(user: user)
         // fetch the categories
         // call fetch function of categories
-        guard let user = UserController.shared.currentUser else { return }
+        guard let user = user else { return }
              CategoryController.shared.fetchCategories(user: user) { (category) in
-                 if let fetchedCategory = category {
+                if category != nil {
                      DispatchQueue.main.async {
                         self.tableView.reloadData()
     
@@ -57,6 +59,30 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
                  }
              }
     }
+    
+    func checkGenderForUIColor(user: User?) {
+        
+        
+        if user?.isMale == true {
+                placeLabel.backgroundColor = UIColor.maleSecondary
+                tableView.backgroundColor = UIColor.malePrimary
+                disposeButton.backgroundColor = UIColor.maleAccent
+                disposeButton.setTitleColor(.lightText, for: .normal)
+            } else if user?.isMale == false {
+                placeLabel.backgroundColor = UIColor.femaleSecondary
+                tableView.backgroundColor = UIColor.femalePrimary
+                disposeButton.backgroundColor = UIColor.femaleAccent
+                disposeButton.setTitleColor(.lightText, for: .normal)
+            } else {
+                placeLabel.backgroundColor = UIColor.neutralSecondary
+            placeLabel.textColor = .darkGray
+                tableView.backgroundColor = UIColor.neutralPrimary
+                disposeButton.backgroundColor = UIColor.neutralAccent
+                disposeButton.setTitleColor(.lightText, for: .normal)
+                cancelButton.setTitleColor(.darkText, for: .normal)
+                cancelButton.backgroundColor = UIColor.neutralPrimary
+            }
+        }
     
     override func viewDidDisappear(_ animated: Bool) {
         // dismiss popup
@@ -102,11 +128,20 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         if CategoryController.shared.categories.count == 0 {
             cell.categoryLabel.text = "Closet Category"
             cell.quantityLabel.text = "Contains: 0 items"
+            cell.backgroundColor = UIColor.neutralPrimary
+            cell.disposeQuantityTextField.backgroundColor = UIColor.neutralPrimary
             return cell
         } else {
             
         let singleCategory = CategoryController.shared.categories[indexPath.row]
         cell.category = singleCategory
+            if user?.isMale == true {
+                cell.backgroundColor = UIColor.malePrimary
+                cell.disposeQuantityTextField.backgroundColor = UIColor.malePrimary
+            } else if user?.isMale == false {
+                cell.backgroundColor = UIColor.femalePrimary
+                cell.disposeQuantityTextField.backgroundColor = UIColor.femalePrimary
+            }
         cell.updateViews()
         
         //cell.confirmDisposeButtonTapped(for: self)

@@ -204,6 +204,7 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
                     if let indexPath = collectionView.indexPath(for: cell) {
                         let category = CategoryController.shared.categories[indexPath.item]
                         destinationVC.category = category
+                        destinationVC.user = user
                         
                     }
                 }
@@ -218,7 +219,7 @@ extension ClosetViewController: QuantityButtonDelegate {
         print("Update quantity button tapped")
         // object to send
         let category = sender.category
-        
+    
         // which story board will be used
         let storyBoard = UIStoryboard(name: "TabMain", bundle: .main)
         // instatiate the destination VC, that will appear
@@ -227,6 +228,7 @@ extension ClosetViewController: QuantityButtonDelegate {
         
         // give object to destination view controller
         updateQuantityViewController.category = category
+        updateQuantityViewController.user = user
         // display
         navigationController?.pushViewController(updateQuantityViewController, animated: true)
     }

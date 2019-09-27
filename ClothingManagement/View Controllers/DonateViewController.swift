@@ -11,6 +11,7 @@ import CoreLocation
 
 class DonateViewController: UIViewController {
     
+    let user = UserController.shared.currentUser
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -35,19 +36,30 @@ class DonateViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         //self.localDonationPlacesFromCurrentLocation()
-        
         let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTap(gestureRecognizer:)))
         doubleTapGestureRecognizer.numberOfTapsRequired = 2
         doubleTapGestureRecognizer.delaysTouchesBegan = true
         doubleTapGestureRecognizer.delegate = self
         self.tableView.addGestureRecognizer(doubleTapGestureRecognizer)
         
+        checkGenderForColorUI(user: user)
+    }
+    func checkGenderForColorUI(user: User?) {
+        if user?.isMale == true {
+            self.view.backgroundColor = UIColor.malePrimary
+        } else if user?.isMale == false {
+            self.view.backgroundColor = UIColor.femalePrimary
+        } else {
+            return self.view.backgroundColor = UIColor.neutralPrimary
+
+        }
     }
     
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.hasFetchedLocation = false
+        tableView.backgroundColor = UIColor.neutralPrimary
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -104,6 +116,24 @@ extension DonateViewController: UITableViewDelegate, UITableViewDataSource {
         let donationPlace = donationResults[indexPath.row]
         
         cell.localDonation = donationPlace
+        
+        if user?.isMale == true {
+                       cell.backgroundColor = UIColor.malePrimary
+                       cell.nameLabel.textColor = UIColor.maleSecondary
+            cell.phoneButton.backgroundColor = UIColor.clear
+            cell.phoneButton.setTitleColor(UIColor.maleAccent, for: .normal)
+                   } else if user?.isMale == false {
+                       cell.backgroundColor = UIColor.femalePrimary
+                       cell.nameLabel.textColor = UIColor.femaleSecondary
+            cell.phoneButton.backgroundColor = UIColor.clear
+            cell.phoneButton.setTitleColor(UIColor.femaleAccent, for: .normal)
+                   } else {
+                       cell.backgroundColor = UIColor.neutralPrimary
+                       cell.nameLabel.textColor = UIColor.neutralSecondary
+            cell.phoneButton.backgroundColor = UIColor.clear
+            cell.phoneButton.setTitleColor(UIColor.neutralAccent, for: .normal)
+                   }
+
         cell.updateViews()
         
         return cell
@@ -145,6 +175,7 @@ extension DonateViewController: UIGestureRecognizerDelegate {
                 guard let disposeClothesViewController = storyBoard.instantiateViewController(withIdentifier: "DisposeClothesViewController") as? DisposeClothesViewController else { return }
                 // object to set
                 disposeClothesViewController.donationPlace = donationPlace
+                disposeClothesViewController.user = user
             
             // present modally
             navigationController?.present(disposeClothesViewController, animated: true)

@@ -12,6 +12,8 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
+    let user = UserController.shared.currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -23,6 +25,18 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         doubleTapGestureRecognizer.delegate = self
         self.tableView.addGestureRecognizer(doubleTapGestureRecognizer)
        
+        checkGenderForUIColor(user: user)
+    }
+    
+    func checkGenderForUIColor(user: User?) {
+        if user?.isMale == true {
+            tableView.backgroundColor = UIColor.malePrimary
+        } else if user?.isMale == false {
+            tableView.backgroundColor = UIColor.femalePrimary
+        } else {
+            tableView.backgroundColor = UIColor.neutralPrimary
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -41,8 +55,18 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect.zero)
         let headerlabel = UILabel(frame: CGRect(x: 12, y: 0, width: tableView.frame.size.width, height: 30))
-        view.backgroundColor = .lightGray
-        headerlabel.textColor = .black
+
+            if user?.isMale == true {
+                view.backgroundColor = UIColor.maleSecondary
+                headerlabel.textColor = UIColor.darkText
+            } else if user?.isMale == false {
+                view.backgroundColor = UIColor.femaleSecondary
+                headerlabel.textColor = UIColor.darkText
+            } else {
+                view.backgroundColor = UIColor.neutralSecondary
+                headerlabel.textColor = UIColor.darkText
+            }
+    
         headerlabel.textAlignment = .left
         view.addSubview(headerlabel)
         
@@ -78,6 +102,14 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "recycleCell", for: indexPath) as? RecycleTableViewCell
         
         let recyclePlace = RecycleController.shared.loadContent()[indexPath.section][indexPath.row]
+        if user?.isMale == true {
+            cell?.backgroundColor = UIColor.malePrimary
+        } else if user?.isMale == false {
+            cell?.backgroundColor = UIColor.femalePrimary
+        } else {
+            cell?.backgroundColor = UIColor.neutralPrimary
+        }
+        cell?.storeNameLabel.textColor = UIColor.darkGray
         cell?.storeImage.image = UIImage(named: "hangerDefault")
         cell?.storeNameLabel.text = recyclePlace.storeName
         cell?.initiativeNameLabel.text = "Initiative: \(recyclePlace.initiative!)"

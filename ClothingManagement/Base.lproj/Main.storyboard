@@ -17,12 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clothing Management" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7p-YF-ZEX">
-                                <rect key="frame" x="92" y="201" width="230" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closet Management" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7p-YF-ZEX">
+                                <rect key="frame" x="77" y="201" width="260" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="e9A-wS-NsC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -131,13 +131,13 @@
                                     <action selector="skipButtonTapped:" destination="rdf-l8-iia" eventType="touchUpInside" id="ebM-FG-bXt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Freely browse the app, without the ability to save closet information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cr0-k8-p1F">
-                                <rect key="frame" x="105" y="366" width="204.5" height="164"/>
-                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cr0-k8-p1F">
+                                <rect key="frame" x="76" y="317" width="262" height="262"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.89510640337423308" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="cr0-k8-p1F" secondAttribute="height" multiplier="1.25:1" id="I7c-Z1-kgj"/>
+                                    <constraint firstAttribute="width" secondItem="cr0-k8-p1F" secondAttribute="height" multiplier="1:1" id="I7c-Z1-kgj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -145,7 +145,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="cr0-k8-p1F" firstAttribute="height" secondItem="SOc-IH-ryh" secondAttribute="height" multiplier="0.2" id="38N-XZ-6pm"/>
+                            <constraint firstItem="cr0-k8-p1F" firstAttribute="height" secondItem="SOc-IH-ryh" secondAttribute="height" multiplier="0.32" id="38N-XZ-6pm"/>
                             <constraint firstItem="cr0-k8-p1F" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="B7n-hv-dVF"/>
                             <constraint firstItem="Yc1-2r-AfY" firstAttribute="top" secondItem="RsN-JL-6DL" secondAttribute="bottom" constant="50" id="BSC-At-IEH"/>
                             <constraint firstItem="cr0-k8-p1F" firstAttribute="centerY" secondItem="w7O-gl-HHJ" secondAttribute="centerY" id="JbB-Cn-GHc"/>

@@ -39,7 +39,8 @@ class StartViewController: UIViewController {
     
     func updateColorUI() {
         self.view.backgroundColor = UIColor.neutralPrimary
-        indicator.color = UIColor.neutralAccent
+        indicator.color = UIColor.neutralSecondary
+        titleLabel.textColor = .darkGray
     }
     func showClosetViewController() {
         let storyBoard = UIStoryboard(name: "TabMain", bundle: nil)

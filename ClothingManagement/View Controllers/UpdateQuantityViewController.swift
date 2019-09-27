@@ -16,6 +16,7 @@ protocol SaveButtonDelegate: class {
 class UpdateQuantityViewController: UIViewController {
 
     var category: Category?
+    var user: User?
     
     @IBOutlet weak var quantityTextField: UITextField!
     
@@ -32,13 +33,31 @@ class UpdateQuantityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let category = category else { return }
+        guard let category = category,
+            let user = user else { return }
+        checkGenderForUIColor(user: user)
         quantityTextField.text = "\(category.quantity)"
         categoryNameLabel.text = "Update Quantity of \(category.name)"
-    
+        
 
         // Do any additional setup after loading the view.
     }
+    func checkGenderForUIColor(user: User) {
+        
+        switch user.isMale {
+        case true:
+            quantityTextField.backgroundColor = UIColor.malePrimary
+            addButton.backgroundColor = UIColor.maleSecondary
+            subtractButton.backgroundColor = UIColor.maleSecondary
+            self.view.backgroundColor = UIColor.malePrimary
+        case false:
+            quantityTextField.backgroundColor = UIColor.femalePrimary
+            addButton.backgroundColor = UIColor.femaleSecondary
+            subtractButton.backgroundColor = UIColor.femaleSecondary
+            self.view.backgroundColor = UIColor.femalePrimary
+        }
+    }
+    
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let category = category,

@@ -13,7 +13,7 @@ import AVFoundation
 
 class DetailCategoryViewController: UIViewController {
     
-    let user = UserController.shared.currentUser
+    var user: User?
     
     var category: Category?
     
@@ -64,11 +64,33 @@ class DetailCategoryViewController: UIViewController {
     }
     
     func updateViews() {
-        guard let category = category else { return }
-        quantityOfCategoryLabel.text = "You currently have: \(category.quantity) \(category.name)'s"
-        updateQuantityButton.setTitle("Update Quantity", for: .normal)
+        guard let category = category,
+        let user = user else { return }
+        checkGenderForUIColor(user: user)
+        if category.quantity == 1 {
+            quantityOfCategoryLabel.text = "Contains: \(category.quantity) \(category.name)"
+
+        } else {
+            quantityOfCategoryLabel.text = "Contains: \(category.quantity) \(category.name)'s"
+        }
+        updateQuantityButton.setTitle("Update Inventory", for: .normal)
         navigationItem.title = category.name
         navigationItem.largeTitleDisplayMode = .always
+    }
+    func checkGenderForUIColor(user: User) {
+        
+        switch user.isMale {
+        case true:
+            updateQuantityButton.backgroundColor = UIColor.maleSecondary
+            updateQuantityButton.setTitleColor(.darkText, for: .normal)
+            self.view.backgroundColor = UIColor.malePrimary
+            photosCollectionView.backgroundColor = UIColor.malePrimary
+        case false:
+            updateQuantityButton.backgroundColor = UIColor.femaleSecondary
+            updateQuantityButton.setTitleColor(.lightText, for: .normal)
+            self.view.backgroundColor = UIColor.femalePrimary
+            photosCollectionView.backgroundColor = UIColor.femalePrimary
+        }
     }
     
     // MARK: - Navigation

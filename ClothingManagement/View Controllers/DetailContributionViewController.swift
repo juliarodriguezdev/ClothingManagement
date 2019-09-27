@@ -12,9 +12,15 @@ class DetailContributionViewController: UIViewController {
     
     var contribution: Contribution?
     
+    var user: User?
+    
     var isCamera = false
         
     @IBOutlet weak var placeLabel: UILabel!
+    
+    @IBOutlet weak var skipButton: UIButton!
+    
+    @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var editButton: UIButton!
     
@@ -24,6 +30,7 @@ class DetailContributionViewController: UIViewController {
         super.viewDidLoad()
         self.modalPresentationStyle = .overCurrentContext
         updateViews()
+        checkGenderForColorUI(user: user)
        // loadViewIfNeeded()
         // Do any additional setup after loading the view.
     }
@@ -48,6 +55,25 @@ class DetailContributionViewController: UIViewController {
         }
         
         receiptImageView.image = contribution.receiptImage
+    }
+    
+    func checkGenderForColorUI(user: User?) {
+        if user?.isMale == true {
+            self.view.backgroundColor = UIColor.malePrimary
+            saveButton.backgroundColor = UIColor.maleAccent
+            saveButton.setTitleColor(UIColor.lightText, for: .normal)
+            placeLabel.textColor = UIColor.maleSecondary
+        } else if user?.isMale == false {
+            self.view.backgroundColor = UIColor.femalePrimary
+            saveButton.backgroundColor = UIColor.femaleAccent
+            saveButton.setTitleColor(UIColor.lightText, for: .normal)
+            placeLabel.textColor = UIColor.femaleSecondary
+        } else {
+            self.view.backgroundColor = UIColor.neutralPrimary
+            saveButton.backgroundColor = UIColor.neutralAccent
+            saveButton.setTitleColor(UIColor.lightText, for: .normal)
+            placeLabel.textColor = UIColor.neutralSecondary
+        }
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {

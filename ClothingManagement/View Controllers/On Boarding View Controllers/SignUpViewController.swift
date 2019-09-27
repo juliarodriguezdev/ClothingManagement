@@ -36,6 +36,7 @@ class SignUpViewController: UIViewController {
         closetNameTextField.delegate = self
         signUpLabel.text = "Sign up!"
         descriptionLabel.text = "Store closet inventory, clothing photos, track donated & recyled clothing contributions to the greater world"
+        skipLabel.text = "Browse the app, without creating an account, \n or saving information"
         skipLabel.alpha = 0
         updateFont(with: "Trebuchet MS")
         updateColorUI()
@@ -49,7 +50,7 @@ class SignUpViewController: UIViewController {
         descriptionLabel.font = UIFont(name: fontName, size: 16)
         nameTextField.font = UIFont(name: fontName, size: 16)
         closetNameTextField.font = UIFont(name: fontName, size: 16)
-        skipLabel.font = UIFont(name: fontName, size: 16)
+        skipLabel.font = UIFont(name: fontName, size: 20)
         createAccountButton.titleLabel?.font = UIFont(name: fontName, size: 18)
         skipButton.titleLabel?.font = UIFont(name: fontName, size: 16)
         let segmentedFont = UIFont(name: fontName, size: 14)
@@ -58,13 +59,13 @@ class SignUpViewController: UIViewController {
     
     func updateColorUI() {
         self.view.backgroundColor = UIColor.neutralPrimary
-        skipLabel.backgroundColor = UIColor.neutralSecondary
+        //skipLabel.backgroundColor = UIColor.neutralSecondary
         createAccountButton.backgroundColor = UIColor.neutralAccent
         createAccountButton.setTitleColor(.lightText, for: .normal)
         skipButton.backgroundColor = UIColor.neutralPrimary
         skipButton.setTitleColor(.black, for: .normal)
-        skipLabel.tintColor = .darkText
-        skipLabel.backgroundColor = .lightGray
+        skipLabel.tintColor = .lightText
+        //skipLabel.backgroundColor = .lightGray
         nameTextField.backgroundColor = UIColor.neutralPrimary
         closetNameTextField.backgroundColor = UIColor.neutralPrimary
     }
