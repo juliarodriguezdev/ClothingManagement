@@ -11,18 +11,29 @@ import CloudKit
 
 class noiCloudAccountViewController: UIViewController {
 
-    @IBOutlet weak var icloudFeedbackLabel: UILabel!
+    @IBOutlet weak var icloudFeedbackLabel: ClosetLabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationStyle = .overCurrentContext
         icloudFeedbackLabel.alpha = 0
-
+        updateFont(with: FontNames.trebuchetMS)
+        updateColorUI()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func refresh(_ sender: UIButton) {
+        indicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         refreshForiCloudUser()
+        indicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
+    
+    func updateColorUI() {
+        self.view.backgroundColor = UIColor.neutralPrimary
+
     }
     
     func refreshForiCloudUser() {
@@ -53,6 +64,11 @@ class noiCloudAccountViewController: UIViewController {
         UIView.animate(withDuration: 5) {
             self.icloudFeedbackLabel.alpha = 0
         }
+    }
+    
+    func updateFont(with fontName: String) {
+    // Trebuchet MS
+        icloudFeedbackLabel.font = UIFont(name: fontName, size: 16)
     }
 
 }

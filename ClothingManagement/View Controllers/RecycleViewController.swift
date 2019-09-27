@@ -12,6 +12,8 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
+    let user = UserController.shared.currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -23,7 +25,33 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         doubleTapGestureRecognizer.delegate = self
         self.tableView.addGestureRecognizer(doubleTapGestureRecognizer)
        
+        checkGenderForUIColor(user: user)
     }
+    
+    func checkGenderForUIColor(user: User?) {
+        if user?.isMale == true {
+            tableView.backgroundColor = UIColor.malePrimary
+        } else if user?.isMale == false {
+            tableView.backgroundColor = UIColor.femalePrimary
+        } else {
+            tableView.backgroundColor = UIColor.neutralPrimary
+        }
+        
+    }
+    
+    @IBAction func infoBarItemTapped(_ sender: UIBarButtonItem) {
+        presentUIHelperAlert(title: "Information", message: "Single Tap: launches store's webpage for recyling details. \nDouble Tap: Input amount of items recycled.")
+    }
+    
+    func presentUIHelperAlert(title: String, message: String) {
+         
+         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+         
+         let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+         
+         alertController.addAction(okayAction)
+         self.present(alertController, animated: true)
+     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 125
@@ -40,9 +68,19 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect.zero)
-        let headerlabel = UILabel(frame: CGRect(x: 12, y: 0, width: tableView.frame.size.width, height: 30))
-        view.backgroundColor = .lightGray
-        headerlabel.textColor = .black
+        let headerlabel = UILabel(frame: CGRect(x: 12, y: 0, width: tableView.frame.size.width, height: 35))
+
+            if user?.isMale == true {
+                view.backgroundColor = UIColor.maleSecondary
+                headerlabel.textColor = UIColor.black
+            } else if user?.isMale == false {
+                view.backgroundColor = UIColor.femaleSecondary
+                headerlabel.textColor = UIColor.black
+            } else {
+                view.backgroundColor = UIColor.neutralSecondary
+                headerlabel.textColor = UIColor.black
+            }
+        headerlabel.font = UIFont(name: FontNames.trebuchetMS, size: 18)
         headerlabel.textAlignment = .left
         view.addSubview(headerlabel)
         
@@ -78,6 +116,15 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "recycleCell", for: indexPath) as? RecycleTableViewCell
         
         let recyclePlace = RecycleController.shared.loadContent()[indexPath.section][indexPath.row]
+        if user?.isMale == true {
+            cell?.backgroundColor = UIColor.malePrimary
+        } else if user?.isMale == false {
+            cell?.backgroundColor = UIColor.femalePrimary
+        } else {
+            cell?.backgroundColor = UIColor.neutralPrimary
+        }
+        cell?.storeNameLabel.textColor = UIColor.black
+        cell?.initiativeNameLabel.textColor = UIColor.gray
         cell?.storeImage.image = UIImage(named: "hangerDefault")
         cell?.storeNameLabel.text = recyclePlace.storeName
         cell?.initiativeNameLabel.text = "Initiative: \(recyclePlace.initiative!)"

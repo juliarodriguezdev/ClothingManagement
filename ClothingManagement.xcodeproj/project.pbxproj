@@ -19,6 +19,11 @@
 		6A7C0F49233AB4E80020B99D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C0F48233AB4E80020B99D /* StartViewController.swift */; };
 		6A7C0F4B233AC2010020B99D /* noiCloudAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C0F4A233AC2010020B99D /* noiCloudAccountViewController.swift */; };
 		6A7C0F4D233BEA7F0020B99D /* ImagePickerController+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C0F4C233BEA7F0020B99D /* ImagePickerController+Orientation.swift */; };
+		6A7C0F50233D53370020B99D /* ClosetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C0F4F233D53370020B99D /* ClosetTextField.swift */; };
+		6A7C0F52233D57B60020B99D /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C0F51233D57B60020B99D /* StyleGuide.swift */; };
+		6A7C0F54233D5B1C0020B99D /* ClosetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C0F53233D5B1C0020B99D /* ClosetLabel.swift */; };
+		6A7C0F57233D95640020B99D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A7C0F56233D95640020B99D /* Colors.xcassets */; };
+		6A7C0F59233E5FC00020B99D /* ClosetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C0F58233E5FC00020B99D /* ClosetButton.swift */; };
 		6A8D223A2326DC8800A93500 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D22392326DC8800A93500 /* AppDelegate.swift */; };
 		6A8D223C2326DC8800A93500 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D223B2326DC8800A93500 /* ViewController.swift */; };
 		6A8D223F2326DC8800A93500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8D223D2326DC8800A93500 /* Main.storyboard */; };
@@ -70,7 +75,12 @@
 		6A7C0F48233AB4E80020B99D /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		6A7C0F4A233AC2010020B99D /* noiCloudAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noiCloudAccountViewController.swift; sourceTree = "<group>"; };
 		6A7C0F4C233BEA7F0020B99D /* ImagePickerController+Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImagePickerController+Orientation.swift"; sourceTree = "<group>"; };
-		6A8D22362326DC8800A93500 /* ClothingManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothingManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A7C0F4F233D53370020B99D /* ClosetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetTextField.swift; sourceTree = "<group>"; };
+		6A7C0F51233D57B60020B99D /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		6A7C0F53233D5B1C0020B99D /* ClosetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetLabel.swift; sourceTree = "<group>"; };
+		6A7C0F56233D95640020B99D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		6A7C0F58233E5FC00020B99D /* ClosetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetButton.swift; sourceTree = "<group>"; };
+		6A8D22362326DC8800A93500 /* RePurpose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RePurpose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8D22392326DC8800A93500 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A8D223B2326DC8800A93500 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6A8D223E2326DC8800A93500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,7 +157,7 @@
 		6A8D22372326DC8800A93500 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6A8D22362326DC8800A93500 /* ClothingManagement.app */,
+				6A8D22362326DC8800A93500 /* RePurpose.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,6 +178,7 @@
 				6A8D22552326FA6600A93500 /* Model */,
 				6A8D226E23283E2400A93500 /* Model Controllers */,
 				6A8D227B2329523200A93500 /* Helpers+Extensions */,
+				6A7C0F56233D95640020B99D /* Colors.xcassets */,
 			);
 			path = ClothingManagement;
 			sourceTree = "<group>";
@@ -249,6 +260,10 @@
 				6AECE9E3233440390090A62B /* CoreLocationController.swift */,
 				6A7C0F44233A79C40020B99D /* DateExtension.swift */,
 				6A7C0F4C233BEA7F0020B99D /* ImagePickerController+Orientation.swift */,
+				6A7C0F4F233D53370020B99D /* ClosetTextField.swift */,
+				6A7C0F51233D57B60020B99D /* StyleGuide.swift */,
+				6A7C0F53233D5B1C0020B99D /* ClosetLabel.swift */,
+				6A7C0F58233E5FC00020B99D /* ClosetButton.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -270,7 +285,7 @@
 			);
 			name = ClothingManagement;
 			productName = ClothingManagement;
-			productReference = 6A8D22362326DC8800A93500 /* ClothingManagement.app */;
+			productReference = 6A8D22362326DC8800A93500 /* RePurpose.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -319,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A7C0F57233D95640020B99D /* Colors.xcassets in Resources */,
 				6A8D22442326DC8900A93500 /* LaunchScreen.storyboard in Resources */,
 				6A8D224C2326E5F700A93500 /* TabMain.storyboard in Resources */,
 				6A8D22412326DC8900A93500 /* Assets.xcassets in Resources */,
@@ -333,12 +349,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A7C0F54233D5B1C0020B99D /* ClosetLabel.swift in Sources */,
 				6A8D226323282D2C00A93500 /* SignUpViewController.swift in Sources */,
 				6A8D22512326F14600A93500 /* CategoryCollectionViewCell.swift in Sources */,
 				6AECE9D423305BF80090A62B /* CategoryPhotoController.swift in Sources */,
 				6ABF836623371278007D1267 /* DisposeClothesViewController.swift in Sources */,
 				6A8D22592327E9B000A93500 /* DetailCategoryViewController.swift in Sources */,
 				6A7C0F45233A79C40020B99D /* DateExtension.swift in Sources */,
+				6A7C0F52233D57B60020B99D /* StyleGuide.swift in Sources */,
 				6A8D226D23283C7A00A93500 /* UserController.swift in Sources */,
 				6A63BF992335624E00A6D79B /* LocalDonationTableViewCell.swift in Sources */,
 				6A7C0F4B233AC2010020B99D /* noiCloudAccountViewController.swift in Sources */,
@@ -368,11 +386,13 @@
 				6A7C0F47233A84F60020B99D /* DetailContributionViewController.swift in Sources */,
 				6A8D226523282D3A00A93500 /* WelcomeViewController.swift in Sources */,
 				6A8D224E2326F11E00A93500 /* ClosetViewController.swift in Sources */,
+				6A7C0F50233D53370020B99D /* ClosetTextField.swift in Sources */,
 				6AFCB6762339989500E6FBBB /* ContributionsViewController.swift in Sources */,
 				6A63BF9B2335C6FD00A6D79B /* ClothingFact.swift in Sources */,
 				6AECE9E4233440390090A62B /* CoreLocationController.swift in Sources */,
 				6AECE9E8233456C60090A62B /* LocalDonationController.swift in Sources */,
 				6AECE9D82332C3940090A62B /* Recycle.swift in Sources */,
+				6A7C0F59233E5FC00020B99D /* ClosetButton.swift in Sources */,
 				6A8D22612328120D00A93500 /* DonateViewController.swift in Sources */,
 				6A54B74123384DFB00A06F03 /* Dispose.swift in Sources */,
 			);
@@ -529,7 +549,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.juliarodriguez.ClothingManagement;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RePurpose;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -548,7 +568,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.juliarodriguez.ClothingManagement;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RePurpose;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

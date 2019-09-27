@@ -15,11 +15,11 @@ protocol QuantityButtonDelegate: class {
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoryLabel: ClosetLabel!
     
-    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var quantityLabel: ClosetLabel!
     
-    @IBOutlet weak var quantityButton: UIButton!
+    @IBOutlet weak var quantityButton: ClosetButton!
     
     @IBOutlet weak var iconImage: UIImageView!
     
@@ -29,15 +29,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        guard let category = category else { return }
-        
+        updateViews()
     }
     
     func updateViews() {
         guard let category = category else { return }
         quantityLabel.text = "\(category.quantity)"
         iconImage.image = category.iconImage
-
     }
     
 

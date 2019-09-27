@@ -11,6 +11,7 @@ import CoreLocation
 
 class DonateViewController: UIViewController {
     
+    let user = UserController.shared.currentUser
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -35,19 +36,36 @@ class DonateViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         //self.localDonationPlacesFromCurrentLocation()
-        
         let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTap(gestureRecognizer:)))
         doubleTapGestureRecognizer.numberOfTapsRequired = 2
         doubleTapGestureRecognizer.delaysTouchesBegan = true
         doubleTapGestureRecognizer.delegate = self
         self.tableView.addGestureRecognizer(doubleTapGestureRecognizer)
         
+        checkGenderForColorUI(user: user)
+    }
+    func checkGenderForColorUI(user: User?) {
+        if user?.isMale == true {
+            self.view.backgroundColor = UIColor.malePrimary
+            navigationController?.navigationBar.barTintColor = UIColor.malePrimary
+            navigationController?.navigationBar.tintColor = UIColor.maleSecondary
+        } else if user?.isMale == false {
+            self.view.backgroundColor = UIColor.femalePrimary
+            navigationController?.navigationBar.barTintColor = UIColor.femalePrimary
+            navigationController?.navigationBar.tintColor = UIColor.femaleSecondary
+        } else {
+            self.view.backgroundColor = UIColor.neutralPrimary
+            navigationController?.navigationBar.barTintColor = UIColor.neutralPrimary
+            navigationController?.navigationBar.tintColor = UIColor.neutralSecondary
+
+        }
     }
     
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.hasFetchedLocation = false
+        tableView.backgroundColor = UIColor.neutralPrimary
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -55,7 +73,19 @@ class DonateViewController: UIViewController {
         locationManager.stopUpdatingLocation()
     }
     
-    
+    @IBAction func infoBarItemTapped(_ sender: Any) {
+        presentUIHelperAlert(title: "Information", message: "Single Tap: navigates to Maps. \nDouble Tap: Input amount of items donated. \nPhone Number: prompts to call")
+        
+    }
+    func presentUIHelperAlert(title: String, message: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        
+        alertController.addAction(okayAction)
+        self.present(alertController, animated: true)
+    }
     
     // MARK: - Navigation
 
@@ -104,6 +134,24 @@ extension DonateViewController: UITableViewDelegate, UITableViewDataSource {
         let donationPlace = donationResults[indexPath.row]
         
         cell.localDonation = donationPlace
+        
+        if user?.isMale == true {
+                       cell.backgroundColor = UIColor.malePrimary
+                       cell.nameLabel.textColor = UIColor.maleSecondary
+            cell.phoneButton.backgroundColor = UIColor.clear
+            cell.phoneButton.setTitleColor(UIColor.maleAccent, for: .normal)
+                   } else if user?.isMale == false {
+                       cell.backgroundColor = UIColor.femalePrimary
+                       cell.nameLabel.textColor = UIColor.femaleSecondary
+            cell.phoneButton.backgroundColor = UIColor.clear
+            cell.phoneButton.setTitleColor(UIColor.femaleAccent, for: .normal)
+                   } else {
+                       cell.backgroundColor = UIColor.neutralPrimary
+                       cell.nameLabel.textColor = UIColor.neutralSecondary
+            cell.phoneButton.backgroundColor = UIColor.clear
+            cell.phoneButton.setTitleColor(UIColor.neutralAccent, for: .normal)
+                   }
+
         cell.updateViews()
         
         return cell
@@ -145,6 +193,7 @@ extension DonateViewController: UIGestureRecognizerDelegate {
                 guard let disposeClothesViewController = storyBoard.instantiateViewController(withIdentifier: "DisposeClothesViewController") as? DisposeClothesViewController else { return }
                 // object to set
                 disposeClothesViewController.donationPlace = donationPlace
+                disposeClothesViewController.user = user
             
             // present modally
             navigationController?.present(disposeClothesViewController, animated: true)

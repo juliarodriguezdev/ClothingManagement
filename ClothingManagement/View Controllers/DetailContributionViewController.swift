@@ -12,9 +12,15 @@ class DetailContributionViewController: UIViewController {
     
     var contribution: Contribution?
     
+    var user: User?
+    
     var isCamera = false
         
-    @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var placeLabel: ClosetLabel!
+    
+    @IBOutlet weak var skipButton: UIButton!
+    
+    @IBOutlet weak var saveButton: ClosetButton!
     
     @IBOutlet weak var editButton: UIButton!
     
@@ -22,8 +28,10 @@ class DetailContributionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.modalPresentationStyle = .overCurrentContext
+        //self.modalPresentationStyle = .overCurrentContext
         updateViews()
+        checkGenderForColorUI(user: user)
+        //self.modalPresentationStyle = .overCurrentContext
        // loadViewIfNeeded()
         // Do any additional setup after loading the view.
     }
@@ -48,6 +56,31 @@ class DetailContributionViewController: UIViewController {
         }
         
         receiptImageView.image = contribution.receiptImage
+    }
+    
+    func checkGenderForColorUI(user: User?) {
+        if user?.isMale == true {
+            self.view.backgroundColor = UIColor.malePrimary
+            saveButton.backgroundColor = UIColor.maleAccent
+            saveButton.setTitleColor(UIColor.lightText, for: .normal)
+            placeLabel.textColor = UIColor.maleSecondary
+            navigationController?.navigationBar.barTintColor = UIColor.malePrimary
+            navigationController?.navigationBar.tintColor = UIColor.maleAccent
+        } else if user?.isMale == false {
+            self.view.backgroundColor = UIColor.femalePrimary
+            saveButton.backgroundColor = UIColor.femaleAccent
+            saveButton.setTitleColor(UIColor.lightText, for: .normal)
+            placeLabel.textColor = UIColor.femaleSecondary
+            navigationController?.navigationBar.barTintColor = UIColor.femalePrimary
+            navigationController?.navigationBar.tintColor = UIColor.femaleAccent
+        } else {
+            self.view.backgroundColor = UIColor.neutralPrimary
+            saveButton.backgroundColor = UIColor.neutralAccent
+            saveButton.setTitleColor(UIColor.lightText, for: .normal)
+            placeLabel.textColor = UIColor.neutralSecondary
+            navigationController?.navigationBar.barTintColor = UIColor.neutralPrimary
+            navigationController?.navigationBar.tintColor = UIColor.neutralAccent
+        }
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
