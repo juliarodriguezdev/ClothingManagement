@@ -18,6 +18,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         //self.modalPresentationStyle = .fullScreen
         welcomeLabel.alpha = 0
+        updateFont(with: FontNames.trebuchetMS)
         setUpViews()
         showClosetViewController()
         // Do any additional setup after loading the view.
@@ -30,9 +31,14 @@ class WelcomeViewController: UIViewController {
     
     func setUpViews() {
         guard let user = user else { return }
-        welcomeLabel.alpha = 1
+        if user.isMale == true {
+            self.view.backgroundColor = UIColor.malePrimary
+        } else {
+            self.view.backgroundColor = UIColor.femalePrimary
+        }
+        self.welcomeLabel.alpha = 1
         UIView.animate(withDuration: 10) {
-            self.welcomeLabel.text = "Welcome \(user.name),\n let's start managing \(user.closetName)) Closet"
+            self.welcomeLabel.text = "Welcome \(user.name),\nlet's start managing \(user.closetName)) Closet"
         }
     }
     
@@ -49,6 +55,11 @@ class WelcomeViewController: UIViewController {
             // set closet object
             mainClosetViewController.user = UserController.shared.currentUser
             self.present(mainClosetViewController, animated: true)
+    }
+    
+    func updateFont(with fontName: String) {
+    // Trebuchet MS
+        welcomeLabel.font = UIFont(name: fontName, size: 16)
     }
     
 }

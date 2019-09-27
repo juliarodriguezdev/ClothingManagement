@@ -10,9 +10,9 @@ import UIKit
 
 class RecycleTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var storeNameLabel: UILabel!
+    @IBOutlet weak var storeNameLabel: ClosetLabel!
     
-    @IBOutlet weak var initiativeNameLabel: UILabel!
+    @IBOutlet weak var initiativeNameLabel: ClosetLabel!
     
     @IBOutlet weak var storeImage: UIImageView!
     

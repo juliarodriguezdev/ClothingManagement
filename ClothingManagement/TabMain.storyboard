@@ -146,9 +146,9 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contributions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noi-IY-Sqn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contributions and Stores and Recycle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noi-IY-Sqn">
                                 <rect key="frame" x="0.0" y="44" width="414" height="77"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -663,7 +663,8 @@
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RUu-gU-EQ2">
                                 <rect key="frame" x="0.0" y="170" width="414" height="643"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pkg-WR-76O">
                                     <size key="itemSize" width="104" height="148"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -742,11 +743,18 @@
                         <viewLayoutGuide key="safeArea" id="y9X-cK-HAl"/>
                     </view>
                     <navigationItem key="navigationItem" id="IPc-eP-x9S">
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="h6H-N8-Vj7">
-                            <connections>
-                                <action selector="deleteOptionTapped:" destination="bXr-tq-VM7" id="Nuy-YI-tDW"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="trash" id="h6H-N8-Vj7">
+                                <connections>
+                                    <action selector="deleteOptionTapped:" destination="bXr-tq-VM7" id="Nuy-YI-tDW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="zyS-2f-cPm">
+                                <connections>
+                                    <action selector="infoTapped:" destination="bXr-tq-VM7" id="3eb-13-ng7"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nxd-ga-zGQ">
                             <connections>
                                 <action selector="addCategoryTapped:" destination="bXr-tq-VM7" id="boT-Jn-2oT"/>
@@ -755,7 +763,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="closetNameLabel" destination="BOh-Lg-GdO" id="AjQ-uO-8Yh"/>
-                        <outlet property="collectionView" destination="RUu-gU-EQ2" id="8LG-rd-O9B"/>
+                        <outlet property="collectionView" destination="RUu-gU-EQ2" id="YVg-r0-K4a"/>
                         <outlet property="quantityOfClosetLabel" destination="Qi6-0U-oLC" id="Hk0-cX-tyQ"/>
                     </connections>
                 </viewController>

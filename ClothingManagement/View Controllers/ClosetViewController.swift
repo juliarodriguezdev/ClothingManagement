@@ -14,11 +14,12 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var closetNameLabel: UILabel!
     @IBOutlet weak var quantityOfClosetLabel: UILabel!
+    
     // landing pad from other views 
     var user: User?
     
     var quantity: Int?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.modalPresentationStyle = .overFullScreen
@@ -30,17 +31,24 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         longPressGestureRecognizer.delaysTouchesBegan = true
         longPressGestureRecognizer.delegate = self
         self.collectionView.addGestureRecognizer(longPressGestureRecognizer)
-        
         // call fetch function of categories
-        guard let user = user else { return }
+        guard let user = user else {
+            self.view.backgroundColor = UIColor.neutralPrimary
+            self.collectionView.allowsSelection = false
+            return
+            
+        }
+        collectionView.allowsSelection = true
+        checkGenderForUIColor(user: user)
+        self.quantityOfClosetLabel.text = "Loading..."
         CategoryController.shared.fetchCategories(user: user) { (category) in
-            if let fetchedCategory = category {
+            if category != nil {
                 DispatchQueue.main.async {
                     self.updateViews()
+                 
                 }
             }
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +66,16 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         //quantityOfClosetLabel.text = "\(clothing.count)"
         self.quantityOfClosetLabel.text = "Contains \(self.quantity!) items in Closet"
     }
+    func checkGenderForUIColor(user: User) {
+        
+        switch user.isMale {
+        case true:
+            return self.view.backgroundColor = UIColor.malePrimary
+        case false:
+            return self.view.backgroundColor = UIColor.femalePrimary
+        }
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let categoryCount = CategoryController.shared.categories.count
@@ -70,13 +88,18 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "clothingItem", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
         
         if CategoryController.shared.categories.count == 0 {
-            
             cell.categoryLabel.text = "Category"
             cell.quantityLabel.text = "0"
             cell.iconImage.image = UIImage(named: "hangerDefault")
+            cell.backgroundColor = UIColor.neutralPrimary
             return cell
             
         } else {
+            if user?.isMale == true {
+                cell.backgroundColor = UIColor.malePrimary
+            } else if user?.isMale == false {
+                cell.backgroundColor = UIColor.femalePrimary
+            }
             // identify which index path the user selected
             let category = CategoryController.shared.categories[indexPath.item]
             
@@ -142,7 +165,7 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
             // TODO: let iconImage = UIImage(name: "defaultHanger"), to assign default image, then pass into create category func 
             
             CategoryController.shared.createCategory(withName: categoryText, quantity: quantity, user: user, completion: { (categoryFromCompletion) in
-                if let category = categoryFromCompletion {
+                if categoryFromCompletion != nil {
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                         self.updateViews()
@@ -161,7 +184,11 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     @IBAction func deleteOptionTapped(_ sender: UIBarButtonItem) {
-        presentHelperToDeleteCells(title: "Delete Clothing Category", message: "Press and hold and individual Clothing Category, and confirm deletion")
+        presentUIHelperAlert(title: "Delete Clothing Category", message: "Press and hold individual category")
+    }
+    
+    @IBAction func infoTapped(_ sender: UIBarButtonItem) {
+        presentUIHelperAlert(title: "Edit Category", message: "Select a category \nto add photos & modify inventory")
     }
     
     //MARK: - Navigation
@@ -256,7 +283,7 @@ extension ClosetViewController: UIGestureRecognizerDelegate {
         self.present(alertController, animated: true)
     }
     
-    func presentHelperToDeleteCells(title: String, message: String) {
+    func presentUIHelperAlert(title: String, message: String) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         

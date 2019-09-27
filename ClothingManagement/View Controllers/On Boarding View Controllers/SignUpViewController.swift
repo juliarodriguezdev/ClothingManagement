@@ -12,25 +12,61 @@ import CloudKit
 class SignUpViewController: UIViewController {
     
 
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var signUpLabel: ClosetLabel!
     
-    @IBOutlet weak var closetNameTextField: UITextField!
+    @IBOutlet weak var descriptionLabel: ClosetLabel!
+    
+    @IBOutlet weak var nameTextField: ClosetTextField!
+    
+    @IBOutlet weak var closetNameTextField: ClosetTextField!
     
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var skipLabel: UILabel!
     
+    @IBOutlet weak var skipLabel: ClosetLabel!
+    
+    @IBOutlet weak var createAccountButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     
     var isMale: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.modalPresentationStyle = .overCurrentContext
+        //Font: Trebuchet MS
         nameTextField.delegate = self
         closetNameTextField.delegate = self
+        signUpLabel.text = "Sign up!"
+        descriptionLabel.text = "Store closet inventory, clothing photos, track donated & recyled clothing contributions to the greater world"
         skipLabel.alpha = 0
-
+        updateFont(with: "Trebuchet MS")
+        updateColorUI()
+        
+        
+        
         // Do any additional setup after loading the view.
+    }
+    func updateFont(with fontName: String) {
+       
+        descriptionLabel.font = UIFont(name: fontName, size: 16)
+        nameTextField.font = UIFont(name: fontName, size: 16)
+        closetNameTextField.font = UIFont(name: fontName, size: 16)
+        skipLabel.font = UIFont(name: fontName, size: 16)
+        createAccountButton.titleLabel?.font = UIFont(name: fontName, size: 18)
+        skipButton.titleLabel?.font = UIFont(name: fontName, size: 16)
+        let segmentedFont = UIFont(name: fontName, size: 14)
+        genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: segmentedFont!], for: .normal)
+    }
+    
+    func updateColorUI() {
+        self.view.backgroundColor = UIColor.neutralPrimary
+        skipLabel.backgroundColor = UIColor.neutralSecondary
+        createAccountButton.backgroundColor = UIColor.neutralAccent
+        createAccountButton.setTitleColor(.lightText, for: .normal)
+        skipButton.backgroundColor = UIColor.neutralPrimary
+        skipButton.setTitleColor(.black, for: .normal)
+        skipLabel.tintColor = .darkText
+        skipLabel.backgroundColor = .lightGray
+        nameTextField.backgroundColor = UIColor.neutralPrimary
+        closetNameTextField.backgroundColor = UIColor.neutralPrimary
     }
     
     @IBAction func genderSegmentedControl(_ sender: UISegmentedControl) {

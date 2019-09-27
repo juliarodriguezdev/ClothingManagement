@@ -29,15 +29,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        guard let category = category else { return }
-        
+        updateViews()
     }
     
     func updateViews() {
         guard let category = category else { return }
         quantityLabel.text = "\(category.quantity)"
         iconImage.image = category.iconImage
-
     }
     
 
