@@ -12,7 +12,7 @@ class WelcomeViewController: UIViewController {
     
     var user: User?
 
-    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var welcomeLabel: ClosetLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

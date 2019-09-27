@@ -20,13 +20,13 @@
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="NMv-WZ-R7o">
                                 <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVb-5P-bFi">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVb-5P-bFi" customClass="ClosetLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX5-Mr-RYv" userLabel="source">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX5-Mr-RYv" userLabel="source" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2" width="300" height="298"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
                                         <nil key="textColor"/>
@@ -38,11 +38,21 @@
                                     <constraint firstAttribute="height" constant="300" id="d1p-oA-zAw"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC5-mT-oPd">
+                                <rect key="frame" x="344" y="74" width="40" height="40"/>
+                                <color key="tintColor" name="neutralAccent"/>
+                                <state key="normal" image="iconThinMed-40"/>
+                                <connections>
+                                    <action selector="infoButtonTapped:" destination="MRZ-JW-Mn8" eventType="touchUpInside" id="hcZ-aq-86i"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="neutralPrimary"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="NMv-WZ-R7o" firstAttribute="centerY" secondItem="oHb-us-MSg" secondAttribute="centerY" id="1wZ-fU-Tnf"/>
+                            <constraint firstItem="yZ7-Nf-q8R" firstAttribute="trailing" secondItem="SC5-mT-oPd" secondAttribute="trailing" constant="30" id="AVk-Cv-DnM"/>
+                            <constraint firstItem="SC5-mT-oPd" firstAttribute="top" secondItem="yZ7-Nf-q8R" secondAttribute="top" constant="30" id="O3o-h1-U3H"/>
                             <constraint firstItem="NMv-WZ-R7o" firstAttribute="centerX" secondItem="oHb-us-MSg" secondAttribute="centerX" id="fDA-9s-uf4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yZ7-Nf-q8R"/>
@@ -64,7 +74,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1602.8985507246377" y="293.97321428571428"/>
+            <point key="canvasLocation" x="2513.04347826087" y="293.97321428571428"/>
         </scene>
         <!--Contributions-->
         <scene sceneID="TBj-pU-djQ">
@@ -75,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1sy-yT-6wv">
-                                <rect key="frame" x="0.0" y="121" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contributionCell" rowHeight="140" id="Txx-0l-7YY" customClass="ContributionsTableViewCell" customModule="ClothingManagement" customModuleProvider="target">
@@ -85,35 +95,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ooB-M0-vpG">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ooB-M0-vpG">
                                                     <rect key="frame" x="20" y="19" width="243" height="102"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQ9-jT-xgr" userLabel="place">
-                                                            <rect key="frame" x="0.0" y="0.0" width="243" height="18.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQ9-jT-xgr" userLabel="place" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="243" height="20"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdE-m2-XdH" userLabel="type">
-                                                            <rect key="frame" x="0.0" y="20.5" width="243" height="19"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdE-m2-XdH" userLabel="type" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="20" width="243" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPe-cN-a5c" userLabel="quantity">
-                                                            <rect key="frame" x="0.0" y="41.5" width="243" height="18.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPe-cN-a5c" userLabel="quantity" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="40.5" width="243" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5Z-qM-Il8" userLabel="date">
-                                                            <rect key="frame" x="0.0" y="62" width="243" height="19.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5Z-qM-Il8" userLabel="date" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="60.5" width="243" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXH-lb-pV4" userLabel="receipt ">
-                                                            <rect key="frame" x="0.0" y="83.5" width="243" height="18.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXH-lb-pV4" userLabel="receipt " customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="82" width="243" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -143,38 +153,36 @@
                                             <outlet property="receiptLabel" destination="fXH-lb-pV4" id="0md-LH-W5Y"/>
                                             <outlet property="timestampLabel" destination="U5Z-qM-Il8" id="3nU-4u-JK5"/>
                                             <outlet property="typeLabel" destination="TdE-m2-XdH" id="LiT-7o-NLM"/>
+                                            <segue destination="SA5-Vg-w3P" kind="show" identifier="toReceiptVC" id="iqg-6m-3nA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contributions and Stores and Recycle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noi-IY-Sqn">
-                                <rect key="frame" x="0.0" y="44" width="414" height="77"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1sy-yT-6wv" firstAttribute="top" secondItem="noi-IY-Sqn" secondAttribute="bottom" id="GkD-8G-MHS"/>
-                            <constraint firstItem="noi-IY-Sqn" firstAttribute="top" secondItem="hC6-mZ-fJ1" secondAttribute="top" id="Jsi-yO-aG0"/>
+                            <constraint firstItem="1sy-yT-6wv" firstAttribute="top" secondItem="hC6-mZ-fJ1" secondAttribute="top" id="4K2-KJ-nFD"/>
                             <constraint firstItem="hC6-mZ-fJ1" firstAttribute="bottom" secondItem="1sy-yT-6wv" secondAttribute="bottom" id="TH7-zy-vEA"/>
-                            <constraint firstItem="noi-IY-Sqn" firstAttribute="leading" secondItem="hC6-mZ-fJ1" secondAttribute="leading" id="djX-JS-Mcr"/>
                             <constraint firstItem="hC6-mZ-fJ1" firstAttribute="trailing" secondItem="1sy-yT-6wv" secondAttribute="trailing" id="fhQ-jb-NHE"/>
                             <constraint firstItem="1sy-yT-6wv" firstAttribute="leading" secondItem="hC6-mZ-fJ1" secondAttribute="leading" id="gNj-8d-I2F"/>
-                            <constraint firstItem="noi-IY-Sqn" firstAttribute="height" secondItem="hC6-mZ-fJ1" secondAttribute="height" multiplier="0.1" id="kPA-GA-H5r"/>
-                            <constraint firstItem="hC6-mZ-fJ1" firstAttribute="trailing" secondItem="noi-IY-Sqn" secondAttribute="trailing" id="kaa-UK-0Wd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hC6-mZ-fJ1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Contributions" id="Nnc-X4-NxY"/>
+                    <navigationItem key="navigationItem" title="Contributions" id="D8b-qX-xRq">
+                        <barButtonItem key="rightBarButtonItem" image="iconThinMed-20" id="w37-rG-F4X">
+                            <color key="tintColor" name="neutralAccent"/>
+                            <connections>
+                                <action selector="infoBarItemTapped:" destination="DCt-nk-uDo" id="Fnc-4K-7AH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="1sy-yT-6wv" id="38e-7P-i3S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIg-do-8FV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1330" y="844"/>
+            <point key="canvasLocation" x="-420.28985507246381" y="843.75"/>
         </scene>
         <!--Tax Deduction Receipt-->
         <scene sceneID="XWs-6d-hAC">
@@ -185,20 +193,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rn4-JM-az1">
-                                <rect key="frame" x="10" y="206" width="394" height="491"/>
+                                <rect key="frame" x="10" y="216" width="394" height="435"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufb-Dl-5qV">
-                                <rect key="frame" x="362" y="144" width="42" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufb-Dl-5qV">
+                                <rect key="frame" x="350" y="158" width="54" height="43"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="NZn-kI-jwj"/>
+                                    <constraint firstAttribute="width" secondItem="Ufb-Dl-5qV" secondAttribute="height" multiplier="1.25:1" id="Gka-bB-AhP"/>
                                 </constraints>
-                                <state key="normal" title="Pencil"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="cameraTransparent">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" image="camera" catalog="system">
+                                    <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="editButtonTapped:" destination="SA5-Vg-w3P" eventType="touchUpInside" id="wQd-VD-Kkf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzt-uN-vJo">
-                                <rect key="frame" x="8" y="94" width="396" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzt-uN-vJo" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                <rect key="frame" x="8" y="108" width="396" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="S8f-Hk-ehJ"/>
                                 </constraints>
@@ -206,17 +221,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tax Deductible Receipt" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFt-Bn-pQu" userLabel="Title Label">
-                                <rect key="frame" x="8" y="44" width="396" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="t3w-hC-S97"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0s-QV-EO6">
-                                <rect key="frame" x="106" y="742" width="200" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0s-QV-EO6" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                <rect key="frame" x="106" y="681" width="200" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="5M2-e8-3VK"/>
                                 </constraints>
@@ -226,11 +232,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMH-Ht-0ej">
-                                <rect key="frame" x="107" y="801" width="200" height="41"/>
+                                <rect key="frame" x="107" y="757" width="200" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="VLV-gI-tit"/>
                                 </constraints>
-                                <state key="normal" title="Skip">
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                <state key="normal" title="Cancel">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -240,28 +248,30 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Ufb-Dl-5qV" firstAttribute="top" secondItem="Gzt-uN-vJo" secondAttribute="bottom" constant="8" id="8fD-3E-KuE"/>
-                            <constraint firstItem="Rn4-JM-az1" firstAttribute="top" secondItem="Ufb-Dl-5qV" secondAttribute="bottom" constant="32" id="9pw-Lo-PU7"/>
-                            <constraint firstItem="Gzt-uN-vJo" firstAttribute="top" secondItem="BFt-Bn-pQu" secondAttribute="bottom" constant="8" id="G9t-Xx-5tg"/>
+                            <constraint firstItem="Rn4-JM-az1" firstAttribute="top" secondItem="Ufb-Dl-5qV" secondAttribute="bottom" constant="15" id="EqN-0g-gr3"/>
                             <constraint firstItem="oMH-Ht-0ej" firstAttribute="centerX" secondItem="lwp-KE-ZJs" secondAttribute="centerX" id="GAt-s9-mVA"/>
                             <constraint firstItem="X0s-QV-EO6" firstAttribute="centerX" secondItem="Gzt-uN-vJo" secondAttribute="centerX" id="GTq-C0-cKs"/>
                             <constraint firstItem="o1a-MZ-sgS" firstAttribute="bottom" secondItem="oMH-Ht-0ej" secondAttribute="bottom" constant="20" id="Ged-Wo-Trg"/>
-                            <constraint firstItem="Ufb-Dl-5qV" firstAttribute="trailing" secondItem="BFt-Bn-pQu" secondAttribute="trailing" id="WCn-sa-wL2"/>
-                            <constraint firstItem="BFt-Bn-pQu" firstAttribute="leading" secondItem="o1a-MZ-sgS" secondAttribute="leading" constant="8" id="XDX-sO-hGW"/>
+                            <constraint firstItem="Ufb-Dl-5qV" firstAttribute="top" secondItem="Gzt-uN-vJo" secondAttribute="bottom" constant="8" id="Sxg-Oy-cAn"/>
                             <constraint firstItem="Rn4-JM-az1" firstAttribute="centerX" secondItem="lwp-KE-ZJs" secondAttribute="centerX" id="Y6u-VS-h35"/>
+                            <constraint firstItem="Ufb-Dl-5qV" firstAttribute="width" secondItem="o1a-MZ-sgS" secondAttribute="width" multiplier="0.13" id="bqU-fN-Btf"/>
                             <constraint firstItem="Rn4-JM-az1" firstAttribute="leading" secondItem="o1a-MZ-sgS" secondAttribute="leading" constant="10" id="c3S-Q2-bPu"/>
-                            <constraint firstItem="BFt-Bn-pQu" firstAttribute="top" secondItem="o1a-MZ-sgS" secondAttribute="top" id="eqp-Rr-u6j"/>
                             <constraint firstItem="Gzt-uN-vJo" firstAttribute="leading" secondItem="o1a-MZ-sgS" secondAttribute="leading" constant="8" id="gZD-Qj-o79"/>
                             <constraint firstItem="Gzt-uN-vJo" firstAttribute="trailing" secondItem="Ufb-Dl-5qV" secondAttribute="trailing" id="hrF-el-VGp"/>
                             <constraint firstItem="oMH-Ht-0ej" firstAttribute="height" secondItem="o1a-MZ-sgS" secondAttribute="height" multiplier="0.05" id="rG3-XI-0Nb"/>
+                            <constraint firstItem="Gzt-uN-vJo" firstAttribute="top" secondItem="o1a-MZ-sgS" secondAttribute="top" constant="20" id="rfM-im-oao"/>
                             <constraint firstItem="Ufb-Dl-5qV" firstAttribute="trailing" secondItem="Rn4-JM-az1" secondAttribute="trailing" id="s0C-3p-imY"/>
                             <constraint firstItem="oMH-Ht-0ej" firstAttribute="top" secondItem="X0s-QV-EO6" secondAttribute="bottom" constant="18" id="tvb-Mh-PkH"/>
                             <constraint firstItem="Rn4-JM-az1" firstAttribute="height" secondItem="o1a-MZ-sgS" secondAttribute="height" multiplier="0.6" id="wNm-O9-kOm"/>
-                            <constraint firstItem="X0s-QV-EO6" firstAttribute="height" secondItem="o1a-MZ-sgS" secondAttribute="height" multiplier="0.05" id="xyB-Nj-Ts7"/>
+                            <constraint firstItem="X0s-QV-EO6" firstAttribute="height" secondItem="o1a-MZ-sgS" secondAttribute="height" multiplier="0.08" id="xyB-Nj-Ts7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o1a-MZ-sgS"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tax Deduction Receipt" id="yTb-Of-C7F"/>
+                    <navigationItem key="navigationItem" title="Tax Deduction Receipt" id="yTb-Of-C7F">
+                        <barButtonItem key="rightBarButtonItem" image="iconThinMed-20" id="Bkn-a2-Xrc">
+                            <color key="tintColor" name="neutralAccent"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="Ufb-Dl-5qV" id="Q4j-ZR-FMu"/>
                         <outlet property="placeLabel" destination="Gzt-uN-vJo" id="xRg-Wh-KRq"/>
@@ -272,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTS-QP-bal" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-252.17391304347828" y="843.75"/>
+            <point key="canvasLocation" x="657.97101449275362" y="843.75"/>
         </scene>
         <!--Donate View Controller-->
         <scene sceneID="fQe-BU-wQ4">
@@ -296,31 +306,31 @@
                                                 <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="l81-ho-YoP">
                                                     <rect key="frame" x="20" y="46.5" width="225" height="183"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-fV-uhk" userLabel="location1">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-fV-uhk" userLabel="location1" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="225" height="37.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEn-Ox-wub" userLabel="location2">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEn-Ox-wub" userLabel="location2" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="39.5" width="225" height="37.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-ED-MJ8" userLabel="isOpen">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-ED-MJ8" userLabel="isOpen" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="79" width="225" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8no-Zg-dUF" userLabel="distanceAway">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8no-Zg-dUF" userLabel="distanceAway" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="112" width="225" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-O3-gyY" userLabel="reviewCount">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-O3-gyY" userLabel="reviewCount" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="145" width="225" height="38"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
@@ -331,9 +341,8 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ing-wx-TYs" userLabel="icon">
                                                     <rect key="frame" x="249" y="47" width="145" height="182"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1c-DR-vmj" userLabel="phoneNumber">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1c-DR-vmj" userLabel="phoneNumber" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="231.5" width="46" height="33.5"/>
-                                                    <color key="backgroundColor" red="0.96080166101455688" green="0.69555848712315649" blue="0.70864956245834188" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -341,7 +350,7 @@
                                                         <action selector="phoneNumberTapped:" destination="jeY-Ya-D8J" eventType="touchUpInside" id="lLK-vG-wK7"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krw-cM-pVt" userLabel="name">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krw-cM-pVt" userLabel="name" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="11" width="374" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -389,14 +398,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TDK-Pn-LFv"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Q59-r8-jba"/>
+                    <navigationItem key="navigationItem" id="Q59-r8-jba">
+                        <barButtonItem key="rightBarButtonItem" image="iconThinMed-20" id="c8E-z6-9Mk">
+                            <color key="tintColor" name="neutralAccent"/>
+                            <connections>
+                                <action selector="infoBarItemTapped:" destination="JTr-Y9-4CQ" id="IIX-nu-6OX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="HIh-Qz-nRY" id="eox-T2-9px"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R63-iQ-Akf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502.898550724638" y="1155.8035714285713"/>
+            <point key="canvasLocation" x="3413.04347826087" y="1155.8035714285713"/>
         </scene>
         <!--Dispose Clothes View Controller-->
         <scene sceneID="l8j-X6-vMb">
@@ -409,7 +425,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agK-rf-xZg">
                                 <rect key="frame" x="41.5" y="100.5" width="331" height="695"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVx-oi-cJe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVx-oi-cJe" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                         <rect key="frame" x="8" y="8" width="315" height="90"/>
                                         <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -427,23 +443,23 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Icy-zu-J8O">
-                                                            <rect key="frame" x="16" y="20" width="215" height="39"/>
+                                                            <rect key="frame" x="16" y="18.5" width="215" height="42"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ja-3g-UPn" userLabel="category">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="215" height="19"/>
-                                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ja-3g-UPn" userLabel="category" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="215" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcE-In-RSt" userLabel="quantity">
-                                                                    <rect key="frame" x="0.0" y="21" width="215" height="18"/>
-                                                                    <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcE-In-RSt" userLabel="quantity" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="22.5" width="215" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dgr-0z-wgt" userLabel="disposeAmount">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dgr-0z-wgt" userLabel="disposeAmount" customClass="ClosetTextField" customModule="ClothingManagement" customModuleProvider="target">
                                                             <rect key="frame" x="239" y="22.5" width="60" height="34"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="j7G-A6-YgX"/>
@@ -471,14 +487,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="H6X-Sh-kQ1">
                                         <rect key="frame" x="8" y="527" width="315" height="160"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nul-Ci-igZ" userLabel="disposeHere">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nul-Ci-igZ" userLabel="disposeHere" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="79"/>
                                                 <state key="normal" title="Donate/Recycle, Here"/>
                                                 <connections>
                                                     <action selector="disposeButtonTapped:" destination="Hq5-Xq-7lJ" eventType="touchUpInside" id="RB4-FN-xrn"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qO-6S-maI" userLabel="Not now">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qO-6S-maI" userLabel="Not now" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="81" width="315" height="79"/>
                                                 <state key="normal" title="Not now. "/>
                                                 <connections>
@@ -524,7 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRP-Ga-hzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3557.971014492754" y="1155.8035714285713"/>
+            <point key="canvasLocation" x="4468.115942028986" y="1155.8035714285713"/>
         </scene>
         <!--Recycling Stores & Organizations-->
         <scene sceneID="1Db-I3-90L">
@@ -551,13 +567,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="CoF-lQ-m6X">
                                                     <rect key="frame" x="20" y="11" width="287" height="78"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6Z-uk-GF3" userLabel="StoreLabel">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6Z-uk-GF3" userLabel="StoreLabel" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp1-QA-yEw" userLabel="InitiativeLabel">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp1-QA-yEw" userLabel="InitiativeLabel" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="43" width="287" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
@@ -597,7 +613,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SpS-oH-ZtS"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Recycling Stores &amp; Organizations" id="oKs-6j-yPV"/>
+                    <navigationItem key="navigationItem" title="Recycling Stores &amp; Organizations" id="oKs-6j-yPV">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="iconThinMed-20" id="Eoj-Gx-tnu">
+                            <color key="tintColor" name="neutralAccent"/>
+                            <connections>
+                                <action selector="infoBarItemTapped:" destination="8SP-49-ka5" id="CbJ-2m-R2Y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="vI6-Nt-ixL" id="4Nb-rJ-wiP"/>
@@ -653,13 +676,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2Af-mW-GAo">
                                 <rect key="frame" x="0.0" y="104" width="414" height="58"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-Lg-GdO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-Lg-GdO" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains 0 items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-0U-oLC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains 0 items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-0U-oLC" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="29" width="414" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -685,13 +708,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="104" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0Q-Y3-7jX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0Q-Y3-7jX" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="8" width="71" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="##" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yW-OM-n8x">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="##" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yW-OM-n8x" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                     <rect key="frame" x="46" y="113" width="21" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -749,23 +772,26 @@
                         <viewLayoutGuide key="safeArea" id="y9X-cK-HAl"/>
                     </view>
                     <navigationItem key="navigationItem" id="IPc-eP-x9S">
-                        <leftBarButtonItems>
-                            <barButtonItem systemItem="trash" id="h6H-N8-Vj7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="h6H-N8-Vj7">
+                            <color key="tintColor" name="neutralAccent"/>
+                            <connections>
+                                <action selector="deleteOptionTapped:" destination="bXr-tq-VM7" id="Nuy-YI-tDW"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="nxd-ga-zGQ">
+                                <color key="tintColor" name="neutralAccent"/>
                                 <connections>
-                                    <action selector="deleteOptionTapped:" destination="bXr-tq-VM7" id="Nuy-YI-tDW"/>
+                                    <action selector="addCategoryTapped:" destination="bXr-tq-VM7" id="boT-Jn-2oT"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="edit" id="zyS-2f-cPm">
+                            <barButtonItem image="iconThinMed-20" style="plain" id="zyS-2f-cPm">
+                                <color key="tintColor" name="neutralAccent"/>
                                 <connections>
                                     <action selector="infoTapped:" destination="bXr-tq-VM7" id="3eb-13-ng7"/>
                                 </connections>
                             </barButtonItem>
-                        </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nxd-ga-zGQ">
-                            <connections>
-                                <action selector="addCategoryTapped:" destination="bXr-tq-VM7" id="boT-Jn-2oT"/>
-                            </connections>
-                        </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="closetNameLabel" destination="BOh-Lg-GdO" id="AjQ-uO-8Yh"/>
@@ -777,7 +803,7 @@
             </objects>
             <point key="canvasLocation" x="1602.8985507246377" y="-354.24107142857139"/>
         </scene>
-        <!--Category Title -->
+        <!--Detail Category View Controller-->
         <scene sceneID="vO2-N0-8D2">
             <objects>
                 <viewController id="44D-Lk-yGu" customClass="DetailCategoryViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
@@ -785,16 +811,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Count of Clothes: ##" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncd-My-1Ac">
-                                <rect key="frame" x="20" y="106" width="374" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MhT-Ot-hyc">
+                                <rect key="frame" x="20.5" y="166.5" width="373" height="43.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count of Clothes: ##" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncd-My-1Ac" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="309.5" height="43.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUh-wX-iti" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                        <rect key="frame" x="329.5" y="0.0" width="43.5" height="43.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="NUh-wX-iti" secondAttribute="height" multiplier="1:1" id="w9i-Qh-hM3"/>
+                                        </constraints>
+                                        <state key="normal" image="pencil"/>
+                                        <connections>
+                                            <action selector="updateQuantityButtonTapped:" destination="44D-Lk-yGu" eventType="touchUpInside" id="tTO-qJ-u0Z"/>
+                                            <segue destination="yNT-7n-jdW" kind="presentation" identifier="toUpdateQuantityVC" id="c8v-Lp-ZDG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT0-Id-r19" customClass="ClosetLabel">
+                                <rect key="frame" x="20.5" y="108" width="373" height="43.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FR4-RB-BER">
-                                <rect key="frame" x="20" y="318" width="365" height="485"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Gallery..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLd-a3-iZ5">
+                                <rect key="frame" x="20.5" y="230" width="373" height="43.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FR4-RB-BER">
+                                <rect key="frame" x="20.5" y="283.5" width="373" height="471.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nxg-Wa-0xG">
                                     <size key="itemSize" width="101" height="129"/>
@@ -830,27 +882,51 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUh-wX-iti">
-                                <rect key="frame" x="20" y="171" width="157" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <connections>
-                                    <action selector="updateQuantityButtonTapped:" destination="44D-Lk-yGu" eventType="touchUpInside" id="tTO-qJ-u0Z"/>
-                                    <segue destination="yNT-7n-jdW" kind="presentation" identifier="toUpdateQuantityVC" id="c8v-Lp-ZDG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qLd-a3-iZ5" firstAttribute="leading" secondItem="MhT-Ot-hyc" secondAttribute="leading" id="0w8-ld-y9o"/>
+                            <constraint firstItem="qLd-a3-iZ5" firstAttribute="height" secondItem="hId-xJ-aya" secondAttribute="height" multiplier="0.06" id="5OO-HT-UIU"/>
+                            <constraint firstItem="TT0-Id-r19" firstAttribute="height" secondItem="hId-xJ-aya" secondAttribute="height" multiplier="0.06" id="5RJ-w1-zwH"/>
+                            <constraint firstItem="FR4-RB-BER" firstAttribute="top" secondItem="qLd-a3-iZ5" secondAttribute="bottom" constant="10" id="5hm-gY-8OC"/>
+                            <constraint firstItem="FR4-RB-BER" firstAttribute="height" secondItem="hId-xJ-aya" secondAttribute="height" multiplier="0.65" id="AK2-q0-da1"/>
+                            <constraint firstItem="qLd-a3-iZ5" firstAttribute="centerX" secondItem="eLU-d0-hB7" secondAttribute="centerX" id="GfI-5T-Ucd"/>
+                            <constraint firstItem="MhT-Ot-hyc" firstAttribute="height" secondItem="hId-xJ-aya" secondAttribute="height" multiplier="0.06" id="Hbg-cA-cln"/>
+                            <constraint firstItem="Ncd-My-1Ac" firstAttribute="width" secondItem="hId-xJ-aya" secondAttribute="width" multiplier="0.71" id="IWa-LI-1IT"/>
+                            <constraint firstItem="MhT-Ot-hyc" firstAttribute="width" secondItem="hId-xJ-aya" secondAttribute="width" multiplier="0.9" id="JFx-GZ-Zn4"/>
+                            <constraint firstItem="qLd-a3-iZ5" firstAttribute="trailing" secondItem="MhT-Ot-hyc" secondAttribute="trailing" id="KLQ-YA-wmv"/>
+                            <constraint firstItem="FR4-RB-BER" firstAttribute="centerX" secondItem="eLU-d0-hB7" secondAttribute="centerX" id="LWu-zH-HxZ"/>
+                            <constraint firstItem="TT0-Id-r19" firstAttribute="leading" secondItem="Ncd-My-1Ac" secondAttribute="leading" id="QvX-Fx-tmH"/>
+                            <constraint firstItem="TT0-Id-r19" firstAttribute="trailing" secondItem="MhT-Ot-hyc" secondAttribute="trailing" id="Wgt-BE-zV6"/>
+                            <constraint firstItem="qLd-a3-iZ5" firstAttribute="top" secondItem="MhT-Ot-hyc" secondAttribute="bottom" constant="20" id="aqh-yw-1EQ"/>
+                            <constraint firstItem="MhT-Ot-hyc" firstAttribute="top" secondItem="TT0-Id-r19" secondAttribute="bottom" constant="15" id="fQu-cM-yzq"/>
+                            <constraint firstItem="TT0-Id-r19" firstAttribute="top" secondItem="hId-xJ-aya" secondAttribute="top" constant="20" id="hBh-rT-hqy"/>
+                            <constraint firstItem="MhT-Ot-hyc" firstAttribute="centerX" secondItem="eLU-d0-hB7" secondAttribute="centerX" id="lsd-iW-eVl"/>
+                            <constraint firstItem="FR4-RB-BER" firstAttribute="leading" secondItem="TT0-Id-r19" secondAttribute="leading" id="ydi-lj-AGD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hId-xJ-aya"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Category Title " id="OOF-IP-SeV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="ZXf-Ay-Vcy">
-                            <connections>
-                                <action selector="addPhotoButtonTapped:" destination="44D-Lk-yGu" id="igG-Qk-xId"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" id="OOF-IP-SeV">
+                        <rightBarButtonItems>
+                            <barButtonItem image="iconThinMed-20" id="zxV-ko-ScF">
+                                <connections>
+                                    <action selector="infoBarItemTapped:" destination="44D-Lk-yGu" id="Mkb-yP-2c3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="camera" id="ZXf-Ay-Vcy">
+                                <connections>
+                                    <action selector="addPhotoButtonTapped:" destination="44D-Lk-yGu" id="igG-Qk-xId"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="6ea-lm-oQQ">
+                                <connections>
+                                    <action selector="editBarItemTapped:" destination="44D-Lk-yGu" id="sxn-wY-kyd"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="categoryLabel" destination="TT0-Id-r19" id="rCI-ay-nBj"/>
                         <outlet property="photosCollectionView" destination="FR4-RB-BER" id="jaB-77-Yqx"/>
                         <outlet property="quantityOfCategoryLabel" destination="Ncd-My-1Ac" id="wt5-lv-7ul"/>
                         <outlet property="updateQuantityButton" destination="NUh-wX-iti" id="zz3-xw-dxv"/>
@@ -874,37 +950,37 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Zwe-h7-d1v">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="358"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YY3-Dt-PAd">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YY3-Dt-PAd" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="83.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Current Count" borderStyle="roundedRect" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-4O-6cl">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Current Count" borderStyle="roundedRect" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-4O-6cl" customClass="ClosetTextField" customModule="ClothingManagement" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="91.5" width="331" height="83.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                             </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M0r-cF-u91">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="M0r-cF-u91">
                                                 <rect key="frame" x="0.0" y="183" width="331" height="83.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUF-oj-29J">
-                                                        <rect key="frame" x="0.0" y="0.0" width="160.5" height="83.5"/>
-                                                        <state key="normal" title="-"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUF-oj-29J" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="8.5" width="95.5" height="67.5"/>
+                                                        <state key="normal" title="-" backgroundImage="minus" catalog="system"/>
                                                         <connections>
                                                             <action selector="subtractButtonTapped:" destination="yNT-7n-jdW" eventType="touchUpInside" id="WUf-8A-YwB"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViR-QN-L9a">
-                                                        <rect key="frame" x="170.5" y="0.0" width="160.5" height="83.5"/>
-                                                        <state key="normal" title="+"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViR-QN-L9a" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                                        <rect key="frame" x="235.5" y="2" width="95.5" height="80"/>
+                                                        <state key="normal" title="+" backgroundImage="plus" catalog="system"/>
                                                         <connections>
                                                             <action selector="addButtonTapped:" destination="yNT-7n-jdW" eventType="touchUpInside" id="wzJ-ag-Ptt"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reM-hF-ny9">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reM-hF-ny9" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="274.5" width="331" height="83.5"/>
                                                 <state key="normal" title="Save Category"/>
                                                 <connections>
@@ -963,10 +1039,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="Awa-fY-ZVe" kind="relationship" relationship="viewControllers" id="JkR-BL-HUa"/>
-                        <segue destination="MRZ-JW-Mn8" kind="relationship" relationship="viewControllers" id="qtb-qp-aQ8"/>
                         <segue destination="ZYE-MM-3If" kind="relationship" relationship="viewControllers" id="hc5-j1-16B"/>
                         <segue destination="KOx-v7-aWB" kind="relationship" relationship="viewControllers" id="e0e-no-t5m"/>
-                        <segue destination="DCt-nk-uDo" kind="relationship" relationship="viewControllers" id="3YQ-by-Obd"/>
+                        <segue destination="MZU-u7-7U3" kind="relationship" relationship="viewControllers" id="3YQ-by-Obd"/>
+                        <segue destination="MRZ-JW-Mn8" kind="relationship" relationship="viewControllers" id="qtb-qp-aQ8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOm-FT-RFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1028,11 +1104,40 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z50-Ld-lxB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1592.753623188406" y="1155.8035714285713"/>
+            <point key="canvasLocation" x="2502.898550724638" y="1155.8035714285713"/>
+        </scene>
+        <!--Contributions-->
+        <scene sceneID="ABY-Gv-Cfx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MZU-u7-7U3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Contributions" id="Nnc-X4-NxY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7g8-ff-vdQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DCt-nk-uDo" kind="relationship" relationship="rootViewController" id="LyV-1P-KZK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aUn-D7-QAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1330.4347826086957" y="843.75"/>
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="64" height="48"/>
+        <image name="cameraTransparent" width="151" height="122"/>
         <image name="hangerDefault" width="880" height="497"/>
+        <image name="iconThinMed-20" width="20" height="20"/>
+        <image name="iconThinMed-40" width="40" height="40"/>
+        <image name="minus" catalog="system" width="64" height="14"/>
+        <image name="pencil" width="122" height="122"/>
+        <image name="plus" catalog="system" width="64" height="58"/>
+        <namedColor name="neutralAccent">
+            <color red="0.3843137254901961" green="0.51372549019607838" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="neutralPrimary">
             <color red="0.96078431372549022" green="0.93725490196078431" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

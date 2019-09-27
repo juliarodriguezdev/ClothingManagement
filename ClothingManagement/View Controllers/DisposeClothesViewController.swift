@@ -14,13 +14,13 @@ protocol DisposeClothesViewControllerDelegate: class {
 
 class DisposeClothesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var placeLabel: ClosetLabel!
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var disposeButton: UIButton!
+    @IBOutlet weak var disposeButton: ClosetButton!
     
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var cancelButton: ClosetButton!
     
     weak var delegate: DisposeClothesViewControllerDelegate?
     var user: User?

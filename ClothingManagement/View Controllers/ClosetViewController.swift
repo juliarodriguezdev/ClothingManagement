@@ -12,8 +12,8 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var closetNameLabel: UILabel!
-    @IBOutlet weak var quantityOfClosetLabel: UILabel!
+    @IBOutlet weak var closetNameLabel: ClosetLabel!
+    @IBOutlet weak var quantityOfClosetLabel: ClosetLabel!
     
     // landing pad from other views 
     var user: User?

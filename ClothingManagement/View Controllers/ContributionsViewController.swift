@@ -52,7 +52,21 @@ class ContributionsViewController: UIViewController, UITableViewDataSource, UITa
             tableView.backgroundColor = UIColor.neutralPrimary
         }
     }
-        
+    
+    @IBAction func infoBarItemTapped(_ sender: UIBarButtonItem) {
+        presentUIHelperAlert(title: "Information", message: "Select contribution to upload \ntax deductible receipt.")
+    }
+    
+   func presentUIHelperAlert(title: String, message: String) {
+       
+       let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+       
+       let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+       
+       alertController.addAction(okayAction)
+       self.present(alertController, animated: true)
+   }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
@@ -93,16 +107,32 @@ class ContributionsViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let destinationVC = UIStoryboard(name: "TabMain", bundle: nil).instantiateViewController(withIdentifier: "DetailContributionViewController") as? DetailContributionViewController else { return }
-        if ContributionController.shared.contributions.count == 0 {
-            present(destinationVC, animated: true)
-        } else {
-            destinationVC.contribution = ContributionController.shared.contributions[indexPath.row]
-            destinationVC.user = user
-            present(destinationVC, animated: true)
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard let destinationVC = UIStoryboard(name: "TabMain", bundle: nil).instantiateViewController(withIdentifier: "DetailContributionViewController") as? DetailContributionViewController else { return }
+//        if ContributionController.shared.contributions.count == 0 {
+//            present(destinationVC, animated: true)
+//        } else {
+//            destinationVC.contribution = ContributionController.shared.contributions[indexPath.row]
+//            destinationVC.user = user
+//            present(destinationVC, animated: true)
+//        }
+//
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //toReceiptVC
+        if segue.identifier == "toReceiptVC" {
+            if let destinationVC = segue.destination as? DetailContributionViewController {
+                if ContributionController.shared.contributions.count == 0 {
+                    destinationVC.user = user
+                } else {
+                    guard let index = tableView.indexPathForSelectedRow else { return }
+                    let contribution = ContributionController.shared.contributions[index.row]
+                    destinationVC.contribution = contribution
+                    destinationVC.user = user
+                }
+            }
         }
-        
     }
     
 

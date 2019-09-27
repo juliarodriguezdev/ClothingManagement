@@ -14,10 +14,10 @@ class DisposeClothesTableViewCell: UITableViewCell {
 // updating the categories
     var disposedNumber: Int?
     
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoryLabel: ClosetLabel!
     
-    @IBOutlet weak var quantityLabel: UILabel!
-    @IBOutlet weak var disposeQuantityTextField: UITextField!
+    @IBOutlet weak var quantityLabel: ClosetLabel!
+    @IBOutlet weak var disposeQuantityTextField: ClosetTextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()

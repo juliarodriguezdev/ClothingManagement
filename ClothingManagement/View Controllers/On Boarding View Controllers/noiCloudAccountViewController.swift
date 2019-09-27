@@ -11,7 +11,7 @@ import CloudKit
 
 class noiCloudAccountViewController: UIViewController {
 
-    @IBOutlet weak var icloudFeedbackLabel: UILabel!
+    @IBOutlet weak var icloudFeedbackLabel: ClosetLabel!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {

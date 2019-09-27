@@ -16,10 +16,11 @@ class DetailCategoryViewController: UIViewController {
     var user: User?
     
     var category: Category?
+    @IBOutlet weak var categoryLabel: ClosetLabel!
     
-    @IBOutlet weak var quantityOfCategoryLabel: UILabel!
+    @IBOutlet weak var quantityOfCategoryLabel: ClosetLabel!
     
-    @IBOutlet weak var updateQuantityButton: UIButton!
+    @IBOutlet weak var updateQuantityButton: ClosetButton!
     
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
@@ -29,6 +30,7 @@ class DetailCategoryViewController: UIViewController {
         
         photosCollectionView.dataSource = self
         photosCollectionView.delegate = self
+        
         guard let category = category else { return }
         updateViews()
         let predicate = NSPredicate(format: "categoryReference == %@", category.recordID)
@@ -50,6 +52,7 @@ class DetailCategoryViewController: UIViewController {
         doubleTapGestureRecognizer.delaysTouchesBegan = true
         doubleTapGestureRecognizer.delegate = self
         self.photosCollectionView.addGestureRecognizer(doubleTapGestureRecognizer)
+        checkGenderForUIColor(user: user)
 
     }
     
@@ -63,33 +66,60 @@ class DetailCategoryViewController: UIViewController {
         presentImagePickerActionSheet()
     }
     
+    @IBAction func infoBarItemTapped(_ sender: UIBarButtonItem) {
+        presentUIHelperAlert(title: "Information", message: "Camera: upload & take photos of clothes \nPencil: update inventory \nEdit: edit category name, Double Tap: on a photo to set it as the icon image.")
+    }
+    
+    @IBAction func editBarItemTapped(_ sender: UIBarButtonItem) {
+        // TODO: add current title and edit...
+    }
+    
+    
+    func presentUIHelperAlert(title: String, message: String) {
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            
+            alertController.addAction(okayAction)
+            self.present(alertController, animated: true)
+        }
+    
+    
     func updateViews() {
-        guard let category = category,
-        let user = user else { return }
-        checkGenderForUIColor(user: user)
+        guard let category = category else { return }
         if category.quantity == 1 {
             quantityOfCategoryLabel.text = "Contains: \(category.quantity) \(category.name)"
 
         } else {
             quantityOfCategoryLabel.text = "Contains: \(category.quantity) \(category.name)'s"
         }
-        updateQuantityButton.setTitle("Update Inventory", for: .normal)
-        navigationItem.title = category.name
-        navigationItem.largeTitleDisplayMode = .always
+        //updateQuantityButton.setTitle("Update Inventory", for: .normal)
+        //navigationItem.title = category.name
+        //navigationItem.largeTitleDisplayMode = .always
     }
-    func checkGenderForUIColor(user: User) {
+    func checkGenderForUIColor(user: User?) {
         
-        switch user.isMale {
-        case true:
+        if user?.isMale == true {
+    
             updateQuantityButton.backgroundColor = UIColor.maleSecondary
             updateQuantityButton.setTitleColor(.darkText, for: .normal)
             self.view.backgroundColor = UIColor.malePrimary
             photosCollectionView.backgroundColor = UIColor.malePrimary
-        case false:
+            navigationController?.navigationBar.barTintColor = UIColor.malePrimary
+            navigationController?.navigationBar.tintColor = UIColor.maleSecondary
+        } else if user?.isMale == false {
             updateQuantityButton.backgroundColor = UIColor.femaleSecondary
             updateQuantityButton.setTitleColor(.lightText, for: .normal)
             self.view.backgroundColor = UIColor.femalePrimary
             photosCollectionView.backgroundColor = UIColor.femalePrimary
+            navigationController?.navigationBar.barTintColor = UIColor.femalePrimary
+                       navigationController?.navigationBar.tintColor = UIColor.femaleSecondary
+        } else {
+            self.view.backgroundColor = UIColor.neutralPrimary
+            photosCollectionView.backgroundColor = UIColor.neutralPrimary
+            navigationController?.navigationBar.barTintColor = UIColor.neutralPrimary
+            navigationController?.navigationBar.tintColor = UIColor.neutralSecondary
         }
     }
     

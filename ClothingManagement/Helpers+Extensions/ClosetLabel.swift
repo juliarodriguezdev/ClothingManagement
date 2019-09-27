@@ -16,13 +16,13 @@ class ClosetLabel: UILabel {
      }
      
      func setUpUI() {
-         self.addCornerRadius(20)
-         //self.layer.masksToBounds = true
-         self.textColor = UIColor.black
-         //overrideFont(with: "Trebuchet MS")
+         
+         self.layer.masksToBounds = true
+         self.textColor = UIColor.darkText
+         overrideFont(with: "Trebuchet MS")
          //updateFont(with: FontNames.trebuchetMS)
          //overrideFont(with: "Avenir-Book")
-         //self.addBorder()
+    
      
      }
      

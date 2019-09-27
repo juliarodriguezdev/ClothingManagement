@@ -17,10 +17,10 @@ class ClosetTextField: UITextField {
     
     func setUpUI() {
         self.overridePlaceHolderColor()
-        self.addCornerRadius(20)
+        self.addCornerRadius(10)
         self.layer.masksToBounds = true
-        self.textColor = UIColor.black
-        //overrideFont(with: "Trebuchet MS")
+        self.textColor = UIColor.darkText
+        overrideFont(with: "Trebuchet MS")
         self.addBorder()
     
     }

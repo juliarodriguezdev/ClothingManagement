@@ -10,9 +10,9 @@ import UIKit
 
 class FunFactsViewController: UIViewController {
 
-    @IBOutlet weak var factsLabel: UILabel!
+    @IBOutlet weak var factsLabel: ClosetLabel!
     
-    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var sourceLabel: ClosetLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +39,18 @@ class FunFactsViewController: UIViewController {
        
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func infoButtonTapped(_ sender: UIButton) {
+        presentUIHelperAlert(title: "Information", message: "Tap anywhere to generate a new textile fact.")
+        
     }
-    */
-
+    func presentUIHelperAlert(title: String, message: String) {
+           
+           let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           
+           let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+           
+           alertController.addAction(okayAction)
+           self.present(alertController, animated: true)
+       }
+    
 }

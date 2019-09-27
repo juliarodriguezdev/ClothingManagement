@@ -12,19 +12,19 @@ class LocalDonationTableViewCell: UITableViewCell {
     
     var localDonation: LocalDonation? 
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: ClosetLabel!
     
-    @IBOutlet weak var isOpenLabel: UILabel!
+    @IBOutlet weak var isOpenLabel: ClosetLabel!
     
-    @IBOutlet weak var reviewCountLabel: UILabel!
+    @IBOutlet weak var reviewCountLabel: ClosetLabel!
     
-    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationLabel: ClosetLabel!
     
-    @IBOutlet weak var location2Label: UILabel!
+    @IBOutlet weak var location2Label: ClosetLabel!
     
-    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var distanceLabel: ClosetLabel!
     
-    @IBOutlet weak var phoneButton: UIButton!
+    @IBOutlet weak var phoneButton: ClosetButton!
     
     @IBOutlet weak var donationImage: UIImageView!
     

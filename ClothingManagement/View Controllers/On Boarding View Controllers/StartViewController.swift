@@ -10,7 +10,7 @@ import UIKit
 
 class StartViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: ClosetLabel!
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     

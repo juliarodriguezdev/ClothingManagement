@@ -62,30 +62,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RsN-JL-6DL">
-                                <rect key="frame" x="41.5" y="199.5" width="331" height="245.5"/>
+                                <rect key="frame" x="41.5" y="175" width="331" height="409"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shk-XC-7wI">
-                                        <rect key="frame" x="0.0" y="0.0" width="331" height="37"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shk-XC-7wI" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="62"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKA-hn-fT0" userLabel="Description">
-                                        <rect key="frame" x="0.0" y="47" width="331" height="98.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKA-hn-fT0" userLabel="Description" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="331" height="237"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ltz-KK-GCk">
-                                        <rect key="frame" x="0.0" y="155.5" width="331" height="40"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ltz-KK-GCk" customClass="ClosetTextField" customModule="ClothingManagement" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="319" width="331" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="5K5-Z3-XgP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Closet Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGO-VP-jya">
-                                        <rect key="frame" x="0.0" y="205.5" width="331" height="40"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Closet Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGO-VP-jya" customClass="ClosetTextField" customModule="ClothingManagement" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="369" width="331" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="h8h-Mc-H6R"/>
                                         </constraints>
@@ -95,9 +95,9 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Yc1-2r-AfY">
-                                <rect key="frame" x="41.5" y="495" width="331" height="148"/>
+                                <rect key="frame" x="41.5" y="634" width="331" height="148"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dSW-YV-daN">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dSW-YV-daN">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="39"/>
                                         <color key="backgroundColor" name="neutralPrimary"/>
                                         <segments>
@@ -109,7 +109,7 @@
                                             <action selector="genderSegmentedControl:" destination="rdf-l8-iia" eventType="valueChanged" id="w63-NA-zHZ"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pg-iU-Kri">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pg-iU-Kri" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="98" width="331" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="jfC-M5-mjm"/>
@@ -121,8 +121,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oa-7n-Ydr">
-                                <rect key="frame" x="147" y="663" width="120" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oa-7n-Ydr" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                <rect key="frame" x="147" y="802" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5vX-wp-Rb3"/>
                                 </constraints>
@@ -131,32 +131,32 @@
                                     <action selector="skipButtonTapped:" destination="rdf-l8-iia" eventType="touchUpInside" id="ebM-FG-bXt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cr0-k8-p1F">
-                                <rect key="frame" x="76" y="317" width="262" height="262"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cr0-k8-p1F" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                <rect key="frame" x="105" y="346" width="204.5" height="204.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.89510640337423308" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cr0-k8-p1F" secondAttribute="height" multiplier="1:1" id="I7c-Z1-kgj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="cr0-k8-p1F" firstAttribute="height" secondItem="SOc-IH-ryh" secondAttribute="height" multiplier="0.32" id="38N-XZ-6pm"/>
+                            <constraint firstItem="cr0-k8-p1F" firstAttribute="height" secondItem="SOc-IH-ryh" secondAttribute="height" multiplier="0.25" id="38N-XZ-6pm"/>
                             <constraint firstItem="cr0-k8-p1F" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="B7n-hv-dVF"/>
                             <constraint firstItem="Yc1-2r-AfY" firstAttribute="top" secondItem="RsN-JL-6DL" secondAttribute="bottom" constant="50" id="BSC-At-IEH"/>
                             <constraint firstItem="cr0-k8-p1F" firstAttribute="centerY" secondItem="w7O-gl-HHJ" secondAttribute="centerY" id="JbB-Cn-GHc"/>
                             <constraint firstItem="Yc1-2r-AfY" firstAttribute="width" secondItem="w7O-gl-HHJ" secondAttribute="width" multiplier="0.8" id="JpS-Eh-0RQ"/>
                             <constraint firstItem="3oa-7n-Ydr" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="TKA-sa-p48"/>
-                            <constraint firstItem="RsN-JL-6DL" firstAttribute="height" secondItem="SOc-IH-ryh" secondAttribute="height" multiplier="0.3" id="UPe-Xh-095"/>
+                            <constraint firstItem="SOc-IH-ryh" firstAttribute="bottom" secondItem="3oa-7n-Ydr" secondAttribute="bottom" constant="20" id="TSd-RN-ubz"/>
+                            <constraint firstItem="RsN-JL-6DL" firstAttribute="height" secondItem="SOc-IH-ryh" secondAttribute="height" multiplier="0.5" id="UPe-Xh-095"/>
                             <constraint firstItem="Yc1-2r-AfY" firstAttribute="centerX" secondItem="w7O-gl-HHJ" secondAttribute="centerX" id="XDK-gL-h3R"/>
                             <constraint firstItem="3oa-7n-Ydr" firstAttribute="top" secondItem="Yc1-2r-AfY" secondAttribute="bottom" constant="20" id="YDn-eZ-O7P"/>
                             <constraint firstItem="RsN-JL-6DL" firstAttribute="leading" secondItem="Yc1-2r-AfY" secondAttribute="leading" id="m0i-2W-6QK"/>
                             <constraint firstItem="RsN-JL-6DL" firstAttribute="width" secondItem="w7O-gl-HHJ" secondAttribute="width" multiplier="0.8" id="u9E-bB-m8Q"/>
-                            <constraint firstItem="RsN-JL-6DL" firstAttribute="top" secondItem="SOc-IH-ryh" secondAttribute="top" constant="155.5" id="vPX-g0-eDE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SOc-IH-ryh"/>
                         <connections>

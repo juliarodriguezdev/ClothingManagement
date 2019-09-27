@@ -39,6 +39,20 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
+    @IBAction func infoBarItemTapped(_ sender: UIBarButtonItem) {
+        presentUIHelperAlert(title: "Information", message: "Single Tap: launches store's webpage for recyling details. \nDouble Tap: Input amount of items recycled.")
+    }
+    
+    func presentUIHelperAlert(title: String, message: String) {
+         
+         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+         
+         let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+         
+         alertController.addAction(okayAction)
+         self.present(alertController, animated: true)
+     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 125
     }
@@ -54,19 +68,19 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect.zero)
-        let headerlabel = UILabel(frame: CGRect(x: 12, y: 0, width: tableView.frame.size.width, height: 30))
+        let headerlabel = UILabel(frame: CGRect(x: 12, y: 0, width: tableView.frame.size.width, height: 35))
 
             if user?.isMale == true {
                 view.backgroundColor = UIColor.maleSecondary
-                headerlabel.textColor = UIColor.darkText
+                headerlabel.textColor = UIColor.black
             } else if user?.isMale == false {
                 view.backgroundColor = UIColor.femaleSecondary
-                headerlabel.textColor = UIColor.darkText
+                headerlabel.textColor = UIColor.black
             } else {
                 view.backgroundColor = UIColor.neutralSecondary
-                headerlabel.textColor = UIColor.darkText
+                headerlabel.textColor = UIColor.black
             }
-    
+        headerlabel.font = UIFont(name: FontNames.trebuchetMS, size: 18)
         headerlabel.textAlignment = .left
         view.addSubview(headerlabel)
         
@@ -109,7 +123,8 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         } else {
             cell?.backgroundColor = UIColor.neutralPrimary
         }
-        cell?.storeNameLabel.textColor = UIColor.darkGray
+        cell?.storeNameLabel.textColor = UIColor.black
+        cell?.initiativeNameLabel.textColor = UIColor.gray
         cell?.storeImage.image = UIImage(named: "hangerDefault")
         cell?.storeNameLabel.text = recyclePlace.storeName
         cell?.initiativeNameLabel.text = "Initiative: \(recyclePlace.initiative!)"

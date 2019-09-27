@@ -15,11 +15,11 @@ protocol QuantityButtonDelegate: class {
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoryLabel: ClosetLabel!
     
-    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var quantityLabel: ClosetLabel!
     
-    @IBOutlet weak var quantityButton: UIButton!
+    @IBOutlet weak var quantityButton: ClosetButton!
     
     @IBOutlet weak var iconImage: UIImageView!
     

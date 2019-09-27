@@ -18,13 +18,13 @@ class UpdateQuantityViewController: UIViewController {
     var category: Category?
     var user: User?
     
-    @IBOutlet weak var quantityTextField: UITextField!
+    @IBOutlet weak var quantityTextField: ClosetTextField!
     
-    @IBOutlet weak var categoryNameLabel: UILabel!
+    @IBOutlet weak var categoryNameLabel: ClosetLabel!
     
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var addButton: ClosetButton!
     
-    @IBOutlet weak var subtractButton: UIButton!
+    @IBOutlet weak var subtractButton: ClosetButton!
     
     
         

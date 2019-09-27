@@ -47,10 +47,16 @@ class DonateViewController: UIViewController {
     func checkGenderForColorUI(user: User?) {
         if user?.isMale == true {
             self.view.backgroundColor = UIColor.malePrimary
+            navigationController?.navigationBar.barTintColor = UIColor.malePrimary
+            navigationController?.navigationBar.tintColor = UIColor.maleSecondary
         } else if user?.isMale == false {
             self.view.backgroundColor = UIColor.femalePrimary
+            navigationController?.navigationBar.barTintColor = UIColor.femalePrimary
+            navigationController?.navigationBar.tintColor = UIColor.femaleSecondary
         } else {
-            return self.view.backgroundColor = UIColor.neutralPrimary
+            self.view.backgroundColor = UIColor.neutralPrimary
+            navigationController?.navigationBar.barTintColor = UIColor.neutralPrimary
+            navigationController?.navigationBar.tintColor = UIColor.neutralSecondary
 
         }
     }
@@ -67,7 +73,19 @@ class DonateViewController: UIViewController {
         locationManager.stopUpdatingLocation()
     }
     
-    
+    @IBAction func infoBarItemTapped(_ sender: Any) {
+        presentUIHelperAlert(title: "Information", message: "Single Tap: navigates to Maps. \nDouble Tap: Input amount of items donated. \nPhone Number: prompts to call")
+        
+    }
+    func presentUIHelperAlert(title: String, message: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        
+        alertController.addAction(okayAction)
+        self.present(alertController, animated: true)
+    }
     
     // MARK: - Navigation
 

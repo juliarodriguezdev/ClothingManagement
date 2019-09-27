@@ -24,8 +24,8 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var skipLabel: ClosetLabel!
     
-    @IBOutlet weak var createAccountButton: UIButton!
-    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var createAccountButton: ClosetButton!
+    @IBOutlet weak var skipButton: ClosetButton!
     
     var isMale: Bool?
     
@@ -35,26 +35,28 @@ class SignUpViewController: UIViewController {
         nameTextField.delegate = self
         closetNameTextField.delegate = self
         signUpLabel.text = "Sign up!"
-        descriptionLabel.text = "Store closet inventory, clothing photos, track donated & recyled clothing contributions to the greater world"
-        skipLabel.text = "Browse the app, without creating an account, \n or saving information"
+        descriptionLabel.text = "Save closet inventory, upload clothing photos, track donated \n& recyled contributions to the greater world"
+        skipLabel.text = "Browse the app, \nwithout creating an account..."
         skipLabel.alpha = 0
-        updateFont(with: "Trebuchet MS")
+        updateFontSizeAndSegControl(with: "Trebuchet MS")
         updateColorUI()
         
         
         
         // Do any additional setup after loading the view.
     }
-    func updateFont(with fontName: String) {
+    func updateFontSizeAndSegControl(with fontName: String) {
        
-        descriptionLabel.font = UIFont(name: fontName, size: 16)
-        nameTextField.font = UIFont(name: fontName, size: 16)
-        closetNameTextField.font = UIFont(name: fontName, size: 16)
-        skipLabel.font = UIFont(name: fontName, size: 20)
-        createAccountButton.titleLabel?.font = UIFont(name: fontName, size: 18)
-        skipButton.titleLabel?.font = UIFont(name: fontName, size: 16)
-        let segmentedFont = UIFont(name: fontName, size: 14)
+        signUpLabel.font = signUpLabel.font.withSize(24)
+        descriptionLabel.font = descriptionLabel.font.withSize(18)
+        nameTextField.font = nameTextField.font?.withSize(14)
+        closetNameTextField.font = closetNameTextField.font?.withSize(14)
+        skipLabel.font = closetNameTextField.font?.withSize(20)
+        createAccountButton.titleLabel?.font = createAccountButton.titleLabel?.font.withSize(20)
+        skipButton.titleLabel?.font = skipButton.titleLabel?.font.withSize(18)
+        let segmentedFont = UIFont(name: fontName, size: 16)
         genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: segmentedFont!], for: .normal)
+        genderSegmentedControl.addCornerRadius(10)
     }
     
     func updateColorUI() {
@@ -63,8 +65,8 @@ class SignUpViewController: UIViewController {
         createAccountButton.backgroundColor = UIColor.neutralAccent
         createAccountButton.setTitleColor(.lightText, for: .normal)
         skipButton.backgroundColor = UIColor.neutralPrimary
-        skipButton.setTitleColor(.black, for: .normal)
-        skipLabel.tintColor = .lightText
+        skipButton.setTitleColor(.darkText, for: .normal)
+        skipLabel.textColor = .darkGray
         //skipLabel.backgroundColor = .lightGray
         nameTextField.backgroundColor = UIColor.neutralPrimary
         closetNameTextField.backgroundColor = UIColor.neutralPrimary

@@ -12,11 +12,11 @@ class ContributionsTableViewCell: UITableViewCell {
     
     var contribution: Contribution?
     
-    @IBOutlet weak var placeLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var quantityLabel: UILabel!
-    @IBOutlet weak var timestampLabel: UILabel!
-    @IBOutlet weak var receiptLabel: UILabel!
+    @IBOutlet weak var placeLabel: ClosetLabel!
+    @IBOutlet weak var typeLabel: ClosetLabel!
+    @IBOutlet weak var quantityLabel: ClosetLabel!
+    @IBOutlet weak var timestampLabel: ClosetLabel!
+    @IBOutlet weak var receiptLabel: ClosetLabel!
     @IBOutlet weak var imageIcon: UIImageView!
     
     override func awakeFromNib() {
