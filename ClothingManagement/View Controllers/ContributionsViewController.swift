@@ -12,10 +12,14 @@ class ContributionsViewController: UIViewController, UITableViewDataSource, UITa
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
     let user = UserController.shared.currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicator.hidesWhenStopped = true
+        indicator.startAnimating()
         tableView.dataSource = self
         tableView.delegate = self
         checkGenderForColorUI(user: user)
@@ -24,6 +28,7 @@ class ContributionsViewController: UIViewController, UITableViewDataSource, UITa
         ContributionController.shared.fetchContributions(user: user) { (contribution) in
             if contribution != nil {
                 DispatchQueue.main.async {
+                    self.indicator.stopAnimating()
                     self.tableView.reloadData()
                 
                 }
@@ -32,10 +37,12 @@ class ContributionsViewController: UIViewController, UITableViewDataSource, UITa
     }
     override func viewWillAppear(_ animated: Bool) {
         // fetch contributions
+        indicator.startAnimating()
                guard let user = UserController.shared.currentUser else { return }
                ContributionController.shared.fetchContributions(user: user) { (contribution) in
                    if contribution != nil {
                        DispatchQueue.main.async {
+                        self.indicator.stopAnimating()
                            self.tableView.reloadData()
                        
                        }
@@ -106,19 +113,7 @@ class ContributionsViewController: UIViewController, UITableViewDataSource, UITa
         return cell
         }
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let destinationVC = UIStoryboard(name: "TabMain", bundle: nil).instantiateViewController(withIdentifier: "DetailContributionViewController") as? DetailContributionViewController else { return }
-//        if ContributionController.shared.contributions.count == 0 {
-//            present(destinationVC, animated: true)
-//        } else {
-//            destinationVC.contribution = ContributionController.shared.contributions[indexPath.row]
-//            destinationVC.user = user
-//            present(destinationVC, animated: true)
-//        }
-//
-//    }
-    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //toReceiptVC
         if segue.identifier == "toReceiptVC" {

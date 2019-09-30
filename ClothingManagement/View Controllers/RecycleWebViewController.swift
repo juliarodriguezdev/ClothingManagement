@@ -14,31 +14,37 @@ class RecycleWebViewController: UIViewController {
     var recyclePlace: Recycle?
 
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        indicator.hidesWhenStopped = true
+        webViewIsLoading()
         guard let recyclePlace = recyclePlace else { return }
         
         let url = URL(string: "\(recyclePlace.webURL)")
         let request = URLRequest(url: url!)
         
         webView.load(request)
+        // TODO: Test this part
+        webView.allowsBackForwardNavigationGestures = true
+        webView.allowsLinkPreview = true
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        webViewIsLoading()
+    }
+    func webViewIsLoading(){
+        if webView.isLoading == true {
+            indicator.startAnimating()
+        } else {
+            indicator.stopAnimating()
+        }
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         webView.stopLoading()
 
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

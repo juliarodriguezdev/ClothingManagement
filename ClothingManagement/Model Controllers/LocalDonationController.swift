@@ -34,8 +34,9 @@ class LocalDonationController {
         let latitudeQuery = URLQueryItem(name: "latitude", value: "\(latitude)")
         // longitude
         let longitudeQuery = URLQueryItem(name: "longitude", value: "\(longitude)")
-        
-        components?.queryItems = [termQuery, latitudeQuery, longitudeQuery]
+        // distance sorty by
+        let distanceSortyQuery = URLQueryItem(name: "sort_by", value: "distance")
+        components?.queryItems = [termQuery, latitudeQuery, longitudeQuery, distanceSortyQuery]
         
         guard let finalURL = components?.url else { completion(nil); return }
         

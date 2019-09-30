@@ -12,7 +12,7 @@
         <!--Textile Facts-->
         <scene sceneID="lXd-xG-f3V">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="MRZ-JW-Mn8" customClass="FunFactsViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="MRZ-JW-Mn8" customClass="FunFactsViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHb-us-MSg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX5-Mr-RYv" userLabel="source" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX5-Mr-RYv" userLabel="source" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2" width="300" height="298"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
                                         <nil key="textColor"/>
@@ -79,16 +79,23 @@
         <!--Contributions-->
         <scene sceneID="TBj-pU-djQ">
             <objects>
-                <viewController id="DCt-nk-uDo" customClass="ContributionsViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DCt-nk-uDo" customClass="ContributionsViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DFK-Dw-xAG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="xuP-jF-tND">
+                                <rect key="frame" x="157" y="108" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="0Gs-5v-aRG"/>
+                                    <constraint firstAttribute="height" constant="100" id="Q1R-uH-yEn"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1sy-yT-6wv">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contributionCell" rowHeight="140" id="Txx-0l-7YY" customClass="ContributionsTableViewCell" customModule="ClothingManagement" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contributionCell" rowHeight="140" id="Txx-0l-7YY" customClass="ContributionsTableViewCell" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Txx-0l-7YY" id="mSU-sh-Uac">
@@ -98,31 +105,31 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ooB-M0-vpG">
                                                     <rect key="frame" x="20" y="19" width="243" height="102"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQ9-jT-xgr" userLabel="place" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQ9-jT-xgr" userLabel="place" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="243" height="20"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdE-m2-XdH" userLabel="type" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdE-m2-XdH" userLabel="type" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="20" width="243" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPe-cN-a5c" userLabel="quantity" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPe-cN-a5c" userLabel="quantity" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="40.5" width="243" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5Z-qM-Il8" userLabel="date" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5Z-qM-Il8" userLabel="date" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="60.5" width="243" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXH-lb-pV4" userLabel="receipt " customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXH-lb-pV4" userLabel="receipt " customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="82" width="243" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -163,8 +170,10 @@
                         <constraints>
                             <constraint firstItem="1sy-yT-6wv" firstAttribute="top" secondItem="hC6-mZ-fJ1" secondAttribute="top" id="4K2-KJ-nFD"/>
                             <constraint firstItem="hC6-mZ-fJ1" firstAttribute="bottom" secondItem="1sy-yT-6wv" secondAttribute="bottom" id="TH7-zy-vEA"/>
+                            <constraint firstItem="xuP-jF-tND" firstAttribute="top" secondItem="hC6-mZ-fJ1" secondAttribute="top" constant="20" id="dxl-4e-wbM"/>
                             <constraint firstItem="hC6-mZ-fJ1" firstAttribute="trailing" secondItem="1sy-yT-6wv" secondAttribute="trailing" id="fhQ-jb-NHE"/>
                             <constraint firstItem="1sy-yT-6wv" firstAttribute="leading" secondItem="hC6-mZ-fJ1" secondAttribute="leading" id="gNj-8d-I2F"/>
+                            <constraint firstItem="xuP-jF-tND" firstAttribute="centerX" secondItem="DFK-Dw-xAG" secondAttribute="centerX" id="i3k-IC-Udr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hC6-mZ-fJ1"/>
                     </view>
@@ -177,6 +186,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicator" destination="xuP-jF-tND" id="1rr-qG-EQx"/>
                         <outlet property="tableView" destination="1sy-yT-6wv" id="38e-7P-i3S"/>
                     </connections>
                 </viewController>
@@ -187,7 +197,7 @@
         <!--Tax Deduction Receipt-->
         <scene sceneID="XWs-6d-hAC">
             <objects>
-                <viewController storyboardIdentifier="DetailContributionViewController" id="SA5-Vg-w3P" customClass="DetailContributionViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailContributionViewController" id="SA5-Vg-w3P" customClass="DetailContributionViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lwp-KE-ZJs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,13 +216,13 @@
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <state key="selected" image="camera" catalog="system">
-                                    <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="editButtonTapped:" destination="SA5-Vg-w3P" eventType="touchUpInside" id="wQd-VD-Kkf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzt-uN-vJo" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzt-uN-vJo" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                 <rect key="frame" x="8" y="108" width="396" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="S8f-Hk-ehJ"/>
@@ -221,7 +231,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0s-QV-EO6" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0s-QV-EO6" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
                                 <rect key="frame" x="106" y="681" width="200" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="5M2-e8-3VK"/>
@@ -284,10 +294,10 @@
             </objects>
             <point key="canvasLocation" x="657.97101449275362" y="843.75"/>
         </scene>
-        <!--Donate View Controller-->
+        <!--Local Donation View Controller-->
         <scene sceneID="fQe-BU-wQ4">
             <objects>
-                <viewController id="JTr-Y9-4CQ" customClass="DonateViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JTr-Y9-4CQ" customClass="LocalDonationViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ttT-AQ-j3I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,52 +306,63 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="donateCell" rowHeight="280" id="jeY-Ya-D8J" customClass="LocalDonationTableViewCell" customModule="ClothingManagement" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="donateCell" rowHeight="280" id="jeY-Ya-D8J" customClass="LocalDonationTableViewCell" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="280"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jeY-Ya-D8J" id="XnA-Gj-lDo">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="l81-ho-YoP">
+                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="l81-ho-YoP">
                                                     <rect key="frame" x="20" y="46.5" width="225" height="183"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-fV-uhk" userLabel="location1" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="225" height="37.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-fV-uhk" userLabel="location1" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="225" height="36"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEn-Ox-wub" userLabel="location2" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="39.5" width="225" height="37.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEn-Ox-wub" userLabel="location2" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="39" width="225" height="35.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-ED-MJ8" userLabel="isOpen" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="79" width="225" height="31"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-ED-MJ8" userLabel="isOpen" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="77.5" width="225" height="29.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8no-Zg-dUF" userLabel="distanceAway" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="112" width="225" height="31"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8no-Zg-dUF" userLabel="distanceAway" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="110" width="225" height="29.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-O3-gyY" userLabel="reviewCount" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="145" width="225" height="38"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="7PR-YP-iqF">
+                                                            <rect key="frame" x="0.0" y="142.5" width="225" height="40.5"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="regular_0" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-B9-VYH" userLabel="rating">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="112.5" height="40.5"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-O3-gyY" userLabel="reviewCount" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
+                                                                    <rect key="frame" x="115.5" y="0.0" width="109.5" height="40.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="sNq-B9-VYH" firstAttribute="width" secondItem="l81-ho-YoP" secondAttribute="width" multiplier="0.5" id="oWM-rU-Is3"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ing-wx-TYs" userLabel="icon">
-                                                    <rect key="frame" x="249" y="47" width="145" height="182"/>
+                                                    <rect key="frame" x="249" y="46.5" width="145" height="165.5"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1c-DR-vmj" userLabel="phoneNumber" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1c-DR-vmj" userLabel="phoneNumber" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="231.5" width="46" height="33.5"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -350,29 +371,41 @@
                                                         <action selector="phoneNumberTapped:" destination="jeY-Ya-D8J" eventType="touchUpInside" id="lLK-vG-wK7"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krw-cM-pVt" userLabel="name" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krw-cM-pVt" userLabel="name" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="11" width="374" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTO-ig-7sD">
+                                                    <rect key="frame" x="282" y="218.5" width="112" height="50.5"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="yelpMed"/>
+                                                    <connections>
+                                                        <action selector="yelpButtonTapped:" destination="jeY-Ya-D8J" eventType="touchUpInside" id="D8h-JS-9RJ"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="k1c-DR-vmj" firstAttribute="top" secondItem="l81-ho-YoP" secondAttribute="bottom" constant="2" id="1W8-Sb-QdM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="TTO-ig-7sD" secondAttribute="trailing" id="4pO-Ne-fs5"/>
                                                 <constraint firstItem="l81-ho-YoP" firstAttribute="leading" secondItem="XnA-Gj-lDo" secondAttribute="leadingMargin" id="B6G-zs-2Nj"/>
                                                 <constraint firstItem="Ing-wx-TYs" firstAttribute="leading" secondItem="l81-ho-YoP" secondAttribute="trailing" constant="4" id="BIX-6Y-AsG"/>
+                                                <constraint firstItem="Ing-wx-TYs" firstAttribute="top" secondItem="fgm-fV-uhk" secondAttribute="top" id="DFg-Q5-mdO"/>
                                                 <constraint firstItem="k1c-DR-vmj" firstAttribute="leading" secondItem="l81-ho-YoP" secondAttribute="leading" id="DH5-BW-5gq"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="k1c-DR-vmj" secondAttribute="bottom" constant="4" id="HiJ-xB-iWC"/>
-                                                <constraint firstItem="Ing-wx-TYs" firstAttribute="centerY" secondItem="l81-ho-YoP" secondAttribute="centerY" id="K96-0E-vqW"/>
                                                 <constraint firstItem="l81-ho-YoP" firstAttribute="top" secondItem="krw-cM-pVt" secondAttribute="bottom" constant="2" id="LL9-FG-R3s"/>
-                                                <constraint firstItem="Ing-wx-TYs" firstAttribute="height" secondItem="XnA-Gj-lDo" secondAttribute="height" multiplier="0.65" id="LaJ-EH-fSD"/>
+                                                <constraint firstItem="Ing-wx-TYs" firstAttribute="height" secondItem="XnA-Gj-lDo" secondAttribute="height" multiplier="0.59" id="LaJ-EH-fSD"/>
                                                 <constraint firstItem="Ing-wx-TYs" firstAttribute="trailing" secondItem="XnA-Gj-lDo" secondAttribute="trailingMargin" id="Pag-Xx-5jl"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="krw-cM-pVt" secondAttribute="trailing" id="QWS-AW-OcR"/>
                                                 <constraint firstItem="Ing-wx-TYs" firstAttribute="width" secondItem="XnA-Gj-lDo" secondAttribute="width" multiplier="0.35" id="ene-ao-6ts"/>
                                                 <constraint firstItem="krw-cM-pVt" firstAttribute="top" secondItem="XnA-Gj-lDo" secondAttribute="topMargin" id="fCd-vS-oL2"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TTO-ig-7sD" secondAttribute="bottom" id="lcp-cf-M4d"/>
+                                                <constraint firstItem="TTO-ig-7sD" firstAttribute="height" secondItem="XnA-Gj-lDo" secondAttribute="height" multiplier="0.18" id="m6c-01-vao"/>
                                                 <constraint firstItem="krw-cM-pVt" firstAttribute="height" secondItem="XnA-Gj-lDo" secondAttribute="height" multiplier="0.12" id="qTa-xl-7Yh"/>
                                                 <constraint firstItem="krw-cM-pVt" firstAttribute="leading" secondItem="XnA-Gj-lDo" secondAttribute="leadingMargin" id="r1D-Aa-uwX"/>
                                                 <constraint firstItem="k1c-DR-vmj" firstAttribute="height" secondItem="XnA-Gj-lDo" secondAttribute="height" multiplier="0.12" id="vzM-3t-UzZ"/>
+                                                <constraint firstItem="TTO-ig-7sD" firstAttribute="width" secondItem="XnA-Gj-lDo" secondAttribute="width" multiplier="0.27" id="y5Z-8Y-4Cd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -383,17 +416,29 @@
                                             <outlet property="locationLabel" destination="fgm-fV-uhk" id="p1Q-2J-5rv"/>
                                             <outlet property="nameLabel" destination="krw-cM-pVt" id="BdP-1j-dqa"/>
                                             <outlet property="phoneButton" destination="k1c-DR-vmj" id="Nph-RH-1g9"/>
+                                            <outlet property="ratingImage" destination="sNq-B9-VYH" id="97F-un-DAT"/>
                                             <outlet property="reviewCountLabel" destination="NX3-O3-gyY" id="hI9-ok-oiM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Cwx-kA-cAy">
+                                <rect key="frame" x="157" y="108" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="qUT-tC-ulA"/>
+                                    <constraint firstAttribute="width" constant="100" id="uOU-jc-8A6"/>
+                                </constraints>
+                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HIh-Qz-nRY" firstAttribute="top" secondItem="TDK-Pn-LFv" secondAttribute="top" id="5VI-J6-gNo"/>
                             <constraint firstItem="TDK-Pn-LFv" firstAttribute="bottom" secondItem="HIh-Qz-nRY" secondAttribute="bottom" id="9a4-4o-md9"/>
+                            <constraint firstItem="Cwx-kA-cAy" firstAttribute="top" secondItem="TDK-Pn-LFv" secondAttribute="top" constant="20" id="Arh-M5-g5d"/>
                             <constraint firstItem="HIh-Qz-nRY" firstAttribute="leading" secondItem="TDK-Pn-LFv" secondAttribute="leading" id="HCg-Ae-2pr"/>
+                            <constraint firstItem="Cwx-kA-cAy" firstAttribute="centerX" secondItem="ttT-AQ-j3I" secondAttribute="centerX" id="aqb-xK-8Xl"/>
                             <constraint firstItem="TDK-Pn-LFv" firstAttribute="trailing" secondItem="HIh-Qz-nRY" secondAttribute="trailing" id="yED-eL-wHm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TDK-Pn-LFv"/>
@@ -407,6 +452,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicator" destination="Cwx-kA-cAy" id="Ilz-yO-hIp"/>
                         <outlet property="tableView" destination="HIh-Qz-nRY" id="eox-T2-9px"/>
                     </connections>
                 </viewController>
@@ -417,7 +463,7 @@
         <!--Dispose Clothes View Controller-->
         <scene sceneID="l8j-X6-vMb">
             <objects>
-                <viewController storyboardIdentifier="DisposeClothesViewController" modalPresentationStyle="overCurrentContext" id="Hq5-Xq-7lJ" customClass="DisposeClothesViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DisposeClothesViewController" modalPresentationStyle="overCurrentContext" id="Hq5-Xq-7lJ" customClass="DisposeClothesViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nez-11-Pi9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -425,7 +471,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agK-rf-xZg">
                                 <rect key="frame" x="41.5" y="100.5" width="331" height="695"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVx-oi-cJe" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVx-oi-cJe" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="8" y="8" width="315" height="90"/>
                                         <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -435,7 +481,7 @@
                                         <rect key="frame" x="8" y="106" width="315" height="421"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="disposeCell" rowHeight="79" id="Po6-s2-ylf" customClass="DisposeClothesTableViewCell" customModule="ClothingManagement" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="disposeCell" rowHeight="79" id="Po6-s2-ylf" customClass="DisposeClothesTableViewCell" customModule="RePurpose" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="315" height="79"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Po6-s2-ylf" id="rp1-yE-cIB">
@@ -445,13 +491,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Icy-zu-J8O">
                                                             <rect key="frame" x="16" y="18.5" width="215" height="42"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ja-3g-UPn" userLabel="category" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ja-3g-UPn" userLabel="category" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="215" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcE-In-RSt" userLabel="quantity" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcE-In-RSt" userLabel="quantity" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="22.5" width="215" height="19.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
@@ -459,7 +505,7 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dgr-0z-wgt" userLabel="disposeAmount" customClass="ClosetTextField" customModule="ClothingManagement" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dgr-0z-wgt" userLabel="disposeAmount" customClass="ClosetTextField" customModule="RePurpose" customModuleProvider="target">
                                                             <rect key="frame" x="239" y="22.5" width="60" height="34"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="j7G-A6-YgX"/>
@@ -487,14 +533,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="H6X-Sh-kQ1">
                                         <rect key="frame" x="8" y="527" width="315" height="160"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nul-Ci-igZ" userLabel="disposeHere" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nul-Ci-igZ" userLabel="disposeHere" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="79"/>
                                                 <state key="normal" title="Donate/Recycle, Here"/>
                                                 <connections>
                                                     <action selector="disposeButtonTapped:" destination="Hq5-Xq-7lJ" eventType="touchUpInside" id="RB4-FN-xrn"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qO-6S-maI" userLabel="Not now" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qO-6S-maI" userLabel="Not now" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="81" width="315" height="79"/>
                                                 <state key="normal" title="Not now. "/>
                                                 <connections>
@@ -542,10 +588,45 @@
             </objects>
             <point key="canvasLocation" x="4468.115942028986" y="1155.8035714285713"/>
         </scene>
+        <!--Celebrate View Controller-->
+        <scene sceneID="zWi-JE-iQy">
+            <objects>
+                <viewController id="P4i-Qq-08d" customClass="CelebrateViewController" customModule="RePurpose" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sfV-8s-BPr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bI3-VN-dPg">
+                                <rect key="frame" x="57" y="198" width="300" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="AnI-aL-cCu"/>
+                                    <constraint firstAttribute="height" constant="500" id="GWm-np-rcq"/>
+                                </constraints>
+                                <string key="text">Thank you Julia for Donating to Thrift Store. Your clothes are happily on their way to second hand. added to your contributions) //TODO: Get Celebrate Image from Unsplash</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bI3-VN-dPg" firstAttribute="centerY" secondItem="sfV-8s-BPr" secondAttribute="centerY" id="Hqd-5f-yDv"/>
+                            <constraint firstItem="bI3-VN-dPg" firstAttribute="centerX" secondItem="sfV-8s-BPr" secondAttribute="centerX" id="lVk-tu-nXv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rKW-2U-ZEc"/>
+                    </view>
+                    <connections>
+                        <outlet property="celebrateLabel" destination="bI3-VN-dPg" id="7Wr-gb-RQT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptt-cR-1k7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5223" y="1153"/>
+        </scene>
         <!--Recycling Stores & Organizations-->
         <scene sceneID="1Db-I3-90L">
             <objects>
-                <viewController id="8SP-49-ka5" customClass="RecycleViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8SP-49-ka5" customClass="RecycleViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gRx-df-zwN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -554,7 +635,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recycleCell" rowHeight="100" id="Cnq-vX-YpI" customClass="RecycleTableViewCell" customModule="ClothingManagement" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recycleCell" rowHeight="100" id="Cnq-vX-YpI" customClass="RecycleTableViewCell" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cnq-vX-YpI" id="dIh-b7-VfI">
@@ -567,13 +648,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="CoF-lQ-m6X">
                                                     <rect key="frame" x="20" y="11" width="287" height="78"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6Z-uk-GF3" userLabel="StoreLabel" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6Z-uk-GF3" userLabel="StoreLabel" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp1-QA-yEw" userLabel="InitiativeLabel" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp1-QA-yEw" userLabel="InitiativeLabel" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="43" width="287" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
@@ -633,11 +714,18 @@
         <!--Recycle Web View Controller-->
         <scene sceneID="epp-bs-iwz">
             <objects>
-                <viewController id="LUB-W1-ffq" customClass="RecycleWebViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LUB-W1-ffq" customClass="RecycleWebViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A7r-uX-2YL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kLa-VY-5jk">
+                                <rect key="frame" x="157" y="108" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="OZ6-Io-J71"/>
+                                    <constraint firstAttribute="width" constant="100" id="nlB-mV-l9W"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDG-bi-HvV">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -652,12 +740,15 @@
                             <constraint firstItem="cDG-bi-HvV" firstAttribute="top" secondItem="wDn-50-GxR" secondAttribute="top" id="Ie4-pT-gzi"/>
                             <constraint firstItem="wDn-50-GxR" firstAttribute="bottom" secondItem="cDG-bi-HvV" secondAttribute="bottom" id="LMv-y8-9mj"/>
                             <constraint firstItem="wDn-50-GxR" firstAttribute="trailing" secondItem="cDG-bi-HvV" secondAttribute="trailing" id="Lve-cs-Q5t"/>
+                            <constraint firstItem="kLa-VY-5jk" firstAttribute="centerX" secondItem="A7r-uX-2YL" secondAttribute="centerX" id="bkk-Ds-kP0"/>
+                            <constraint firstItem="kLa-VY-5jk" firstAttribute="top" secondItem="wDn-50-GxR" secondAttribute="top" constant="20" id="jG0-nG-0Bo"/>
                             <constraint firstItem="cDG-bi-HvV" firstAttribute="leading" secondItem="wDn-50-GxR" secondAttribute="leading" id="r1A-BD-7QV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wDn-50-GxR"/>
                     </view>
                     <navigationItem key="navigationItem" id="LLM-EV-n3S"/>
                     <connections>
+                        <outlet property="indicator" destination="kLa-VY-5jk" id="qIH-b2-iwX"/>
                         <outlet property="webView" destination="cDG-bi-HvV" id="MCJ-Az-9UX"/>
                     </connections>
                 </viewController>
@@ -668,7 +759,7 @@
         <!--Closet View Controller-->
         <scene sceneID="ZX6-8b-oLA">
             <objects>
-                <viewController storyboardIdentifier="ClosetViewController" id="bXr-tq-VM7" customClass="ClosetViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClosetViewController" id="bXr-tq-VM7" customClass="ClosetViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UWe-2S-Dr4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -676,13 +767,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2Af-mW-GAo">
                                 <rect key="frame" x="0.0" y="104" width="414" height="58"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-Lg-GdO" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-Lg-GdO" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains 0 items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-0U-oLC" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains 0 items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-0U-oLC" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="29" width="414" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -701,20 +792,20 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="clothingItem" id="IHX-Ge-7pQ" customClass="CategoryCollectionViewCell" customModule="ClothingManagement" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="clothingItem" id="IHX-Ge-7pQ" customClass="CategoryCollectionViewCell" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="104" height="148"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="104" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0Q-Y3-7jX" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0Q-Y3-7jX" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="8" width="71" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="##" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yW-OM-n8x" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="##" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yW-OM-n8x" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                     <rect key="frame" x="46" y="113" width="21" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -758,9 +849,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8ZA-S3-3cH">
+                                <rect key="frame" x="157" y="182" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="QJa-ss-kkL"/>
+                                    <constraint firstAttribute="height" constant="100" id="ffP-iQ-y0K"/>
+                                </constraints>
+                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="8ZA-S3-3cH" firstAttribute="centerX" secondItem="UWe-2S-Dr4" secondAttribute="centerX" id="FSj-YQ-3q7"/>
+                            <constraint firstItem="8ZA-S3-3cH" firstAttribute="top" secondItem="2Af-mW-GAo" secondAttribute="bottom" constant="20" id="Gp4-4B-AWk"/>
                             <constraint firstItem="RUu-gU-EQ2" firstAttribute="top" secondItem="2Af-mW-GAo" secondAttribute="bottom" constant="8" id="WAE-0X-wpi"/>
                             <constraint firstItem="y9X-cK-HAl" firstAttribute="trailing" secondItem="2Af-mW-GAo" secondAttribute="trailing" id="aqL-zK-VWH"/>
                             <constraint firstItem="RUu-gU-EQ2" firstAttribute="trailing" secondItem="2Af-mW-GAo" secondAttribute="trailing" id="j3y-vJ-VSF"/>
@@ -796,6 +898,7 @@
                     <connections>
                         <outlet property="closetNameLabel" destination="BOh-Lg-GdO" id="AjQ-uO-8Yh"/>
                         <outlet property="collectionView" destination="RUu-gU-EQ2" id="YVg-r0-K4a"/>
+                        <outlet property="indicatior" destination="8ZA-S3-3cH" id="fdq-SD-GhU"/>
                         <outlet property="quantityOfClosetLabel" destination="Qi6-0U-oLC" id="Hk0-cX-tyQ"/>
                     </connections>
                 </viewController>
@@ -806,7 +909,7 @@
         <!--Detail Category View Controller-->
         <scene sceneID="vO2-N0-8D2">
             <objects>
-                <viewController id="44D-Lk-yGu" customClass="DetailCategoryViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="44D-Lk-yGu" customClass="DetailCategoryViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eLU-d0-hB7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -814,13 +917,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MhT-Ot-hyc">
                                 <rect key="frame" x="20.5" y="166.5" width="373" height="43.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count of Clothes: ##" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncd-My-1Ac" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count of Clothes: ##" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncd-My-1Ac" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="309.5" height="43.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUh-wX-iti" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUh-wX-iti" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="329.5" y="0.0" width="43.5" height="43.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="NUh-wX-iti" secondAttribute="height" multiplier="1:1" id="w9i-Qh-hM3"/>
@@ -855,7 +958,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="k4k-MB-iyx" customClass="DetailCategoryCollectionViewCell" customModule="ClothingManagement" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="k4k-MB-iyx" customClass="DetailCategoryCollectionViewCell" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="101" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -927,6 +1030,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="categoryLabel" destination="TT0-Id-r19" id="rCI-ay-nBj"/>
+                        <outlet property="photoGalleryLabel" destination="qLd-a3-iZ5" id="dmT-nM-6mR"/>
                         <outlet property="photosCollectionView" destination="FR4-RB-BER" id="jaB-77-Yqx"/>
                         <outlet property="quantityOfCategoryLabel" destination="Ncd-My-1Ac" id="wt5-lv-7ul"/>
                         <outlet property="updateQuantityButton" destination="NUh-wX-iti" id="zz3-xw-dxv"/>
@@ -939,7 +1043,7 @@
         <!--UpdateQuantityViewController-->
         <scene sceneID="KqY-CX-zgK">
             <objects>
-                <viewController storyboardIdentifier="UpdateQuantityViewController" title="UpdateQuantityViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="yNT-7n-jdW" customClass="UpdateQuantityViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UpdateQuantityViewController" title="UpdateQuantityViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="yNT-7n-jdW" customClass="UpdateQuantityViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qdD-oH-nY1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -950,13 +1054,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Zwe-h7-d1v">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="358"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YY3-Dt-PAd" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YY3-Dt-PAd" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="83.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Current Count" borderStyle="roundedRect" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-4O-6cl" customClass="ClosetTextField" customModule="ClothingManagement" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Current Count" borderStyle="roundedRect" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-4O-6cl" customClass="ClosetTextField" customModule="RePurpose" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="91.5" width="331" height="83.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
@@ -964,14 +1068,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="M0r-cF-u91">
                                                 <rect key="frame" x="0.0" y="183" width="331" height="83.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUF-oj-29J" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUF-oj-29J" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="8.5" width="95.5" height="67.5"/>
                                                         <state key="normal" title="-" backgroundImage="minus" catalog="system"/>
                                                         <connections>
                                                             <action selector="subtractButtonTapped:" destination="yNT-7n-jdW" eventType="touchUpInside" id="WUf-8A-YwB"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViR-QN-L9a" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViR-QN-L9a" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
                                                         <rect key="frame" x="235.5" y="2" width="95.5" height="80"/>
                                                         <state key="normal" title="+" backgroundImage="plus" catalog="system"/>
                                                         <connections>
@@ -980,7 +1084,7 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reM-hF-ny9" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reM-hF-ny9" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="274.5" width="331" height="83.5"/>
                                                 <state key="normal" title="Save Category"/>
                                                 <connections>
@@ -1135,6 +1239,8 @@
         <image name="minus" catalog="system" width="64" height="14"/>
         <image name="pencil" width="122" height="122"/>
         <image name="plus" catalog="system" width="64" height="58"/>
+        <image name="regular_0" width="102" height="18"/>
+        <image name="yelpMed" width="662" height="316"/>
         <namedColor name="neutralAccent">
             <color red="0.3843137254901961" green="0.51372549019607838" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

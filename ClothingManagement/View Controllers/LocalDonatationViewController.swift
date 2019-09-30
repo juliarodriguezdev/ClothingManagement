@@ -9,11 +9,13 @@
 import UIKit
 import CoreLocation
 
-class DonateViewController: UIViewController {
+class LocalDonationViewController: UIViewController {
     
     let user = UserController.shared.currentUser
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     let locationManager = CoreLocationController.shared.locationManager
     var currentLocation: CLLocationManager {
@@ -24,12 +26,12 @@ class DonateViewController: UIViewController {
     var donationResults: [LocalDonation] = []
     var imageURL: String?
     var hasFetchedLocation = false
-    //var latitude: Double?
-    //var longitude: Double?
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Donate Clothing"
+        checkGenderForColorUI(user: user)
+        self.indicator.startAnimating()
+        navigationItem.title = "Donate Clothing Nearby"
         navigationItem.largeTitleDisplayMode = .always
         locationManager.delegate = self
         CoreLocationController.shared.activateLocationServices()
@@ -42,7 +44,7 @@ class DonateViewController: UIViewController {
         doubleTapGestureRecognizer.delegate = self
         self.tableView.addGestureRecognizer(doubleTapGestureRecognizer)
         
-        checkGenderForColorUI(user: user)
+        
     }
     func checkGenderForColorUI(user: User?) {
         if user?.isMale == true {
@@ -72,11 +74,13 @@ class DonateViewController: UIViewController {
         super.viewDidDisappear(true)
         locationManager.stopUpdatingLocation()
     }
+    // TODO: Add no internet message! Alert
     
     @IBAction func infoBarItemTapped(_ sender: Any) {
-        presentUIHelperAlert(title: "Information", message: "Single Tap: navigates to Maps. \nDouble Tap: Input amount of items donated. \nPhone Number: prompts to call")
+        presentUIHelperAlert(title: "Information", message: "Single Tap: Navigates to Maps. \nDouble Tap: Enter amount of donated items. \nPhone Number: prompts to call. \nTap Yelp: Navigates to Yelp")
         
     }
+    
     func presentUIHelperAlert(title: String, message: String) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -103,6 +107,7 @@ class DonateViewController: UIViewController {
     
     func localDonationPlacesFromCurrentLocation() {
         guard let location = CoreLocationController.shared.locationManager.location?.coordinate else { return }
+        //indicator.stopAnimating()
         let latitude = location.latitude
         let longitude = location.longitude
         
@@ -112,6 +117,7 @@ class DonateViewController: UIViewController {
                 self.donationResults = donationPlaces
                 self.hasFetchedLocation = true
                 DispatchQueue.main.async {
+                    self.indicator.stopAnimating()
                     self.tableView.reloadData()
                 }
             }
@@ -119,7 +125,7 @@ class DonateViewController: UIViewController {
     }
 
 }
-extension DonateViewController: UITableViewDelegate, UITableViewDataSource {
+extension LocalDonationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 240
     }
@@ -130,37 +136,34 @@ extension DonateViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "donateCell", for: indexPath) as? LocalDonationTableViewCell else { return UITableViewCell()}
-        
-        let donationPlace = donationResults[indexPath.row]
-        
-        cell.localDonation = donationPlace
-        
         if user?.isMale == true {
-                       cell.backgroundColor = UIColor.malePrimary
-                       cell.nameLabel.textColor = UIColor.maleSecondary
-            cell.phoneButton.backgroundColor = UIColor.clear
-            cell.phoneButton.setTitleColor(UIColor.maleAccent, for: .normal)
-                   } else if user?.isMale == false {
-                       cell.backgroundColor = UIColor.femalePrimary
-                       cell.nameLabel.textColor = UIColor.femaleSecondary
-            cell.phoneButton.backgroundColor = UIColor.clear
-            cell.phoneButton.setTitleColor(UIColor.femaleAccent, for: .normal)
-                   } else {
-                       cell.backgroundColor = UIColor.neutralPrimary
-                       cell.nameLabel.textColor = UIColor.neutralSecondary
-            cell.phoneButton.backgroundColor = UIColor.clear
-            cell.phoneButton.setTitleColor(UIColor.neutralAccent, for: .normal)
-                   }
-
-        cell.updateViews()
+                    cell.backgroundColor = UIColor.malePrimary
+                cell.nameLabel.textColor = UIColor.maleSecondary
+                cell.phoneButton.backgroundColor = UIColor.clear
+                cell.phoneButton.setTitleColor(UIColor.maleAccent, for: .normal)
+                       } else if user?.isMale == false {
+                           cell.backgroundColor = UIColor.femalePrimary
+                           cell.nameLabel.textColor = UIColor.femaleSecondary
+                cell.phoneButton.backgroundColor = UIColor.clear
+                cell.phoneButton.setTitleColor(UIColor.femaleAccent, for: .normal)
+                       } else {
+                           cell.backgroundColor = UIColor.neutralPrimary
+                           cell.nameLabel.textColor = UIColor.neutralSecondary
+                cell.phoneButton.backgroundColor = UIColor.clear
+                cell.phoneButton.setTitleColor(UIColor.neutralAccent, for: .normal)
+                       }
         
-        return cell
+            let donationPlace = donationResults[indexPath.row]
+            cell.localDonation = donationPlace
+            cell.delegate = self
+            cell.updateViews()
+            return cell
     }
     
     
 }
 
-extension DonateViewController: CLLocationManagerDelegate {
+extension LocalDonationViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             CoreLocationController.shared.activateLocationServices()
@@ -178,7 +181,7 @@ extension DonateViewController: CLLocationManagerDelegate {
     }
 }
 
-extension DonateViewController: UIGestureRecognizerDelegate {
+extension LocalDonationViewController: UIGestureRecognizerDelegate {
     @objc func doubleTap(gestureRecognizer: UITapGestureRecognizer) {
         if gestureRecognizer.state != UIGestureRecognizer.State.ended {
             return
@@ -200,4 +203,25 @@ extension DonateViewController: UIGestureRecognizerDelegate {
 
         }
     }
+}
+
+extension LocalDonationViewController: LocalDonationDelegate {
+    func navigateToYelp(for cell: LocalDonationTableViewCell) {
+        // get indexpath
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        // get url
+        let localDonation = donationResults[indexPath.row]
+        // navigate to applications url
+        guard let yelpURLString = localDonation.url else { return }
+        if let yelpURL = URL(string: yelpURLString) {
+            UIApplication.shared.canOpenURL(yelpURL)
+            UIApplication.shared.open(yelpURL) { (success) in
+                if success {
+                    print("sent to yelp!")
+                }
+            }
+        }
+    }
+    
+    
 }

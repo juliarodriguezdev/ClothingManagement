@@ -15,7 +15,8 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var closetNameLabel: ClosetLabel!
     @IBOutlet weak var quantityOfClosetLabel: ClosetLabel!
     
-    // landing pad from other views 
+    @IBOutlet weak var indicatior: UIActivityIndicatorView!
+    // landing pad from other views
     var user: User?
     
     var quantity: Int?
@@ -23,9 +24,11 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.modalPresentationStyle = .overFullScreen
+        
+        
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        checkGenderForUIColor(user: user)
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
         longPressGestureRecognizer.minimumPressDuration = 1
         longPressGestureRecognizer.delaysTouchesBegan = true
@@ -33,19 +36,24 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         self.collectionView.addGestureRecognizer(longPressGestureRecognizer)
         // call fetch function of categories
         guard let user = user else {
-            self.view.backgroundColor = UIColor.neutralPrimary
+            //self.view.backgroundColor = UIColor.neutralPrimary
             self.collectionView.allowsSelection = false
+            //indicatior.isHidden = true
+            self.indicatior.stopAnimating()
+
             return
-            
         }
+        
         collectionView.allowsSelection = true
-        checkGenderForUIColor(user: user)
         self.quantityOfClosetLabel.text = "Loading..."
+        indicatior.hidesWhenStopped = true
+        indicatior.startAnimating()
         CategoryController.shared.fetchCategories(user: user) { (category) in
             if category != nil {
                 DispatchQueue.main.async {
                     self.updateViews()
-                 
+                    self.indicatior.stopAnimating()
+                    
                 }
             }
         }
@@ -66,13 +74,14 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         //quantityOfClosetLabel.text = "\(clothing.count)"
         self.quantityOfClosetLabel.text = "Contains \(self.quantity!) items in Closet"
     }
-    func checkGenderForUIColor(user: User) {
+    func checkGenderForUIColor(user: User?) {
         
-        switch user.isMale {
-        case true:
-            return self.view.backgroundColor = UIColor.malePrimary
-        case false:
-            return self.view.backgroundColor = UIColor.femalePrimary
+        if user?.isMale == true {
+             self.view.backgroundColor = UIColor.malePrimary
+        } else if user?.isMale == false {
+            self.view.backgroundColor = UIColor.femalePrimary
+        } else {
+            self.view.backgroundColor = UIColor.neutralPrimary
         }
     }
     

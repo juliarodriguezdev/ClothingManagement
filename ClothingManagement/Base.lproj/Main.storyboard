@@ -12,7 +12,7 @@
         <!--Start View Controller-->
         <scene sceneID="QfF-T3-DjH">
             <objects>
-                <viewController id="Ft6-Ad-fro" customClass="StartViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ft6-Ad-fro" customClass="StartViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yfJ-Fc-5Qk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +56,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="geG-hv-B6W">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" id="rdf-l8-iia" customClass="SignUpViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="rdf-l8-iia" customClass="SignUpViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w7O-gl-HHJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,19 +64,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RsN-JL-6DL">
                                 <rect key="frame" x="41.5" y="175" width="331" height="409"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shk-XC-7wI" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shk-XC-7wI" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="62"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKA-hn-fT0" userLabel="Description" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKA-hn-fT0" userLabel="Description" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="331" height="237"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ltz-KK-GCk" customClass="ClosetTextField" customModule="ClothingManagement" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ltz-KK-GCk" customClass="ClosetTextField" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="319" width="331" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="5K5-Z3-XgP"/>
@@ -84,7 +84,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Closet Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGO-VP-jya" customClass="ClosetTextField" customModule="ClothingManagement" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Closet Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGO-VP-jya" customClass="ClosetTextField" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="369" width="331" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="h8h-Mc-H6R"/>
@@ -109,7 +109,7 @@
                                             <action selector="genderSegmentedControl:" destination="rdf-l8-iia" eventType="valueChanged" id="w63-NA-zHZ"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pg-iU-Kri" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pg-iU-Kri" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="98" width="331" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="jfC-M5-mjm"/>
@@ -121,7 +121,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oa-7n-Ydr" customClass="ClosetButton" customModule="ClothingManagement" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oa-7n-Ydr" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
                                 <rect key="frame" x="147" y="802" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5vX-wp-Rb3"/>
@@ -131,7 +131,7 @@
                                     <action selector="skipButtonTapped:" destination="rdf-l8-iia" eventType="touchUpInside" id="ebM-FG-bXt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cr0-k8-p1F" customClass="ClosetLabel" customModule="ClothingManagement" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cr0-k8-p1F" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
                                 <rect key="frame" x="105" y="346" width="204.5" height="204.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.89510640337423308" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -186,7 +186,7 @@
         <!--Noi Cloud Account View Controller-->
         <scene sceneID="nWf-xF-FFB">
             <objects>
-                <viewController storyboardIdentifier="noiCloudAccountViewController" id="es6-Oc-J7M" customClass="noiCloudAccountViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="noiCloudAccountViewController" id="es6-Oc-J7M" customClass="noiCloudAccountViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gd3-YC-9hS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,7 +210,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No iCloud Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwD-iJ-D0t">
                                 <rect key="frame" x="135.5" y="567.5" width="143" height="20.5"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -249,7 +249,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="wvy-aZ-yto">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" id="OHH-Hz-j3j" customClass="WelcomeViewController" customModule="ClothingManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" id="OHH-Hz-j3j" customClass="WelcomeViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6fj-3e-SQj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

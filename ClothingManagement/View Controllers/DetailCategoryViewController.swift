@@ -11,7 +11,7 @@ import CloudKit
 import AVFoundation
 
 
-class DetailCategoryViewController: UIViewController {
+class DetailCategoryViewController: UIViewController, UITextFieldDelegate {
     
     var user: User?
     
@@ -22,6 +22,8 @@ class DetailCategoryViewController: UIViewController {
     
     @IBOutlet weak var updateQuantityButton: ClosetButton!
     
+    @IBOutlet weak var photoGalleryLabel: UILabel!
+    
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
     
@@ -30,6 +32,7 @@ class DetailCategoryViewController: UIViewController {
         
         photosCollectionView.dataSource = self
         photosCollectionView.delegate = self
+        photoGalleryLabel.text = "Photo Gallery is loading..."
         
         guard let category = category else { return }
         updateViews()
@@ -42,6 +45,7 @@ class DetailCategoryViewController: UIViewController {
                 DispatchQueue.main.async {
                     // TODO: reload tableview
                     self.photosCollectionView.reloadData()
+                    self.photoGalleryLabel.text = "Photo Gallery..."
                 }
             } else {
                 print("Failed to retrieve photos")
@@ -71,7 +75,8 @@ class DetailCategoryViewController: UIViewController {
     }
     
     @IBAction func editBarItemTapped(_ sender: UIBarButtonItem) {
-        // TODO: add current title and edit...
+        // TODO: Test with a user 
+        editCategoryTitleAlert()
     }
     
     
@@ -94,9 +99,7 @@ class DetailCategoryViewController: UIViewController {
         } else {
             quantityOfCategoryLabel.text = "Contains: \(category.quantity) \(category.name)'s"
         }
-        //updateQuantityButton.setTitle("Update Inventory", for: .normal)
-        //navigationItem.title = category.name
-        //navigationItem.largeTitleDisplayMode = .always
+      
     }
     func checkGenderForUIColor(user: User?) {
         
@@ -135,6 +138,45 @@ class DetailCategoryViewController: UIViewController {
             destinationVC.delegate = self 
         }
     }
+    
+    func editCategoryTitleAlert() {
+        guard let category = category else { return }
+        let alertController = UIAlertController(title: "Edit Category Title", message: "Modify title, or enter a new title", preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Edit Category Title here..."
+            textField.autocorrectionType = .yes
+            textField.autocapitalizationType = .sentences
+            // TODO: Test current category name
+            textField.text = category.name
+            textField.keyboardAppearance = .alert
+            textField.returnKeyType = .done
+            textField.delegate = self
+
+        }
+        
+        let addAction = UIAlertAction(title: "Update", style: .default) { (_) in
+            guard let editedTitle = alertController.textFields?.first?.text else { return }
+            if editedTitle != category.name {
+                category.name = editedTitle
+                CategoryController.shared.updateCategory(category: category) { (success) in
+                    if success {
+                        print("Category edited and updated")
+                        DispatchQueue.main.async {
+                            self.categoryLabel.reloadInputViews()
+                        }
+                    }
+                }
+                
+            } else {
+                // TODO: Show Alert : edited text is the same as previous text
+            }
+        
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true)
+    }
 }
 
 extension DetailCategoryViewController: SaveButtonDelegate {
@@ -151,12 +193,12 @@ extension DetailCategoryViewController: UIImagePickerControllerDelegate, UINavig
         
         imagePickerController.delegate = self
         
-        let actionSheet = UIAlertController(title: "Select a photo to add to this category", message: "Choose to your liking...", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Select/Capture a photo", message: "", preferredStyle: .actionSheet)
         
         
         // check if the photolibrary is available as a source
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            actionSheet.addAction(UIAlertAction(title: "Photos", style: .default, handler: { (_) in
+            actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (_) in
                 
                 
                 imagePickerController.sourceType = .photoLibrary
@@ -187,6 +229,7 @@ extension DetailCategoryViewController: UIImagePickerControllerDelegate, UINavig
 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.photoGalleryLabel.text = "Photo Gallery is loading..."
         
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
@@ -198,7 +241,7 @@ extension DetailCategoryViewController: UIImagePickerControllerDelegate, UINavig
                     DispatchQueue.main.async {
                         category.categoryPhotos.append(photo)
                         self.photosCollectionView.reloadData()
-                        // TODO: reload collection view
+                        self.photoGalleryLabel.text = "Photo Gallery..."
                     }
                 }
             }
