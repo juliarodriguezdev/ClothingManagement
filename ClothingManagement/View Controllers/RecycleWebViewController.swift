@@ -18,33 +18,38 @@ class RecycleWebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        indicator.startAnimating()
         indicator.hidesWhenStopped = true
-        webViewIsLoading()
+        webView.navigationDelegate = self
+        webView.allowsBackForwardNavigationGestures = true
+        webView.allowsLinkPreview = true
+        webView.isUserInteractionEnabled = true
+        
         guard let recyclePlace = recyclePlace else { return }
         
         let url = URL(string: "\(recyclePlace.webURL)")
         let request = URLRequest(url: url!)
         
         webView.load(request)
-        // TODO: Test this part
-        webView.allowsBackForwardNavigationGestures = true
-        webView.allowsLinkPreview = true
-        
+      
     }
+
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        webViewIsLoading()
-    }
-    func webViewIsLoading(){
-        if webView.isLoading == true {
-            indicator.startAnimating()
-        } else {
-            indicator.stopAnimating()
-        }
+        //webViewIsLoading()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         webView.stopLoading()
 
     }
+}
+
+extension RecycleWebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.indicator.stopAnimating()
+    }
+    
 }

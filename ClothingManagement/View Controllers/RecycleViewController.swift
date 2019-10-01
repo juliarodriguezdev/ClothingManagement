@@ -54,7 +54,7 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
      }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 125
+        return 210
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return RecycleController.shared.loadContent().count
@@ -90,16 +90,14 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         case 1:
         headerlabel.text = "Denim"
         case 2:
-            headerlabel.text = "Clothes and Shoes"
-        case 3:
             headerlabel.text = "Shoes"
-        case 4:
+        case 3:
             headerlabel.text = "Career Attire"
-        case 5:
+        case 4:
             headerlabel.text = "Bras"
-        case 6:
+        case 5:
             headerlabel.text = "Wedding Gowns"
-        case 7:
+        case 6:
             headerlabel.text = "Prom Dresses"
         default:
             headerlabel.text = "default section"
@@ -128,6 +126,7 @@ class RecycleViewController: UIViewController, UITableViewDataSource, UITableVie
         cell?.storeImage.image = UIImage(named: "hangerDefault")
         cell?.storeNameLabel.text = recyclePlace.storeName
         cell?.initiativeNameLabel.text = "Initiative: \(recyclePlace.initiative!)"
+        cell?.storeImage.image = recyclePlace.logoImage
         return cell ?? UITableViewCell()
     }
 

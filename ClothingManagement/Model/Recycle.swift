@@ -6,17 +6,19 @@
 //  Copyright © 2019 Julia Rodriguez. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Recycle {
     var storeName: String
     var initiative: String?
+    var logoImage: UIImage
     var webURL: String
     var category: RecycleType
     
-    init(storeName: String, initiative: String, webURL: String, category: RecycleType) {
+    init(storeName: String, initiative: String, logoImage: UIImage, webURL: String, category: RecycleType) {
         self.storeName = storeName
         self.initiative = initiative
+        self.logoImage = logoImage
         self.webURL = webURL
         self.category = category
     }

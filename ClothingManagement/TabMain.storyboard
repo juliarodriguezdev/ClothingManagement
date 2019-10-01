@@ -39,7 +39,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC5-mT-oPd">
-                                <rect key="frame" x="344" y="74" width="40" height="40"/>
+                                <rect key="frame" x="304" y="74" width="80" height="80"/>
                                 <color key="tintColor" name="neutralAccent"/>
                                 <state key="normal" image="iconThinMed-40"/>
                                 <connections>
@@ -60,7 +60,7 @@
                             <outletCollection property="gestureRecognizers" destination="3gD-VA-n1d" appends="YES" id="Vmd-6S-vc9"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Textile Facts" id="QeQ-dN-AKp"/>
+                    <tabBarItem key="tabBarItem" title="Textile Facts" image="quote-29" id="QeQ-dN-AKp"/>
                     <navigationItem key="navigationItem" id="7Es-hR-LMD"/>
                     <connections>
                         <outlet property="factsLabel" destination="nVb-5P-bFi" id="Y4w-P8-sLk"/>
@@ -317,37 +317,37 @@
                                                     <rect key="frame" x="20" y="46.5" width="225" height="183"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-fV-uhk" userLabel="location1" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="225" height="36"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="225" height="30.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEn-Ox-wub" userLabel="location2" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="39" width="225" height="35.5"/>
+                                                            <rect key="frame" x="0.0" y="33.5" width="225" height="30.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-ED-MJ8" userLabel="isOpen" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="77.5" width="225" height="29.5"/>
+                                                            <rect key="frame" x="0.0" y="67" width="225" height="25.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8no-Zg-dUF" userLabel="distanceAway" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="110" width="225" height="29.5"/>
+                                                            <rect key="frame" x="0.0" y="95.5" width="225" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="7PR-YP-iqF">
-                                                            <rect key="frame" x="0.0" y="142.5" width="225" height="40.5"/>
+                                                            <rect key="frame" x="0.0" y="123.5" width="225" height="59.5"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="regular_0" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-B9-VYH" userLabel="rating">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="112.5" height="40.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="112.5" height="59.5"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-O3-gyY" userLabel="reviewCount" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                                    <rect key="frame" x="115.5" y="0.0" width="109.5" height="40.5"/>
+                                                                    <rect key="frame" x="115.5" y="0.0" width="109.5" height="59.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -635,28 +635,28 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recycleCell" rowHeight="100" id="Cnq-vX-YpI" customClass="RecycleTableViewCell" customModule="RePurpose" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recycleCell" rowHeight="210" id="Cnq-vX-YpI" customClass="RecycleTableViewCell" customModule="RePurpose" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cnq-vX-YpI" id="dIh-b7-VfI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LJW-RK-B7v">
-                                                    <rect key="frame" x="311" y="11" width="83" height="78"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LJW-RK-B7v">
+                                                    <rect key="frame" x="249" y="31.5" width="145" height="147"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="CoF-lQ-m6X">
-                                                    <rect key="frame" x="20" y="11" width="287" height="78"/>
+                                                    <rect key="frame" x="20" y="11" width="225" height="188"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6Z-uk-GF3" userLabel="StoreLabel" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6Z-uk-GF3" userLabel="StoreLabel">
+                                                            <rect key="frame" x="0.0" y="0.0" width="225" height="27.5"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp1-QA-yEw" userLabel="InitiativeLabel" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="43" width="287" height="35"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp1-QA-yEw" userLabel="InitiativeLabel" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="27.5" width="225" height="160.5"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -664,15 +664,15 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="LJW-RK-B7v" firstAttribute="width" secondItem="dIh-b7-VfI" secondAttribute="width" multiplier="0.2" id="PjQ-0u-LhR"/>
+                                                <constraint firstItem="S6Z-uk-GF3" firstAttribute="height" secondItem="dIh-b7-VfI" secondAttribute="height" multiplier="0.13" id="2L1-s5-KqP"/>
+                                                <constraint firstItem="LJW-RK-B7v" firstAttribute="width" secondItem="dIh-b7-VfI" secondAttribute="width" multiplier="0.35" id="PjQ-0u-LhR"/>
+                                                <constraint firstItem="LJW-RK-B7v" firstAttribute="height" secondItem="dIh-b7-VfI" secondAttribute="height" multiplier="0.7" id="cxu-gw-kdA"/>
                                                 <constraint firstItem="LJW-RK-B7v" firstAttribute="leading" secondItem="CoF-lQ-m6X" secondAttribute="trailing" constant="4" id="e00-SM-xkG"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="CoF-lQ-m6X" secondAttribute="bottom" id="fbK-4D-xFO"/>
-                                                <constraint firstItem="LJW-RK-B7v" firstAttribute="top" secondItem="dIh-b7-VfI" secondAttribute="topMargin" id="geV-qD-uM0"/>
-                                                <constraint firstItem="LJW-RK-B7v" firstAttribute="height" secondItem="CoF-lQ-m6X" secondAttribute="height" id="jzs-GM-tlV"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="LJW-RK-B7v" secondAttribute="bottom" id="kbJ-xB-mUZ"/>
-                                                <constraint firstItem="LJW-RK-B7v" firstAttribute="top" secondItem="CoF-lQ-m6X" secondAttribute="top" id="oaz-MM-cUE"/>
+                                                <constraint firstItem="CoF-lQ-m6X" firstAttribute="top" secondItem="dIh-b7-VfI" secondAttribute="topMargin" id="jXM-gm-7w9"/>
                                                 <constraint firstItem="LJW-RK-B7v" firstAttribute="trailing" secondItem="dIh-b7-VfI" secondAttribute="trailingMargin" id="qoG-71-lmh"/>
                                                 <constraint firstItem="CoF-lQ-m6X" firstAttribute="leading" secondItem="dIh-b7-VfI" secondAttribute="leadingMargin" id="r2c-Ba-aTu"/>
+                                                <constraint firstItem="LJW-RK-B7v" firstAttribute="centerY" secondItem="dIh-b7-VfI" secondAttribute="centerY" id="rRw-hc-phR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -719,13 +719,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kLa-VY-5jk">
-                                <rect key="frame" x="157" y="108" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="OZ6-Io-J71"/>
-                                    <constraint firstAttribute="width" constant="100" id="nlB-mV-l9W"/>
-                                </constraints>
-                            </activityIndicatorView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDG-bi-HvV">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -734,6 +727,14 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="kLa-VY-5jk">
+                                <rect key="frame" x="157" y="98" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="OZ6-Io-J71"/>
+                                    <constraint firstAttribute="width" constant="100" id="nlB-mV-l9W"/>
+                                </constraints>
+                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -741,7 +742,7 @@
                             <constraint firstItem="wDn-50-GxR" firstAttribute="bottom" secondItem="cDG-bi-HvV" secondAttribute="bottom" id="LMv-y8-9mj"/>
                             <constraint firstItem="wDn-50-GxR" firstAttribute="trailing" secondItem="cDG-bi-HvV" secondAttribute="trailing" id="Lve-cs-Q5t"/>
                             <constraint firstItem="kLa-VY-5jk" firstAttribute="centerX" secondItem="A7r-uX-2YL" secondAttribute="centerX" id="bkk-Ds-kP0"/>
-                            <constraint firstItem="kLa-VY-5jk" firstAttribute="top" secondItem="wDn-50-GxR" secondAttribute="top" constant="20" id="jG0-nG-0Bo"/>
+                            <constraint firstItem="kLa-VY-5jk" firstAttribute="top" secondItem="wDn-50-GxR" secondAttribute="top" constant="10" id="jG0-nG-0Bo"/>
                             <constraint firstItem="cDG-bi-HvV" firstAttribute="leading" secondItem="wDn-50-GxR" secondAttribute="leading" id="r1A-BD-7QV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wDn-50-GxR"/>
@@ -811,7 +812,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hangerDefault" translatesAutoresizingMaskIntoConstraints="NO" id="aK0-aR-8aq">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hangerForCloset" translatesAutoresizingMaskIntoConstraints="NO" id="aK0-aR-8aq">
                                                     <rect key="frame" x="20" y="37" width="71" height="77"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="77" id="2LA-4g-RAq"/>
@@ -918,16 +919,13 @@
                                 <rect key="frame" x="20.5" y="166.5" width="373" height="43.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count of Clothes: ##" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncd-My-1Ac" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="309.5" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="43.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUh-wX-iti" customClass="ClosetButton" customModule="RePurpose" customModuleProvider="target">
-                                        <rect key="frame" x="329.5" y="0.0" width="43.5" height="43.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="NUh-wX-iti" secondAttribute="height" multiplier="1:1" id="w9i-Qh-hM3"/>
-                                        </constraints>
+                                        <rect key="frame" x="314" y="0.0" width="59" height="43.5"/>
                                         <state key="normal" image="pencil"/>
                                         <connections>
                                             <action selector="updateQuantityButtonTapped:" destination="44D-Lk-yGu" eventType="touchUpInside" id="tTO-qJ-u0Z"/>
@@ -1134,7 +1132,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="6HD-xc-Oh3">
             <objects>
-                <tabBarController storyboardIdentifier="mainTabController" id="EUl-hq-FbG" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabController" id="EUl-hq-FbG" customClass="TabBarController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="nDt-1O-g0u"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hwH-jZ-oeR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -1157,7 +1155,7 @@
         <scene sceneID="YgC-qS-gPc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Awa-fY-ZVe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Closet" id="xfI-ad-XX0"/>
+                    <tabBarItem key="tabBarItem" title="Closet" image="hangerIcon" id="xfI-ad-XX0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yKu-xq-JXh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1176,7 +1174,7 @@
         <scene sceneID="zIP-j5-P18">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KOx-v7-aWB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recycle" id="HI3-6e-GY4"/>
+                    <tabBarItem key="tabBarItem" title="Recycle" image="recycleTab" id="HI3-6e-GY4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fFp-7k-O2R">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1195,7 +1193,7 @@
         <scene sceneID="1eP-Lk-oYy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZYE-MM-3If" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Donate" id="nhi-MA-bew"/>
+                    <tabBarItem key="tabBarItem" title="Donate" image="openBox" id="nhi-MA-bew"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W7C-Fd-KAy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1214,7 +1212,7 @@
         <scene sceneID="ABY-Gv-Cfx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MZU-u7-7U3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contributions" id="Nnc-X4-NxY"/>
+                    <tabBarItem key="tabBarItem" title="Contributions" image="trayArrow-29" id="Nnc-X4-NxY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7g8-ff-vdQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1233,13 +1231,18 @@
     <resources>
         <image name="camera" catalog="system" width="64" height="48"/>
         <image name="cameraTransparent" width="151" height="122"/>
-        <image name="hangerDefault" width="880" height="497"/>
+        <image name="hangerForCloset" width="128" height="128"/>
+        <image name="hangerIcon" width="32" height="32"/>
         <image name="iconThinMed-20" width="20" height="20"/>
         <image name="iconThinMed-40" width="40" height="40"/>
         <image name="minus" catalog="system" width="64" height="14"/>
+        <image name="openBox" width="32" height="32"/>
         <image name="pencil" width="122" height="122"/>
         <image name="plus" catalog="system" width="64" height="58"/>
+        <image name="quote-29" width="29" height="29"/>
+        <image name="recycleTab" width="32" height="32"/>
         <image name="regular_0" width="102" height="18"/>
+        <image name="trayArrow-29" width="29" height="29"/>
         <image name="yelpMed" width="662" height="316"/>
         <namedColor name="neutralAccent">
             <color red="0.3843137254901961" green="0.51372549019607838" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

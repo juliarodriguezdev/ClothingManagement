@@ -78,10 +78,17 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         if user?.isMale == true {
              self.view.backgroundColor = UIColor.malePrimary
+            navigationController?.navigationBar.tintColor = UIColor.maleAccent
         } else if user?.isMale == false {
             self.view.backgroundColor = UIColor.femalePrimary
+            navigationController?.navigationBar.tintColor = UIColor.femaleAccent
         } else {
             self.view.backgroundColor = UIColor.neutralPrimary
+            // top of Navigation Bar
+            navigationController?.navigationBar.barTintColor = UIColor.neutralAccent
+            UITabBar.appearance().tintColor = UIColor.neutralAccent
+            
+            
         }
     }
     
