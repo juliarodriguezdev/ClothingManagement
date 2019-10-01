@@ -49,17 +49,10 @@ class LocalDonationViewController: UIViewController {
     func checkGenderForColorUI(user: User?) {
         if user?.isMale == true {
             self.view.backgroundColor = UIColor.malePrimary
-            navigationController?.navigationBar.barTintColor = UIColor.malePrimary
-            navigationController?.navigationBar.tintColor = UIColor.maleSecondary
         } else if user?.isMale == false {
             self.view.backgroundColor = UIColor.femalePrimary
-            navigationController?.navigationBar.barTintColor = UIColor.femalePrimary
-            navigationController?.navigationBar.tintColor = UIColor.femaleSecondary
         } else {
             self.view.backgroundColor = UIColor.neutralPrimary
-            navigationController?.navigationBar.barTintColor = UIColor.neutralPrimary
-            navigationController?.navigationBar.tintColor = UIColor.neutralSecondary
-
         }
     }
     

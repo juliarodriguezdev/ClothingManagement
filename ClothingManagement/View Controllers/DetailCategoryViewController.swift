@@ -109,20 +109,17 @@ class DetailCategoryViewController: UIViewController, UITextFieldDelegate {
             updateQuantityButton.setTitleColor(.darkText, for: .normal)
             self.view.backgroundColor = UIColor.malePrimary
             photosCollectionView.backgroundColor = UIColor.malePrimary
-            navigationController?.navigationBar.barTintColor = UIColor.malePrimary
-            navigationController?.navigationBar.tintColor = UIColor.maleSecondary
+            
         } else if user?.isMale == false {
             updateQuantityButton.backgroundColor = UIColor.femaleSecondary
             updateQuantityButton.setTitleColor(.lightText, for: .normal)
             self.view.backgroundColor = UIColor.femalePrimary
             photosCollectionView.backgroundColor = UIColor.femalePrimary
-            navigationController?.navigationBar.barTintColor = UIColor.femalePrimary
-                       navigationController?.navigationBar.tintColor = UIColor.femaleSecondary
+           
         } else {
             self.view.backgroundColor = UIColor.neutralPrimary
             photosCollectionView.backgroundColor = UIColor.neutralPrimary
-            navigationController?.navigationBar.barTintColor = UIColor.neutralPrimary
-            navigationController?.navigationBar.tintColor = UIColor.neutralSecondary
+           
         }
     }
     

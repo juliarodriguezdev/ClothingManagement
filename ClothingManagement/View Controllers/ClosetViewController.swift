@@ -78,16 +78,10 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         if user?.isMale == true {
              self.view.backgroundColor = UIColor.malePrimary
-            navigationController?.navigationBar.tintColor = UIColor.maleAccent
         } else if user?.isMale == false {
             self.view.backgroundColor = UIColor.femalePrimary
-            navigationController?.navigationBar.tintColor = UIColor.femaleAccent
         } else {
             self.view.backgroundColor = UIColor.neutralPrimary
-            // top of Navigation Bar
-            navigationController?.navigationBar.barTintColor = UIColor.neutralAccent
-            UITabBar.appearance().tintColor = UIColor.neutralAccent
-            
             
         }
     }
@@ -106,7 +100,7 @@ class ClosetViewController: UIViewController, UICollectionViewDataSource, UIColl
         if CategoryController.shared.categories.count == 0 {
             cell.categoryLabel.text = "Category"
             cell.quantityLabel.text = "0"
-            cell.iconImage.image = UIImage(named: "hangerDefault")
+            cell.iconImage.image = UIImage(named: "hangerFinal-29")
             cell.backgroundColor = UIColor.neutralPrimary
             return cell
             

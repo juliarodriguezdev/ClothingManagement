@@ -75,7 +75,7 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
                 disposeButton.setTitleColor(.lightText, for: .normal)
             } else {
                 placeLabel.backgroundColor = UIColor.neutralSecondary
-            placeLabel.textColor = .darkGray
+                placeLabel.textColor = .darkGray
                 tableView.backgroundColor = UIColor.neutralPrimary
                 disposeButton.backgroundColor = UIColor.neutralAccent
                 disposeButton.setTitleColor(.lightText, for: .normal)

@@ -19,7 +19,7 @@ class LocalDonationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: ClosetLabel!
     
-    @IBOutlet weak var isOpenLabel: ClosetLabel!
+    @IBOutlet weak var categoryDescriptionLabel: ClosetLabel!
     
     @IBOutlet weak var reviewCountLabel: ClosetLabel!
     
@@ -38,20 +38,18 @@ class LocalDonationTableViewCell: UITableViewCell {
     func updateViews() {
         guard let localDonation = localDonation else { return }
         
-        var isClosed : String {
-            if let isClosed = localDonation.isClosed {
-                if isClosed == true {
-                    let stringClosed = "Closed"
-                    return stringClosed
-                } else if isClosed == false {
-                    let stringOpen = "Open now"
-                    return stringOpen
-                }
+        func categoryDescription() -> String {
+            var allCategories: [String] = []
+            for category in localDonation.categories {
+                allCategories.append(category.title)
+               // return allCategories
             }
-            return "--"
+            let joinedString = allCategories.joined(separator: ", ")
+            return joinedString
+            
         }
-        isOpenLabel.text = isClosed
-        isOpenLabel.textColor = isClosed == "Closed" ? .systemRed : UIColor(named: "customGreen")
+        categoryDescriptionLabel.text = categoryDescription()
+        //categoryDescriptionLabel.textColor = isClosed == "Closed" ? .systemRed : UIColor(named: "customGreen")
         
         var distanceFrom: String {
             if let distance = localDonation.distance {

@@ -44,7 +44,7 @@ class DetailContributionViewController: UIViewController {
         
         guard let contribution = contribution else {
             placeLabel.text = "For Clothing Donation at: Store Name"
-            receiptImageView.image = UIImage(named: "receiptDefault")
+            receiptImageView.image = UIImage(named: "receiptLarge")
             return
             
         }
@@ -64,22 +64,16 @@ class DetailContributionViewController: UIViewController {
             saveButton.backgroundColor = UIColor.maleAccent
             saveButton.setTitleColor(UIColor.lightText, for: .normal)
             placeLabel.textColor = UIColor.maleSecondary
-            navigationController?.navigationBar.barTintColor = UIColor.malePrimary
-            navigationController?.navigationBar.tintColor = UIColor.maleAccent
         } else if user?.isMale == false {
             self.view.backgroundColor = UIColor.femalePrimary
             saveButton.backgroundColor = UIColor.femaleAccent
             saveButton.setTitleColor(UIColor.lightText, for: .normal)
             placeLabel.textColor = UIColor.femaleSecondary
-            navigationController?.navigationBar.barTintColor = UIColor.femalePrimary
-            navigationController?.navigationBar.tintColor = UIColor.femaleAccent
         } else {
             self.view.backgroundColor = UIColor.neutralPrimary
             saveButton.backgroundColor = UIColor.neutralAccent
             saveButton.setTitleColor(UIColor.lightText, for: .normal)
             placeLabel.textColor = UIColor.neutralSecondary
-            navigationController?.navigationBar.barTintColor = UIColor.neutralPrimary
-            navigationController?.navigationBar.tintColor = UIColor.neutralAccent
         }
     }
     
