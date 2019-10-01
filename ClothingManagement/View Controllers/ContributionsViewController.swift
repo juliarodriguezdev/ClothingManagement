@@ -18,6 +18,7 @@ class ContributionsViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //modalPresentationStyle = .popover
         indicator.hidesWhenStopped = true
         indicator.startAnimating()
         tableView.dataSource = self

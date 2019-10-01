@@ -39,7 +39,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC5-mT-oPd">
-                                <rect key="frame" x="344" y="74" width="40" height="40"/>
+                                <rect key="frame" x="304" y="74" width="80" height="80"/>
                                 <color key="tintColor" name="neutralAccent"/>
                                 <state key="normal" image="iconThinMed-40"/>
                                 <connections>
@@ -79,7 +79,7 @@
         <!--Contributions-->
         <scene sceneID="TBj-pU-djQ">
             <objects>
-                <viewController id="DCt-nk-uDo" customClass="ContributionsViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContributionsViewController" id="DCt-nk-uDo" customClass="ContributionsViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DFK-Dw-xAG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,37 +315,37 @@
                                                     <rect key="frame" x="20" y="46.5" width="225" height="183"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-fV-uhk" userLabel="location1" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="225" height="40.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="225" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEn-Ox-wub" userLabel="location2" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="40.5" width="225" height="40"/>
+                                                            <rect key="frame" x="0.0" y="34" width="225" height="33.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-ED-MJ8" userLabel="description" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="80.5" width="225" height="33.5"/>
+                                                            <rect key="frame" x="0.0" y="67.5" width="225" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8no-Zg-dUF" userLabel="distanceAway" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="114" width="225" height="33.5"/>
+                                                            <rect key="frame" x="0.0" y="95.5" width="225" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="7PR-YP-iqF">
-                                                            <rect key="frame" x="0.0" y="147.5" width="225" height="35.5"/>
+                                                            <rect key="frame" x="0.0" y="123.5" width="225" height="59.5"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="regular_0" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-B9-VYH" userLabel="rating">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="112.5" height="35.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="112.5" height="59.5"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-O3-gyY" userLabel="reviewCount" customClass="ClosetLabel" customModule="RePurpose" customModuleProvider="target">
-                                                                    <rect key="frame" x="115.5" y="0.0" width="109.5" height="35.5"/>
+                                                                    <rect key="frame" x="115.5" y="0.0" width="109.5" height="59.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -589,26 +589,32 @@
         <!--Celebrate View Controller-->
         <scene sceneID="zWi-JE-iQy">
             <objects>
-                <viewController id="P4i-Qq-08d" customClass="CelebrateViewController" customModule="RePurpose" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CelebrateViewController" id="P4i-Qq-08d" customClass="CelebrateViewController" customModule="RePurpose" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sfV-8s-BPr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bI3-VN-dPg">
-                                <rect key="frame" x="57" y="198" width="300" height="500"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ballonsPortrait" translatesAutoresizingMaskIntoConstraints="NO" id="0uw-D3-an1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bI3-VN-dPg">
+                                <rect key="frame" x="57" y="148" width="300" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="AnI-aL-cCu"/>
-                                    <constraint firstAttribute="height" constant="500" id="GWm-np-rcq"/>
+                                    <constraint firstAttribute="height" constant="600" id="GWm-np-rcq"/>
                                 </constraints>
-                                <string key="text">Thank you Julia for Donating to Thrift Store. Your clothes are happily on their way to second hand. added to your contributions) //TODO: Get Celebrate Image from Unsplash</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="33"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="rKW-2U-ZEc" firstAttribute="trailing" secondItem="0uw-D3-an1" secondAttribute="trailing" id="2Ge-nN-LN8"/>
+                            <constraint firstItem="0uw-D3-an1" firstAttribute="top" secondItem="rKW-2U-ZEc" secondAttribute="top" id="3CI-CI-4ix"/>
                             <constraint firstItem="bI3-VN-dPg" firstAttribute="centerY" secondItem="sfV-8s-BPr" secondAttribute="centerY" id="Hqd-5f-yDv"/>
+                            <constraint firstItem="0uw-D3-an1" firstAttribute="leading" secondItem="rKW-2U-ZEc" secondAttribute="leading" id="NqI-5R-P8P"/>
+                            <constraint firstItem="rKW-2U-ZEc" firstAttribute="bottom" secondItem="0uw-D3-an1" secondAttribute="bottom" id="iq0-0X-JJG"/>
                             <constraint firstItem="bI3-VN-dPg" firstAttribute="centerX" secondItem="sfV-8s-BPr" secondAttribute="centerX" id="lVk-tu-nXv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rKW-2U-ZEc"/>
@@ -1209,7 +1215,7 @@
         <!--Contributions-->
         <scene sceneID="ABY-Gv-Cfx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MZU-u7-7U3" customClass="NavigationViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ContributionsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="MZU-u7-7U3" customClass="NavigationViewController" customModule="RePurpose" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Contributions" image="trayArrow-29" id="Nnc-X4-NxY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7g8-ff-vdQ">
@@ -1227,6 +1233,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ballonsPortrait" width="2562" height="3842"/>
         <image name="camera" catalog="system" width="64" height="48"/>
         <image name="cameraTransparent" width="151" height="122"/>
         <image name="hangerFinal-29" width="29" height="29"/>
