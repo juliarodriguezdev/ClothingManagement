@@ -14,26 +14,30 @@ struct LocalDonation: Codable {
     
     let name: String
     let imageURL: String?
-    let isOpen: Bool?
+    let isClosed: Bool?
     let reviewCount: Int
     let rating: Float
     let coordinates: Coordinates
     let location: Location
+    let categories: [Categories]
     let phoneNumber: String?
     let displayPhone: String?
     let distance: Float?
+    let url: String?
     
     enum CodingKeys: String, CodingKey {
         case name
         case imageURL = "image_url"
-        case isOpen = "is_closed"
+        case isClosed = "is_closed"
         case reviewCount = "review_count"
         case rating
         case coordinates
         case location
+        case categories
         case phoneNumber = "phone"
         case displayPhone = "display_phone"
         case distance
+        case url 
         
     }
     
@@ -62,5 +66,13 @@ struct Location: Codable {
         case state
         case zipcode = "zip_code"
         case displayAddress = "display_address"
+    }
+}
+
+struct Categories: Codable {
+    let title: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title
     }
 }

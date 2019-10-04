@@ -8,15 +8,22 @@
 
 import UIKit
 
+protocol LocalDonationDelegate: class {
+    func navigateToYelp(for cell: LocalDonationTableViewCell)
+}
+
 class LocalDonationTableViewCell: UITableViewCell {
     
-    var localDonation: LocalDonation? 
+    var localDonation: LocalDonation?
+    weak var delegate: LocalDonationDelegate?
     
     @IBOutlet weak var nameLabel: ClosetLabel!
     
-    @IBOutlet weak var isOpenLabel: ClosetLabel!
+    @IBOutlet weak var categoryDescriptionLabel: ClosetLabel!
     
     @IBOutlet weak var reviewCountLabel: ClosetLabel!
+    
+    @IBOutlet weak var ratingImage: UIImageView!
     
     @IBOutlet weak var locationLabel: ClosetLabel!
     
@@ -31,14 +38,18 @@ class LocalDonationTableViewCell: UITableViewCell {
     func updateViews() {
         guard let localDonation = localDonation else { return }
         
-        var isOpen : String {
-            if let isOpen = localDonation.isOpen {
-                let stringOpen = "\(isOpen)"
-                return stringOpen
-            } else {
-                return "--"
+        func categoryDescription() -> String {
+            var allCategories: [String] = []
+            for category in localDonation.categories {
+                allCategories.append(category.title)
+               // return allCategories
             }
+            let joinedString = allCategories.joined(separator: ", ")
+            return joinedString
+            
         }
+        categoryDescriptionLabel.text = categoryDescription()
+        //categoryDescriptionLabel.textColor = isClosed == "Closed" ? .systemRed : UIColor(named: "customGreen")
         
         var distanceFrom: String {
             if let distance = localDonation.distance {
@@ -84,9 +95,36 @@ class LocalDonationTableViewCell: UITableViewCell {
             }
         }
         
+        var ratingImage: UIImage? {
+            switch localDonation.rating {
+            case 0:
+                return UIImage(named: "regular_0")
+            case 1:
+                return UIImage(named: "regular_1")
+            case 1.5:
+                return UIImage(named: "regular_1_half")
+            case 2.0:
+                return UIImage(named: "regular_2")
+            case 2.5:
+                return UIImage(named: "regular_2_half")
+            case 3.0:
+                return UIImage(named: "regular_3")
+            case 3.5:
+                return UIImage(named: "regular_3_half")
+            case 4.0:
+                return UIImage(named: "regular_4")
+            case 4.5:
+                return UIImage(named: "regular_4_half")
+            case 5.0:
+                return UIImage(named: "regular_5")
+            default:
+                return UIImage(named: "regular_0")
+            }
+        }
+        
         self.nameLabel.text = localDonation.name
-        self.isOpenLabel.text = "Open Now: " + isOpen
         self.reviewCountLabel.text = "\(localDonation.reviewCount) Reviews"
+        self.ratingImage.image = ratingImage
         self.locationLabel.text = address1
         self.location2Label.text = address2
         self.distanceLabel.text = distanceFrom + " miles away"
@@ -114,6 +152,9 @@ class LocalDonationTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func yelpButtonTapped(_ sender: Any) {
+        delegate?.navigateToYelp(for: self)
+    }
     
 
 }

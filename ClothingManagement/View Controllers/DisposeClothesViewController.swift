@@ -28,7 +28,7 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
     // landing pad
    var recyclePlace: Recycle?
    var donationPlace: LocalDonation?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -60,6 +60,7 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
              }
     }
     
+
     func checkGenderForUIColor(user: User?) {
         
         
@@ -75,7 +76,7 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
                 disposeButton.setTitleColor(.lightText, for: .normal)
             } else {
                 placeLabel.backgroundColor = UIColor.neutralSecondary
-            placeLabel.textColor = .darkGray
+                placeLabel.textColor = .darkGray
                 tableView.backgroundColor = UIColor.neutralPrimary
                 disposeButton.backgroundColor = UIColor.neutralAccent
                 disposeButton.setTitleColor(.lightText, for: .normal)
@@ -86,7 +87,8 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidDisappear(_ animated: Bool) {
         // dismiss popup
-        dismiss(animated: true)
+     //   dismiss(animated: true)
+        
     }
     
     func checkIfDonated() -> Bool {
@@ -166,7 +168,10 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
             }
         }
         guard let user = UserController.shared.currentUser else {
-            showSignUpViewController()
+            //showSignUpViewController()
+          //  self.didRecycle = true
+            showCelebrateViewController()
+            dismiss(animated: true)
             return
             
         }
@@ -192,6 +197,7 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
                 }
             }
         }
+        showCelebrateViewController()
         dismiss(animated: true)
     }
     
@@ -205,6 +211,15 @@ class DisposeClothesViewController: UIViewController, UITableViewDataSource, UIT
         let storyBoard = UIStoryboard(name: "Main", bundle: .main)
         guard let signUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController else { return }
         self.present(signUpViewController, animated: true)
+    }
+    
+    func showCelebrateViewController() {
+        // present sign up View Controller
+        let storyBoard = UIStoryboard(name: "TabMain", bundle: nil)
+        guard let celebrateViewController = storyBoard.instantiateViewController(withIdentifier: "CelebrateViewController") as? CelebrateViewController else { return }
+        celebrateViewController.user = user
+        celebrateViewController.donationPlace = donationPlace
+        self.present(celebrateViewController, animated: true)
     }
 
 }
